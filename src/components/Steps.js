@@ -4,17 +4,16 @@ import reminder from "../assets/reminder.svg";
 function Steps(props) {
   return (
     <>
-      <div className="flex items-center">
+      <div className="flex items-center sm:justify-between">
         <img className="h-32" src={props.reminder} alt="reminder" srcset="" />
         <div className="text-center">
-          <h1 className="text-rose-600 font-bold ml-2 text-[1.4rem] md:text-[1.3rem] lg:text-[1.45rem]">
+          <h1 className="text-rose-600 font-bold text-[1.4rem] md:text-[1.3rem] lg:text-[1.45rem]">
             {props.step}
-
           </h1>
           <p className="text-sky-600 font-bold text-[1.1rem] md:text-[1rem] lg:text-[1.2rem]">
             {props.todo}
           </p>
-          <p className=" text-[0.8rem] md:text-[0.8rem] md:w-fit lg:text-[0.7rem]">
+          <p className=" text-[0.6rem] md:text-[0.7rem] md:w-fit">
             {props.message}
           </p>
         </div>

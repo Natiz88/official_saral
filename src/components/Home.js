@@ -13,19 +13,18 @@ import ProductCategoryHeading from "./ProductCategoryHeading";
 import MoreInfo from "./MoreInfo";
 import ProductCard from "./ProductCard";
 import ProductCollection from "./ProductCollection";
-import step1 from './../component/Images/Steps/Step-1.png';
-import step2 from './../component/Images/Steps/Step-2.png';
-import step3 from './../component/Images/Steps/Step-3.png';
-import step4 from './../component/Images/Steps/Step-4.png';
+import step1 from "./../component/Images/Steps/Step-1.png";
+import step2 from "./../component/Images/Steps/Step-2.png";
+import step3 from "./../component/Images/Steps/Step-3.png";
+import step4 from "./../component/Images/Steps/Step-4.png";
 
 const Home = () => {
-
   return (
     <div className="">
       {/* Image Slider section */}
       <MyCarousel />
       <div className=" w-full flex justify-center flex-col">
-        <div className="text-center">
+        <div className="text-center mt-10">
           <h1 className="text-3xl font-bold md:text-[1.5rem] lg:text-3xl">
             How
             <span className="mx-2 text-pink-700 ">Saral</span>
@@ -37,8 +36,8 @@ const Home = () => {
           </p>
         </div>
         {/* How saral prints works */}
-        <div className=" flex justify-center ">
-          <div className="grid grid-flow-row gap-2 px-1 my-5 w-4/5 m-auto grid-cols-1 lg:grid-cols-4 lg:px-10 ">
+        <div className=" flex justify-center mt-4">
+          <div className="grid grid-flow-row gap-2 px-1 my-5 w-[85%] m-auto grid-cols-1 lg:grid-cols-4 lg:px-10 ">
             <Steps
               reminder={step1}
               step="Step 1"
@@ -91,15 +90,15 @@ const Home = () => {
           <div>
             <div className="flex justify-center">
               <ProductCategoryHeading heading="Hot Deals" />
-          </div>
-          <div className=" flex justify-center">
+            </div>
+            <div className=" flex justify-center">
               <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 <PopularProduct product={photo_gift} />
                 <PopularProduct product={photo_gift} />
                 <PopularProduct product={photo_gift} />
                 <PopularProduct product={photo_gift} />
               </div>
-          </div>
+            </div>
           </div>
           {/* Trending Section */}
           {/* <div className="">

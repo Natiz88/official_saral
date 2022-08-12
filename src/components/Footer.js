@@ -76,80 +76,85 @@ function Footer() {
     //   </div>
     // </div>
     <>
-    <div className=" bg-sky-500">
-      <div className="flex flex-col pt-8 w-4/5 m-auto text-white  sm:grid-cols-2    md: ">
-        {/* First div of four column */}
-        <div className="flex flex-col md:flex-row gap-[2rem]">
-          <div className="  text-lg font-normal md:w-[25%]">
-            <p className="text-[0.8rem] ">FAQs</p>
-            <p className="text-[0.8rem] ">Terms & Conditions</p>
-            <p className="text-[0.8rem] ">Privacy Policy</p>
-            <p className="text-[0.8rem] ">Delivery</p>
-            <p className="text-[0.8rem] ">Need Help?</p>
-          </div>
-          <div className="flex-2 flex-col gap-1 ">
-            <p className="text-[1.1rem] font-bold uppercase">About us</p>
-            <p className=" text-[14px]">
-              Saral Print is a complete e-commerce site and the first-ever
-              online printing service in Purwanchal. We are a comprehensive
-              solution partner guaranteeing the best quality at your door in a
-              comparatively low rate. Connect with us to step ahead in the
-              printing world.
-            </p>
-          </div>
-          <div className="">
-            <p className="text-[1.1rem] font-bold uppercase mb-1 ">
-              Payment Options
-            </p>
-            <img src={cod} alt="logo" className="w-[40%] md:w-[30%] sm:" />
-            <img src={khalti} alt="logo" className="w-[50%] mt-1 md:w-[40%] sm:" />
-            <img src={connectIps} alt="logo" className="w-[40%] mt-1 md:w-[30%] sm:" />
-            
-            
-          </div>
-          <div className="mb-2 flex-1">
-            <p className="text-[1.1rem] mb-1 font-bold uppercase">
-              {" "}
-              Customer Services
-            </p>
-            <p className="mb-2">
-              Need assistance or have any special inquiries? We're here to help:
-            </p>
-            <p>
-              9801919288 <br />
-              +97714593222 <br />
-              6:00 AM - 9:00 PM <br />
-              <br />
-              print@saralprint.com.np
-            </p>
-          </div>
-        </div>
-
-        <hr className="bg-white w-full h-[1px]" />
-
-        {/* below underline there is also another child div */}
-        <div className="flex mt-10 flex-col sm:justify-around  md:flex-row md:justify-between  gap-[1rem] ">
-          <div className="w-[70%] sm:w-[50%] md:w-[30%]">
-            <img src={FooterLogo} alt="logo" className="" />
-            <p>@ 2022 Saral Print All Rights Reserved</p>
-          </div>
-          <div className="flex md:flex-row sm:justify-between">
-            <div className="flex mt-2 w-full gap-3 sm:w-[100%] mb-5">
-              <GrFacebookOption className="text-[25px] md:text-[30px] border-2 hover:cursor-pointer hover:border-red-400" />
-              <AiFillInstagram className=" text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:border-red-400" />
-              <GrLinkedinOption className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:border-red-400" />
-              <AiFillYoutube className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:border-red-400" />
-              <AiOutlineTwitter className="text-[25px] border-2 md:text-[30px]  hover:cursor-pointer hover:border-red-400" />
+      <div className=" bg-sky-500 py-8">
+        <div className="flex flex-col w-4/5 m-auto text-white  sm:grid-cols-2    md: ">
+          {/* First div of four column */}
+          <div className="flex flex-col md:flex-row gap-[2rem]">
+            <div className="  text-lg font-normal md:w-[25%]">
+              <p className="text-[0.8rem] ">FAQs</p>
+              <p className="text-[0.8rem] ">Terms & Conditions</p>
+              <p className="text-[0.8rem] ">Privacy Policy</p>
+              <p className="text-[0.8rem] ">Delivery</p>
+              <p className="text-[0.8rem] ">Need Help?</p>
+            </div>
+            <div className="flex-2 flex-col gap-1 ">
+              <p className="text-[1.1rem] font-bold uppercase">About us</p>
+              <p className=" text-[14px]">
+                Saral Print is a complete e-commerce site and the first-ever
+                online printing service in Purwanchal. We are a comprehensive
+                solution partner guaranteeing the best quality at your door in a
+                comparatively low rate. Connect with us to step ahead in the
+                printing world.
+              </p>
+            </div>
+            <div className="">
+              <p className="text-[1.1rem] font-bold uppercase mb-1 ">
+                Payment Options
+              </p>
+              <img src={cod} alt="logo" className="w-[40%] md:w-[30%] sm:" />
+              <img
+                src={khalti}
+                alt="logo"
+                className="w-[50%] mt-1 md:w-[40%] sm:"
+              />
+              <img
+                src={connectIps}
+                alt="logo"
+                className="w-[40%] mt-1 md:w-[30%] sm:"
+              />
+            </div>
+            <div className="mb-2 flex-1">
+              <p className="text-[1.1rem] mb-1 font-bold uppercase">
+                {" "}
+                Customer Services
+              </p>
+              <p className="mb-2">
+                Need assistance or have any special inquiries? We're here to
+                help:
+              </p>
+              <p>
+                9801919288 <br />
+                +97714593222 <br />
+                6:00 AM - 9:00 PM <br />
+                <br />
+                print@saralprint.com.np
+              </p>
             </div>
           </div>
+
+          <hr className="bg-white w-full h-[1px]" />
+
+          {/* below underline there is also another child div */}
+          <div className="flex mt-10 flex-col sm:justify-around  md:flex-row md:justify-between  gap-[1rem] ">
+            <div className="w-[70%] sm:w-[50%] md:w-[30%]">
+              <img src={FooterLogo} alt="logo" className="" />
+              <p>@ 2022 Saral Print All Rights Reserved</p>
+            </div>
+            <div className="flex md:flex-row sm:justify-between">
+              <div className="flex mt-2 w-full gap-3 sm:w-[100%] mb-5">
+                <GrFacebookOption className="text-[25px] md:text-[30px] border-2 hover:cursor-pointer hover:border-red-400" />
+                <AiFillInstagram className=" text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:border-red-400" />
+                <GrLinkedinOption className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:border-red-400" />
+                <AiFillYoutube className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:border-red-400" />
+                <AiOutlineTwitter className="text-[25px] border-2 md:text-[30px]  hover:cursor-pointer hover:border-red-400" />
+              </div>
+            </div>
+          </div>
+          {/* <hr className="bg-white w-full h-[1px] mt-10" /> */}
         </div>
-        {/* <hr className="bg-white w-full h-[1px] mt-10" /> */}
-
+        {/* <ItemsFooter /> */}
       </div>
-      {/* <ItemsFooter /> */}
-    </div>
-    <ItemsFooter />
-
+      <ItemsFooter />
     </>
   );
 }

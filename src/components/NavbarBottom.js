@@ -18,11 +18,11 @@ function NavbarBottom() {
 
   return (
     <>
-      <div className="hidden sm:flex z-20 bg-white w-[12%] h-[350px] m-auto absolute top-30 left-[15%] flex-col items-center justify-around">
+      <div className="hidden sm:flex z-1 bg-white w-[12%] h-[350px] shadow-lg m-auto absolute top-30 left-[15%] flex-col items-center justify-around">
         {links.map((link) => (
           <div
             onMouseLeave={() => setHeading("")}
-            className="w-full h-full cursor-pointer z-100"
+            className="w-full h-full cursor-pointer"
           >
             <div
               onMouseEnter={() => {
@@ -45,7 +45,7 @@ function NavbarBottom() {
             <div
               className={
                 heading === link.name
-                  ? "absolute w-full h-full left-full top-0 bg-white"
+                  ? "absolute w-full h-full left-full top-0 bg-white shadow-lg"
                   : "hidden"
               }
             >
@@ -53,7 +53,7 @@ function NavbarBottom() {
                 {link.sublinks.map((mysublinks) => (
                   <div
                     onMouseLeave={() => setSubHeading("")}
-                    className="w-full z-100"
+                    className="w-full"
                   >
                     <div
                       onMouseEnter={() => {
@@ -93,7 +93,6 @@ function NavbarBottom() {
                   </div>
                 ))}
               </div>
-              {/* Mobile menus */}
             </div>
           </div>
         ))}
