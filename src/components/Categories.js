@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { links } from "./../utils/LinkItems";
 import { useLocation } from "react-router-dom";
 import Image from "./../assets/heading.png";
@@ -11,36 +12,69 @@ const Categories = () => {
   const [subHeading, setSubHeading] = useState("");
 
   useEffect(() => {
-    const name = new URLSearchParams(search).get("subheading");
-    console.log("sub", name);
-    const head = location.search
-      .replace(/[^a-zA-Z]/g, "")
-      .replace("heading", "")
-      .toLowerCase();
+    const head = new URLSearchParams(search).get("heading");
+    const sub = new URLSearchParams(search).get("subheading");
+    // const head = location.search
+    //   .replace(/[^a-zA-Z]/g, "")
+    //   .replace("heading", "")
+    //   .toLowerCase();
     setHeading(head);
+    setSubHeading(sub);
   }, [location]);
 
-  console.log("heading", heading);
-  const item = links.filter(
-    (link) => link.name.replace(/[^a-zA-Z]/g, "").toLowerCase() === heading
+  console.log("heading", heading, subHeading);
+  const item = links.find(
+    (link) =>
+      link.name.replace(/[^a-zA-Z]/g, "").toLowerCase() ===
+      heading.replace(/[^a-zA-Z]/g, "").toLowerCase()
   );
+  const subItem =
+    subHeading !== null &&
+    item &&
+    item.sublinks // ) //     heading.replace(/[^a-zA-Z]/g, "").toLowerCase() //     link.name.replace(/[^a-zA-Z]/g, "").toLowerCase() === //   (link) => // .filter(
+      .find(
+        (sub) =>
+          sub.Head.replace(/[^a-zA-Z]/g, "").toLowerCase() ===
+          subHeading.replace(/[^a-zA-Z]/g, "").toLowerCase()
+      );
+  console.log("item", item);
+  console.log("subItem", subItem);
 
   return (
     <div>
-      <h1 className="w-full h-[200px] flex items-center justify-start text-white text-[30px] bg-gray-600">
+      <h1 className="w-full h-[200px] flex items-center justify-start text-white text-[22px] sm:text-[30px] bg-gray-600">
         Categories
       </h1>
-      <div className="w-[80%] m-auto flex flex-wrap justify-start">
-        {item.length > 0 &&
-          item[0].sublinks.map((subs) => (
+      <div className="w-[80%] m-auto flex flex-wrap justify-center sm:justify-start">
+        {item &&
+          !subItem &&
+          item.sublinks.map((subs) => (
+            <Link
+              to={`/categories?heading=${item.name}&subheading=${subs.Head}`}
+            >
+              <div className="w-[220px] h-[240px] cursor-pointer group shadow-lg rounded-[5px] my-4 mx-6 relative overflow-hidden">
+                <img
+                  src={Image}
+                  alt="heading"
+                  className="h-[80%] w-full z-10 overflow-hidden group-hover:scale-[1.1] transition-all ease-in"
+                />
+                <p className="w-full h-[20%] absolute top-[80%] text-[15px] group-hover:text-red-400 bg-white flex justify-center items-center">
+                  {subs.Head}
+                </p>
+              </div>
+            </Link>
+          ))}
+        {item &&
+          subItem &&
+          subItem.sublink.map((subs) => (
             <div className="w-[220px] h-[240px] cursor-pointer group shadow-lg rounded-[5px] my-4 mx-6 relative overflow-hidden">
               <img
                 src={Image}
                 alt="heading"
                 className="h-[80%] w-full z-10 overflow-hidden group-hover:scale-[1.1] transition-all ease-in"
               />
-              <p className="w-full h-[20%] absolute top-[80%] group-hover:text-red-400 bg-white flex justify-center items-center">
-                {subs.Head}
+              <p className="w-full h-[20%] text-[14px] absolute top-[80%] group-hover:text-red-400 bg-white flex justify-center items-center">
+                {subs.name}
               </p>
             </div>
           ))}

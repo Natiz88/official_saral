@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { links } from "./../utils/LinkItems";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
@@ -17,29 +17,33 @@ function NavbarBottom() {
 
   return (
     <>
-      <div className="hidden sm:flex bg-white sm:w-[12%] h-[350px] shadow-lg m-auto absolute sm:top-[135px] sm:left-[15%] flex-col items-center justify-around">
+      <div className="hidden sm:flex bg-white sm:w-[12%] h-[350px] shadow-lg m-auto absolute sm:top-[132px] sm:left-[15%] flex-col items-center justify-around">
         {links.map((link) => (
           <div
             onMouseLeave={() => setHeading("")}
             className="w-full h-full cursor-pointer"
           >
-            <div
-              onMouseEnter={() => {
-                heading !== link.name ? setHeading(link.name) : setHeading("");
-              }}
-              className={
-                heading === link.name
-                  ? "w-full h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
-                  : "w-full h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
-              }
-            >
-              <p>{link.name}</p>
-              {heading !== link.name ? (
-                <IoIosArrowForward />
-              ) : (
-                <IoIosArrowBack />
-              )}
-            </div>
+            <Link to={`/categories?heading=${link.name}`}>
+              <div
+                onMouseEnter={() => {
+                  heading !== link.name
+                    ? setHeading(link.name)
+                    : setHeading("");
+                }}
+                className={
+                  heading === link.name
+                    ? "w-full h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
+                    : "w-full h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
+                }
+              >
+                <p>{link.name}</p>
+                {heading !== link.name ? (
+                  <IoIosArrowForward />
+                ) : (
+                  <IoIosArrowBack />
+                )}
+              </div>
+            </Link>
 
             <div
               className={
@@ -54,25 +58,29 @@ function NavbarBottom() {
                     onMouseLeave={() => setSubHeading("")}
                     className="w-full"
                   >
-                    <div
-                      onMouseEnter={() => {
-                        subHeading !== mysublinks.Head
-                          ? setSubHeading(mysublinks.Head)
-                          : setSubHeading("");
-                      }}
-                      className={
-                        subHeading === mysublinks.Head
-                          ? "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
-                          : "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
-                      }
+                    <Link
+                      to={`/categories?heading=${link.name}&subheading=${mysublinks.Head}`}
                     >
-                      <p>{mysublinks.Head}</p>
-                      {subHeading === mysublinks.Head ? (
-                        <IoIosArrowBack />
-                      ) : (
-                        <IoIosArrowForward />
-                      )}
-                    </div>
+                      <div
+                        onMouseEnter={() => {
+                          subHeading !== mysublinks.Head
+                            ? setSubHeading(mysublinks.Head)
+                            : setSubHeading("");
+                        }}
+                        className={
+                          subHeading === mysublinks.Head
+                            ? "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
+                            : "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
+                        }
+                      >
+                        <p>{mysublinks.Head}</p>
+                        {subHeading === mysublinks.Head ? (
+                          <IoIosArrowBack />
+                        ) : (
+                          <IoIosArrowForward />
+                        )}
+                      </div>
+                    </Link>
 
                     <div
                       className={
