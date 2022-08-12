@@ -17,7 +17,7 @@ function NavbarBottom() {
 
   return (
     <>
-      <div className="hidden sm:flex bg-white sm:w-[12%] h-[350px] shadow-lg m-auto absolute sm:top-[132px] sm:left-[15%] flex-col items-center justify-around">
+      <div className="hidden sm:flex z-10 bg-white sm:w-[12%] h-[350px] shadow-lg m-auto absolute sm:top-[132px] sm:left-[15%] flex-col items-center justify-around">
         {links.map((link) => (
           <div
             onMouseLeave={() => setHeading("")}

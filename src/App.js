@@ -67,7 +67,7 @@ export const App = () => {
           handler={menuHandler}
           isMenuOpen={isMenuOpen}
         />
-        <NavbarBottom />
+        {/* <NavbarBottom /> */}
         <MobileMenu isMenuOpen={isMenuOpen} />
 
         <Routes>

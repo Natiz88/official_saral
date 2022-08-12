@@ -17,6 +17,7 @@ import step1 from "./../component/Images/Steps/Step-1.png";
 import step2 from "./../component/Images/Steps/Step-2.png";
 import step3 from "./../component/Images/Steps/Step-3.png";
 import step4 from "./../component/Images/Steps/Step-4.png";
+import NavbarBottom from "./NavbarBottom";
 
 const Home = () => {
   return (
@@ -122,6 +123,7 @@ const Home = () => {
           </div> */}
         </div>
       </div>
+      <NavbarBottom />
     </div>
   );
 };

@@ -12,6 +12,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from "./../component/Images/Logo/logo.png";
 import CustomerService from "./CustomerService";
 import Login from "./Login";
+import NavbarBottom from "./NavbarBottom";
 // import MobileMenu from "./MobileMenu";
 
 function Header(props) {
@@ -131,6 +132,7 @@ function Header(props) {
 
       {/* <MobileMenu isMenuOpen={isToggleActive} /> */}
       {/* <Links isToggleActive={isToggleActive} /> */}
+      {/* <NavbarBottom /> */}
       {isLoginOpen === true && <Login setLoginOpen={setLoginOpen} />}
     </>
   );
