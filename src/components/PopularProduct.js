@@ -3,10 +3,10 @@ import React from "react";
 function PopularProduct(props) {
   return (
     <div
-      className={`w-[260px] h-[420px] relative cursor pointer border-2 rounded-[5px] text-center overflow-hidden p-4 mb-3 flex flex-col items-center`}
+      className={`w-[260px] h-[420px] group relative cursor pointer border-2 rounded-[5px] text-center overflow-hidden p-4 mb-3 flex flex-col items-center`}
     >
       <img
-        className="w-full scale-[1.9] cursor-pointer mt-20 rounded hover:scale-[2.1] transition-all ease-in"
+        className="w-full scale-[1.9] cursor-pointer mt-20 rounded group-hover:scale-[2.1] transition-all ease-in"
         src={props.product}
         alt=""
         srcset=""

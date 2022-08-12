@@ -4,12 +4,11 @@ import { useState } from "react";
 import { links } from "./../utils/LinkItems";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
 
 function NavbarBottom() {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
+  const [isMenuOpen, setMenuOpen] = useState(true);
 
   // useEffect(() => {
   //   setHeading("");
@@ -18,7 +17,7 @@ function NavbarBottom() {
 
   return (
     <>
-      <div className="hidden sm:flex z-1 bg-white w-[12%] h-[350px] shadow-lg m-auto absolute top-30 left-[15%] flex-col items-center justify-around">
+      <div className="hidden sm:flex bg-white sm:w-[12%] h-[350px] shadow-lg m-auto absolute sm:top-[135px] sm:left-[15%] flex-col items-center justify-around">
         {links.map((link) => (
           <div
             onMouseLeave={() => setHeading("")}
@@ -97,6 +96,8 @@ function NavbarBottom() {
           </div>
         ))}
       </div>
+
+      {/* mobile menus */}
     </>
   );
 }

@@ -12,33 +12,62 @@ import { IoIosArrowDown } from "react-icons/io";
 import logo from "./../component/Images/Logo/logo.png";
 import CustomerService from "./CustomerService";
 import Login from "./Login";
+// import MobileMenu from "./MobileMenu";
 
 function Header(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
-  const [isToggleActive, setToggleActive] = useState(false);
-  const toggleBurger = () => {
-    setToggleActive(!isToggleActive);
-  };
+  // const [isToggleActive, setToggleActive] = useState(false);
+  // const toggleBurger = () => {
+  //   setToggleActive(!isToggleActive);
+  // };
 
   return (
     <>
       <CustomerService />
-      <div className="sticky top-0 sm:top-6 bg-white z-10 shadow-lg h-[150px] sm:h-[70px]">
-        <nav className="flex flex-col pt-1 items-center justify-between sm:flex-row sm:justify-between relative w-full sm:w-4/5 sm:m-auto h-full sm:h-[60px] bg-white text-sm sm:text-md md:text-lg lg:text-xl">
+      <div className="sticky z-50 top-0 sm:top-6 shadow-lg h-[150px] sm:h-[70px] bg-white">
+        <nav className="flex flex-col pt-1 items-center justify-around sm:flex-row sm:justify-between relative w-full sm:w-4/5 sm:m-auto h-full sm:h-[60px] bg-white text-sm sm:text-md md:text-lg lg:text-xl">
           <div className="w-11/12 flex justify-between items-center sm:w-1/5 h-[45%] sm:h-full">
-            <img
-              src={logo}
-              alt="logo"
-              className="h-10 md:h-11 xl:h-12  focus:outline-none"
-            />
-            <i class="sm:hidden cursor-pointer" onClick={toggleBurger}>
+            <Link to="/">
+              <img
+                src={logo}
+                alt="logo"
+                className="h-10 md:h-11 xl:h-12  focus:outline-none"
+              />
+            </Link>
+            {/* <i class="sm:hidden cursor-pointer" onClick={toggleBurger}>
               {!isToggleActive ? (
                 <GiHamburgerMenu className="text-[25px]" />
               ) : (
                 <ImCross />
               )}
-            </i>
+            </i> */}
+            <div
+              onClick={props.handler}
+              className="flex relative sm:hidden cursor-pointer w-[10%] h-1/5 mr-4 flex-col justify-between items-center"
+            >
+              <span
+                className={
+                  props.isMenuOpen
+                    ? "block h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
+                    : "rotate-45 translate-y-1.5 block h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
+                }
+              ></span>
+              <span
+                className={
+                  props.isMenuOpen
+                    ? "block h-0.5 w-6 bg-current transform transition duration-700 delay-500 ease-in-out"
+                    : "hidden h-0.5 w-6 bg-current transform transition duration-700 delay-200 ease-in-out"
+                }
+              ></span>
+              <span
+                className={
+                  props.isMenuOpen
+                    ? "block h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
+                    : "-rotate-45 -translate-y-1.5 h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
+                }
+              ></span>
+            </div>
           </div>
           <div className="flex items-center w-[80%] sm:w-[40%] h-[28%] sm:h-full relative sm:ml-[10%]">
             <input
@@ -99,6 +128,8 @@ function Header(props) {
           )}
         </nav>
       </div>
+
+      {/* <MobileMenu isMenuOpen={isToggleActive} /> */}
       {/* <Links isToggleActive={isToggleActive} /> */}
       {isLoginOpen === true && <Login setLoginOpen={setLoginOpen} />}
     </>

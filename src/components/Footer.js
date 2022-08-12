@@ -7,8 +7,8 @@ import {
 import { GrLinkedinOption, GrFacebookOption } from "react-icons/gr";
 import FooterLogo from "./../component/Images/FooterLogo/footerLogo.png";
 import khalti from "./../component/Images/PaymentProcess/khalti.png";
-import connectIps from "./../component/Images/PaymentProcess/Connectips.png";
-import cod from "./../component/Images/PaymentProcess/Cod.png";
+import connectIps from "./../component/Images/PaymentProcess/ips.png";
+import cod from "./../component/Images/PaymentProcess/cod.png";
 import ItemsFooter from "./../components/ItemsFooter";
 
 // import ItemsFooter from "./../components/ItemsFooter"
@@ -103,17 +103,17 @@ function Footer() {
                 <img
                   src={cod}
                   alt="logo"
-                  className="h-[60px] w-[35%] sm:w-[60%]"
+                  className="h-[35px] w-[35%] sm:w-[60%]"
                 />
                 <img
                   src={khalti}
                   alt="logo"
-                  className="h-[50px] w-[35%] sm:w-[80%]"
+                  className="h-[35px] w-[45%] sm:w-[70%] mt-2"
                 />
                 <img
                   src={connectIps}
                   alt="logo"
-                  className="h-[40px] sm:mt-1 w-[35%] sm:w-[55%]"
+                  className="h-[35px] sm:mt-1 w-[30%] sm:w-[40%] mt-2"
                 />
               </div>
             </div>

@@ -33,11 +33,14 @@ import UserProfile from "./components/UserProfile";
 import ProductCollection from "./components/ProductCollection";
 import Footer from "./components/Footer";
 import OrderHistory from "./components/OrderHistory";
-
-
+import MobileMenu from "./components/MobileMenu";
+import Categories from "./components/Categories";
 
 export const App = () => {
-  const [isLoginOpen, setLoginOpen] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const menuHandler = () => {
+    setMenuOpen(!isMenuOpen);
+  };
   // const token = localStorage.getItem("token");
   return (
     <>
@@ -58,8 +61,14 @@ export const App = () => {
       <Form/> */}
       <BrowserRouter>
         <Navbar />
-        <Header logo={logo} account={Account} />
-        <NavbarBottom />
+        <Header
+          logo={logo}
+          account={Account}
+          handler={menuHandler}
+          isMenuOpen={isMenuOpen}
+        />
+        {/* <NavbarBottom /> */}
+        <MobileMenu isMenuOpen={isMenuOpen} />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -71,9 +80,9 @@ export const App = () => {
           <Route path="/user" element={<UserProfile />} />
           <Route path="/products" element={<ProductCollection />} />
           <Route path="/history" element={<OrderHistory />} />
+          <Route path="/categories" element={<Categories />} />
         </Routes>
         <Footer />
-
       </BrowserRouter>
     </>
   );
