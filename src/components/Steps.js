@@ -5,8 +5,13 @@ function Steps(props) {
   return (
     <>
       <div className="flex items-center sm:justify-between">
-        <img className="h-32" src={props.reminder} alt="reminder" srcset="" />
-        <div className="text-center">
+        <img
+          className="w-[40%] h-32"
+          src={props.reminder}
+          alt="reminder"
+          srcset=""
+        />
+        <div className="w-1/2 sm:w-[60%] flex flex-col text-center">
           <h1 className="text-rose-600 font-bold text-[1.4rem] md:text-[1.3rem] lg:text-[1.45rem]">
             {props.step}
           </h1>

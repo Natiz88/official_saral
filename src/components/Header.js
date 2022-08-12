@@ -1,97 +1,107 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Account from "../assets/account.svg";
-import Menu from "../assets/menu-icon.svg";
-import Close from "../assets/close-icon.svg";
-import Login from "./Login";
-import CustomerService from "./CustomerService";
+import { AiOutlineSearch } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { HiOutlineLogin } from "react-icons/hi";
+import { GrUserNew } from "react-icons/gr";
+import { ImCross } from "react-icons/im";
+import { TbTruckDelivery } from "react-icons/tb";
+import { MdPermIdentity } from "react-icons/md";
+import { AiOutlinePrinter } from "react-icons/ai";
+import { IoIosArrowDown } from "react-icons/io";
 import logo from "./../component/Images/Logo/logo.png";
+import CustomerService from "./CustomerService";
+import Login from "./Login";
 
 function Header(props) {
+  const [isLoggedIn, setLoggedIn] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
-  const [token, setToken] = useState();
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-  }, []);
-  const [toggleMenu, setToggleMenu] = useState(true);
+  const [isToggleActive, setToggleActive] = useState(false);
+  const toggleBurger = () => {
+    setToggleActive(!isToggleActive);
+  };
 
   return (
-    <div div className="w-full h-[60px] sm:flex items-center bg-white">
-      <div className="sticky w-full sm:w-[80%] m-auto top-0 z-10 bg-red-400">
-        <CustomerService />
-        <div className="flex justify-center items-center flex-col gap-2 w-full border-b-2 pb-1 md:gap-3 lg:flex-row">
-          {/*Header Logo section  */}
-          <div className="flex items-center justify-between w-full relative">
-            <Link to="/">
-              <img className="h-10 md:h-11 xl:h-12 " src={logo} alt="logo" />
-            </Link>
-            {/* Menu for small device */}
-            <button
-              onClick={(e) => {
-                setToggleMenu(!toggleMenu);
-              }}
-              className="mr-4 transition bg-sky-400 rounded-full flex items-center justify-center lg:hidden"
-            >
-              <img
-                className="w-6 p-2 bg-gray-300 text-center rounded-full"
-                src={toggleMenu ? Menu : Close}
-              />
-            </button>
-            <div
-              className={
-                toggleMenu
-                  ? "hidden"
-                  : "absolute backdrop-blur-lg rounded-md p-5 w-[60%] right-4 top-12 md:w-[50%] md:top-14 text-[1.2rem] lg:hidden"
-              }
-            ></div>
-          </div>
-          {/* Login button/User Icon */}
-          <div
-            className={
-              !token
-                ? "w-full flex flex-col items-center md:flex-row justify-center"
-                : "mb-1 w-full flex justify-center items-center md:flex-row md:gap-36 lg:gap-1"
-            }
-          >
-            {/* Search bar */}
-            <input
-              className="h-10 w-4/5 mx-4 border-2 radius px-2 rounded md:w-3/5 focus:outline-none"
-              type="search"
-              placeholder="Search Product"
+    <>
+      <CustomerService />
+      <div className="sticky top-0 sm:top-6 bg-white z-10 shadow-lg h-[150px] sm:h-[70px]">
+        <nav className="flex flex-col pt-1 items-center justify-between sm:flex-row sm:justify-between relative w-full sm:w-4/5 sm:m-auto h-full sm:h-[60px] bg-white text-sm sm:text-md md:text-lg lg:text-xl">
+          <div className="w-11/12 flex justify-between items-center sm:w-1/5 h-[45%] sm:h-full">
+            <img
+              src={logo}
+              alt="logo"
+              className="h-10 md:h-11 xl:h-12  focus:outline-none"
             />
-            {/* <Link to="/login">
-            <div>
-              {!token ? (
-                <button
-                  className="bg-sky-600 rounded-md h-10 min-w-min p-2 pb-9 text-stone-50 text-lg md:text-lg lg:px-5"
-                  onClick={() => {}}
-                >
-                  LogIn or Create Account
-                </button>
+            <i class="sm:hidden cursor-pointer" onClick={toggleBurger}>
+              {!isToggleActive ? (
+                <GiHamburgerMenu className="text-[25px]" />
               ) : (
-                <Link to={"/user"}>
-                  <img
-                    className="w-[3em] bg-gray-100 p-1 rounded-lg"
-                    src={Account}
-                    alt="account"
-                  />
-                </Link>
+                <ImCross />
               )}
-            </div>
-          </Link> */}
-            <div>
-              <button
-                className="bg-sky-600 rounded-md h-10 min-w-min p-2 pb-9 text-stone-50 text-lg md:text-lg lg:px-5"
-                onClick={() => setLoginOpen(true)}
-              >
-                LogIn or Create Account
-              </button>
-              {isLoginOpen === true && <Login setLoginOpen={setLoginOpen} />}
-            </div>
+            </i>
           </div>
-        </div>
+          <div className="flex items-center w-[80%] sm:w-[40%] h-[28%] sm:h-full relative sm:ml-[10%]">
+            <input
+              type="text"
+              className="h-full sm:h-[65%] w-full m-auto sm:w-full pl-8 text-[16px] relative rounded-[10px] bg-slate-200 focus:outline-none"
+              placeholder="search a product..."
+            />
+            <i className="absolute right-2 text-[15px] sm:text-[20px] cursor-pointer">
+              <AiOutlineSearch />
+            </i>
+          </div>
+          {isLoggedIn ? (
+            <div className="w-full sm:w-[25%] h-[25%] text-[15px] sm:h-full flex items-center justify-center sm:justify-around">
+              <div className="w-[25%]  px-6 py-1 sm:w-[40%] flex justify-around items-center rounded-sm cursor-pointer sm:border-2 border-black">
+                <button
+                  className=" text-black "
+                  onClick={() => setLoginOpen(true)}
+                >
+                  Login
+                </button>
+                <HiOutlineLogin className="text-[18px]" />
+              </div>
+              <div className="w-[25%] px-4 py-1 sm:w-[40%] ml-2 sm:ml-0 flex justify-around items-center rounded-sm cursor-pointer sm:border-2 border-black">
+                <button
+                  className=" text-black "
+                  onClick={() => setLoginOpen(true)}
+                >
+                  Register
+                </button>
+                <GrUserNew className="text-[18px]" />
+              </div>
+              {/* <div className="w-[25%] sm:w-[40%] px-6 py-1flex justify-around items-center rounded:sm cursor-pointer border-2 border-black">
+                <button
+                  className="text-[16px] text-black sm:block"
+                  onClick={toggleBurger}
+                >
+                  Register
+                </button>
+                <GrUserNew />
+              </div> */}
+            </div>
+          ) : (
+            <div className="w-full sm:w-[30%] h-[25%] sm:h-full sm:ml-8 text-[15px] text-gray-600 flex items-center justify-around">
+              <div className="hidden w-[30%] sm:flex justify-around items-center rounded:sm">
+                <TbTruckDelivery className="text-[18px]" />
+                <button>Track Order</button>
+              </div>
+              <div className="hidden w-[20%] bg-blue-400 text-white sm:flex justify-center items-center rounded:sm">
+                <AiOutlinePrinter className="text-[18px]" />
+                <span className="ml-1">[0]</span>
+              </div>
+              <div className="w-[30%] sm:w-[40%] flex justify-around items-center rounded:sm">
+                <MdPermIdentity className="text-[18px]" />
+                <button>Name profile</button>
+                <IoIosArrowDown className="text-[18px]" />
+              </div>
+            </div>
+          )}
+        </nav>
       </div>
-    </div>
+      {/* <Links isToggleActive={isToggleActive} /> */}
+      {isLoginOpen === true && <Login setLoginOpen={setLoginOpen} />}
+    </>
   );
 }
 

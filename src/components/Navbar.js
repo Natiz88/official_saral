@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="w-full bg-pink-700 hidden lg:block">
+    <div className="sticky top-0 z-10 w-full bg-pink-700 hidden lg:block">
       <div className=" w-[85%] m-auto h-6">
         <ol className=" flex justify-end items-center text-l text-white text-[14px] ">
           <li className=" h-6 pb-1 border-r-2 pr-6 ">

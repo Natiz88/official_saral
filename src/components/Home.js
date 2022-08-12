@@ -2,7 +2,7 @@ import React from "react";
 import reminder from "../assets/reminder.svg";
 import interf from "../assets/interface.svg";
 import image1 from "../assets/image1.jpg";
-import photo_gift from "../assets/photo_gift.webp";
+import photo_gift from "../assets/sweater.jpg";
 import Banner from "../assets/banner.webp";
 import MyCarousel from "./MyCarousel";
 import Steps from "./Steps";

@@ -8,8 +8,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function MyCarousel() {
   return (
-    <div className="w-full h-[100px] sm:h-[348px] -z-10 relative bg-sky-200">
-      <div className="w-3/5 absolute left-[27%] flex justify-center">
+    <div className="w-full sm:h-[348px] mb-2 sm:mb-0 -z-10 relative bg-sky-200">
+      <div className="w-full sm:w-3/5 sm:absolute sm:left-[27%] sm:flex sm:justify-center">
         <div
         // style={{
         //   // display: "block",
