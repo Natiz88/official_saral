@@ -6,6 +6,7 @@ import axios from "axios";
 import Facebook from "../assets/facebook.png";
 import Google from "../assets/google.svg";
 import Home from "./Home";
+import { GrClose } from "react-icons/gr";
 
 const Login = ({ setLoginOpen }) => {
   const navigate = useNavigate();
@@ -21,26 +22,25 @@ const Login = ({ setLoginOpen }) => {
     return localStorage.getItem("token");
   };
   const login = async (e) => {
-      e.preventDefault();
-      const loginData = {
-        old_password: email,
-        password: password,
-        device_name: window.navigator.userAgentData.platform,
-      };
-      const config = {
-        header: {
-          Accept: "application/json",
-        },
-      };
-      await axios
-        .post("http://192.168.100.17:8081/api/login", loginData, config)
-        .then((response) => {
-            localStorage.setItem("token", response.data.token);
-            console.log(
-              "success"
-            )}).catch(err => 
-            console.log("error",err));
-        
+    e.preventDefault();
+    const loginData = {
+      old_password: email,
+      password: password,
+      device_name: window.navigator.userAgentData.platform,
+    };
+    const config = {
+      header: {
+        Accept: "application/json",
+      },
+    };
+    await axios
+      .post("http://192.168.100.17:8081/api/login", loginData, config)
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        console.log("success");
+      })
+      .catch((err) => console.log("error", err));
+
     // } catch (error) {
     //   console.log(error);
     // }
@@ -51,21 +51,21 @@ const Login = ({ setLoginOpen }) => {
     <>
       {/* Main Container */}
       <div
-        className={`h-full w-full backdrop-blur-sm z-20 flex justify-center items-center fixed inset-0`}
+        className={`h-full w-full backdrop-blur-sm z-20 flex justify-center items-center fixed top-[65px] inset-0`}
         onClick={() => {
           setLoginOpen(false);
         }}
       >
         {/* Form Container */}
         <div
-          className="w-[80%] h-[37rem] bg-white rounded-3xl z-20 shadow-lg border-gray-300 border-[1px] p-2 md:w-[60%] md:p-4 md:h-[38rem] lg:w-[50%] lg:p-6 xl:w-[40%] relative"
+          className="w-[80%] h-[37rem] bg-white rounded-3xl z-20 shadow-lg border-gray-300 border-[1px] p-2 md:w-[60%] md:p-2 md:h-[36rem] lg:w-[50%] lg:p-2 xl:w-[40%] relative"
           onClick={(e) => {
             e.stopPropagation();
           }}
         >
           {/* Header */}
           <div className="flex justify-center items-center">
-            <h1 className="text-[30px] font-semibold">Login</h1>
+            <h1 className="text-[20px] font-semibold">Login Page</h1>
             {/* <Link
               className="text-red-600 font-bold uppercase px-6 py-2 text-2xl md:text-3xl lg:text-3xl outline-none focus:outline-none absolute right-0 mr-1 mb-1 ease-linear transition-all duration-150 hover:text-red-800"
               to="/"
@@ -79,17 +79,17 @@ const Login = ({ setLoginOpen }) => {
               </button>
             </Link> */}
             <div className="text-red-600 font-bold uppercase px-6 py-2 text-2xl md:text-3xl lg:text-3xl outline-none focus:outline-none absolute right-0 mr-1 mb-1 ease-linear transition-all duration-150 hover:text-red-800">
-            <button
+              <button
                 onClick={() => {
                   setLoginOpen(false);
                 }}
               >
-                X
+                <GrClose className="hover:text-red-300 text-[20px]" />
               </button>
             </div>
           </div>
           {/* Toggle Container */}
-          <div className="w-full relative z-10 text-sm sm:text-md md:text-lg lg:text-xl">
+          <div className="w-full relative z-10 text-sm sm:text-md md:text-lg lg:text-xl text-[15px]">
             <i className="absolute top-4 right-4 cursor-pointer"></i>
             <div className="relative flex w-11/12 m-auto mt-5 bg-white justify-around items-center cursor-pointer h-[45px] shadow-lg border-gray-300 border-[1px] rounded-[20px]">
               <p
@@ -144,13 +144,13 @@ const Login = ({ setLoginOpen }) => {
               className="block border border-grey-light w-full p-2 rounded mb-4"
             />
             <div className="flex">
-              <a href="/">Forget Password?</a>
+              <a href="/">Forgot Password?</a>
             </div>
             <div className="px-4 mt-6 flex flex-col justify-center items-center">
               <button
                 type="submit"
                 // className="h-[45px] bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] w-[70%] text-[20px] lg:w-[50%]"
-                className="bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] h-[45px] w-full text-[20px]"
+                className="bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] h-[45px] w-full md:w-1/2 text-[20px]"
                 onClick={login}
               >
                 Login

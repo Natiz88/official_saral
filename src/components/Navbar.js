@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="sticky top-0 z-20 w-full bg-pink-700 hidden lg:block">
-      <div className=" w-[85%] m-auto h-6">
-        <ol className=" flex justify-end items-center text-l text-white text-[14px] ">
+    <div className="sticky top-0 z-20 w-full bg-pink-700 hidden md:block">
+      <div className="w-[60%] md:w-[85%] m-auto h-6">
+        <ol className=" flex justify-end items-center text-white text-[14px] ">
           <li className=" h-6 pb-1 border-r-2 pr-6 ">
             <Link to="/history">Order History</Link>
           </li>

@@ -77,17 +77,17 @@ function Footer() {
     // </div>
     <>
       <div className=" bg-sky-500 py-8">
-        <div className="flex flex-col w-4/5 m-auto text-white">
+        <div className="flex flex-col w-4/5 lg:w-4/5  m-auto text-white">
           {/* First div of four column */}
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="w-full sm:w-[15%] text-15px">
+          <div className="flex flex-col lg:flex-row justify-between">
+            <div className="w-full lg:w-[15%] text-[15px]">
               <p className="py-1 cursor-pointer">FAQs</p>
               <p className="py-1 cursor-pointer">Terms & Conditions</p>
               <p className="py-1 cursor-pointer">Privacy Policy</p>
               <p className="py-1 cursor-pointer">Delivery</p>
               <p className="py-1 cursor-pointer">Need Help?</p>
             </div>
-            <div className="w-full sm:w-[30%] mt-4 sm:mt-0 text-[15px] ">
+            <div className="w-full lg:w-[30%] mt-4 lg:mt-0 text-[15px] ">
               <p className="font-bold uppercase">About us</p>
               <p className="pt-2">
                 Saral Print is a complete e-commerce site and the first-ever
@@ -97,33 +97,33 @@ function Footer() {
                 printing world.
               </p>
             </div>
-            <div className="w-full sm:w-[15%]  mt-4 sm:mt-0 text-[15px]">
+            <div className="w-[80%] sm:w-1/2 lg:w-[18%]  mt-4 lg:mt-0 text-[14px]">
               <p className="font-bold uppercase mb-1 ">Payment Options</p>
-              <div className=" flex sm:flex-col">
+              <div className=" flex md:flex-col w-full">
                 <img
                   src={cod}
                   alt="logo"
-                  className="h-[35px] w-[35%] sm:w-[60%]"
+                  className="h-[35px] w-[70%] md:w-[35%] lg:w-[45%]"
                 />
                 <img
                   src={khalti}
                   alt="logo"
-                  className="h-[35px] w-[45%] sm:w-[70%] mt-2"
+                  className="h-[35px] w-[75%] md:w-[40%] lg:w-[50%] md:mt-2"
                 />
                 <img
                   src={connectIps}
                   alt="logo"
-                  className="h-[35px] sm:mt-1 w-[30%] sm:w-[40%] mt-2"
+                  className="h-[35px] w-[40%] md:w-[25%] lg:w-[30%] md:mt-2"
                 />
               </div>
             </div>
-            <div className="w-full sm:w-[30%] text-[15px]  mt-4 sm:mt-0">
+            <div className="w-full lg:w-[29%] text-[15px]  mt-4 lg:mt-0">
               <p className="font-bold uppercase"> Customer Services</p>
-              <p className="my-2">
+              <p className="m-2">
                 Need assistance or have any special inquiries? We're here to
                 help:
               </p>
-              <p className="pb-4">
+              <p className="pb-4 m-2">
                 9801919288 <br />
                 +97714593222 <br />
                 6:00 AM - 9:00 PM <br />
@@ -136,15 +136,15 @@ function Footer() {
           <hr className="bg-white w-full h-[1px]" />
 
           {/* below underline there is also another child div */}
-          <div className="flex mt-10 flex-col-reverse sm:justify-around  md:flex-row md:justify-between">
-            <div className="w-[70%] sm:w-[50%] md:w-[30%]">
+          <div className="flex mt-10 flex-col-reverse lg:justify-between lg:flex-row md:justify-between">
+            <div className="w-[60%] lg:w-[30%]">
               <img src={FooterLogo} alt="logo" className="w-[60%]" />
               <p className="text-[13px] mt-1">
                 @ 2022 Saral Print All Rights Reserved
               </p>
             </div>
-            <div className="flex md:flex-row sm:justify-between">
-              <div className="flex sm:mt-2 w-full gap-3 sm:w-[100%] mb-5">
+            <div className="flex md:flex-row md:justify-between">
+              <div className="flex md:mt-2 w-full gap-3 md:w-[100%] mb-5">
                 <GrFacebookOption className="text-[25px] md:text-[30px] border-2 hover:cursor-pointer hover:bg-red-400" />
                 <AiFillInstagram className=" text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />
                 <GrLinkedinOption className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />

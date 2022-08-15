@@ -19,8 +19,8 @@ const MobileMenu = ({ isMenuOpen }) => {
       <div
         className={
           isMenuOpen
-            ? "z-10 sm:hidden w-full fixed -top-[300px] left-0 pb-12 transition-top duration-700 ease-in-out shadow-lg bg-white flex flex-col items-center justify-around"
-            : "z-10 sm:hidden w-full fixed top-[150px] left-0 transition-top duration-700 ease-in pb-12 shadow-lg bg-white flex flex-col items-center justify-around"
+            ? "z-10 md:hidden w-full fixed -top-[300px] left-0 pb-12 transition-top duration-700 ease-in-out shadow-lg bg-white flex flex-col items-center justify-around overflow-scroll"
+            : "z-10 md:hidden w-full fixed top-[150px] left-0 transition-top duration-700 ease-in pb-12 shadow-lg bg-white flex flex-col items-center justify-around"
         }
       >
         {links.map((link) => (

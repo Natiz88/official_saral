@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { links } from "./../utils/LinkItems";
 import { useLocation } from "react-router-dom";
 import Image from "./../assets/heading.png";
 import NavbarBottom from "./NavbarBottom";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "./../Redux/CartReducer";
 
 const Categories = () => {
   const location = useLocation();
@@ -14,6 +15,14 @@ const Categories = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [toggle, setToggle] = useState(false);
+
+  const links = useSelector((state) => state.cart.links);
+
+  const dispatch = useDispatch();
+  const addToCart = (name) => {
+    const obj = { name: name };
+    dispatch(cartActions.addToCart(obj));
+  };
 
   useEffect(() => {
     const head = new URLSearchParams(search).get("heading");
@@ -47,16 +56,23 @@ const Categories = () => {
   return (
     <div>
       <div className="w-full h-[200px]">
-        <div className="hidden w-full h-[20%] sm:flex items-center">
-          <p
-            onClick={() => setToggle(!toggle)}
-            className="cursor-pointer pl-[8%] flex items-center"
+        <div className="hidden w-full h-[17%] md:flex items-center">
+          <div
+            onMouseEnter={() => setToggle(true)}
+            onMouseLeave={() => setToggle(false)}
+            className="ml-[9%] h-full"
           >
-            categories {!toggle ? <IoIosArrowForward /> : <IoIosArrowBack />}
-          </p>
+            <p
+              onClick={() => setToggle(!toggle)}
+              className="w-full h-full cursor-pointer flex items-center justify-between"
+            >
+              Categories {!toggle ? <IoIosArrowForward /> : <IoIosArrowBack />}
+            </p>
+            {toggle && <NavbarBottom />}
+          </div>
         </div>
-        {toggle && <NavbarBottom />}
-        <h1 className="w-full h-[80%] flex items-center justify-start text-white text-[22px] sm:text-[30px] bg-gray-600">
+
+        <h1 className="w-full h-[83%] flex items-center justify-start text-white text-[22px] sm:text-[30px] bg-gray-600">
           Categories
         </h1>
       </div>
@@ -90,6 +106,12 @@ const Categories = () => {
               />
               <p className="w-full h-[20%] text-[14px] absolute top-[80%] group-hover:text-red-400 bg-white flex justify-center items-center">
                 {subs.name}
+                <button
+                  className="px-4 py-2 bg-green-500"
+                  onClick={() => addToCart(subs.name)}
+                >
+                  Add to cart
+                </button>
               </p>
             </div>
           ))}

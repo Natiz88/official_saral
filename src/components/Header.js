@@ -13,11 +13,15 @@ import logo from "./../component/Images/Logo/logo.png";
 import CustomerService from "./CustomerService";
 import Login from "./Login";
 import NavbarBottom from "./NavbarBottom";
+import { useSelector } from "react-redux";
 // import MobileMenu from "./MobileMenu";
 
 function Header(props) {
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(true);
   const [isLoginOpen, setLoginOpen] = useState(false);
+  const cart = useSelector((state) => state.cart.cart);
+  console.log("cart", cart);
+
   // const [isToggleActive, setToggleActive] = useState(false);
   // const toggleBurger = () => {
   //   setToggleActive(!isToggleActive);
@@ -26,9 +30,9 @@ function Header(props) {
   return (
     <>
       <CustomerService />
-      <div className="sticky z-50 top-0 sm:top-6 shadow-lg h-[150px] sm:h-[70px] bg-white">
-        <nav className="flex flex-col pt-1 items-center justify-around sm:flex-row sm:justify-between relative w-full sm:w-4/5 sm:m-auto h-full sm:h-[60px] bg-white text-sm sm:text-md md:text-lg lg:text-xl">
-          <div className="w-11/12 flex justify-between items-center sm:w-1/5 h-[45%] sm:h-full">
+      <div className="sticky z-50 top-0 md:top-6 shadow-lg h-[150px] md:h-[70px] bg-white">
+        <nav className="flex flex-col pt-1 items-center justify-around md:flex-row md:justify-between relative w-full md:w-[90%] lg:w-[85%] md:m-auto h-full md:h-[60px] bg-white text-md md:text-md md:text-lg lg:text-xl">
+          <div className="w-11/12 flex justify-between items-center md:w-[25%] h-[45%] md:h-full">
             <Link to="/">
               <img
                 src={logo}
@@ -36,7 +40,7 @@ function Header(props) {
                 className="h-10 md:h-11 xl:h-12  focus:outline-none"
               />
             </Link>
-            {/* <i class="sm:hidden cursor-pointer" onClick={toggleBurger}>
+            {/* <i class="md:hidden cursor-pointer" onClick={toggleBurger}>
               {!isToggleActive ? (
                 <GiHamburgerMenu className="text-[25px]" />
               ) : (
@@ -45,7 +49,7 @@ function Header(props) {
             </i> */}
             <div
               onClick={props.handler}
-              className="flex relative sm:hidden cursor-pointer w-[10%] h-1/5 mr-4 flex-col justify-between items-center"
+              className="flex relative md:hidden cursor-pointer w-[10%] h-1/5 mr-4 flex-col justify-between items-center"
             >
               <span
                 className={
@@ -70,19 +74,19 @@ function Header(props) {
               ></span>
             </div>
           </div>
-          <div className="flex items-center w-[80%] sm:w-[40%] h-[28%] sm:h-full relative sm:ml-[10%]">
+          <div className="flex items-center w-[80%] md:w-[40%] lg:w-[40%] h-[28%] md:h-full relative md:ml-[8%] lg:ml-[10%]">
             <input
               type="text"
-              className="h-full sm:h-[65%] w-full m-auto sm:w-full pl-8 text-[16px] relative rounded-[10px] bg-slate-200 focus:outline-none"
+              className="h-full md:h-[65%] lg:pl-8 w-full m-auto md:w-full pl-8 text-[16px] relative rounded-[10px] bg-slate-200 focus:outline-none"
               placeholder="search a product..."
             />
-            <i className="absolute right-2 text-[15px] sm:text-[20px] cursor-pointer">
+            <i className="absolute right-2 text-[15px] md:text-[20px] cursor-pointer">
               <AiOutlineSearch />
             </i>
           </div>
-          {isLoggedIn ? (
-            <div className="w-full sm:w-[25%] h-[25%] text-[15px] sm:h-full flex items-center justify-center sm:justify-around">
-              <div className="w-[25%]  px-6 py-1 sm:w-[40%] flex justify-around items-center rounded-sm cursor-pointer sm:border-2 border-black">
+          {!isLoggedIn ? (
+            <div className="w-full md:w-[35%] lg:w-[25%] h-[25%] text-[15px] md:h-full flex items-center justify-center md:justify-around">
+              <div className="w-[30%] px-6 py-1 md:w-[45%] flex justify-between items-center rounded-md cursor-pointer">
                 <button
                   className=" text-black "
                   onClick={() => setLoginOpen(true)}
@@ -91,7 +95,7 @@ function Header(props) {
                 </button>
                 <HiOutlineLogin className="text-[18px]" />
               </div>
-              <div className="w-[25%] px-4 py-1 sm:w-[40%] ml-2 sm:ml-0 flex justify-around items-center rounded-sm cursor-pointer sm:border-2 border-black">
+              <div className="w-[25%] px-4 py-1 md:w-[45%] ml-2 md:ml-0 flex justify-around items-center rounded-md cursor-pointer">
                 <button
                   className=" text-black "
                   onClick={() => setLoginOpen(true)}
@@ -100,9 +104,9 @@ function Header(props) {
                 </button>
                 <GrUserNew className="text-[18px]" />
               </div>
-              {/* <div className="w-[25%] sm:w-[40%] px-6 py-1flex justify-around items-center rounded:sm cursor-pointer border-2 border-black">
+              {/* <div className="w-[25%] md:w-[40%] px-6 py-1flex justify-around items-center rounded:md cursor-pointer border-2 border-black">
                 <button
-                  className="text-[16px] text-black sm:block"
+                  className="text-[16px] text-black md:block"
                   onClick={toggleBurger}
                 >
                   Register
@@ -111,26 +115,27 @@ function Header(props) {
               </div> */}
             </div>
           ) : (
-            <div className="w-full sm:w-[30%] h-[25%] sm:h-full sm:ml-8 text-[15px] text-gray-600 flex items-center justify-around">
-              <div className="hidden w-[30%] sm:flex justify-around items-center rounded:sm">
-                <TbTruckDelivery className="text-[18px]" />
+            <div className="w-[90%] md:w-[50%] lg:w-[35%] h-[30%] md:h-full lg:ml-8 text-[15px] text-gray-600 flex items-center justify-around">
+              <div className="w-[28%] md:w-[32%] lg:w-[28%] flex justify-around items-center rounded:md">
+                <TbTruckDelivery className="text-[16px]" />
                 <button>Track Order</button>
               </div>
-              <div className="hidden w-[20%] bg-blue-400 text-white sm:flex justify-center items-center rounded:sm">
-                <AiOutlinePrinter className="text-[18px]" />
-                <span className="ml-1">[0]</span>
+              <div className="w-[20%] md:w-[16%] lg:w-[20%] h-4/5 md:h-[60%] bg-blue-400 text-white flex justify-center items-center rounded:md">
+                <AiOutlinePrinter className="text-[16px]" />
+                <span className="ml-1">[{cart.length}]</span>
               </div>
-              <div className="w-[30%] sm:w-[40%] flex justify-around items-center rounded:sm">
-                <MdPermIdentity className="text-[18px]" />
+              <div className="relative w-[35%] md:w-[42%] lg:w-[37%] flex items-center rounded:md">
+                <MdPermIdentity className="text-[16px]" />
                 <button>Name profile</button>
-                <IoIosArrowDown className="text-[18px]" />
+                <IoIosArrowDown className="text-[16px]" />
+                {/* <div className="absolute w-full h-[200px] bg-red-400 top-full left-0"></div> */}
               </div>
             </div>
           )}
         </nav>
       </div>
 
-      {/* <MobileMenu isMenuOpen={isToggleActive} /> */}
+      {/* <MobileMenu imdenuOpen={isToggleActive} /> */}
       {/* <Links isToggleActive={isToggleActive} /> */}
       {/* <NavbarBottom /> */}
       {isLoginOpen === true && <Login setLoginOpen={setLoginOpen} />}

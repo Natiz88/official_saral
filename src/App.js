@@ -35,6 +35,7 @@ import Footer from "./components/Footer";
 import OrderHistory from "./components/OrderHistory";
 import MobileMenu from "./components/MobileMenu";
 import Categories from "./components/Categories";
+import Api from "./components/Api";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -81,6 +82,7 @@ export const App = () => {
           <Route path="/products" element={<ProductCollection />} />
           <Route path="/history" element={<OrderHistory />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/api" element={<Api />} />
         </Routes>
         <Footer />
       </BrowserRouter>

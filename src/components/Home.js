@@ -38,7 +38,7 @@ const Home = () => {
         </div>
         {/* How saral prints works */}
         <div className=" flex justify-center mt-4">
-          <div className="grid grid-flow-row gap-2 px-1 my-5 w-[85%] m-auto grid-cols-1 lg:grid-cols-4 lg:px-10 ">
+          <div className="grid grid-flow-row gap-2 px-1 my-5 w-[80%] lg:w-[85%] m-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:px-10 ">
             <Steps
               reminder={step1}
               step="Step 1"
