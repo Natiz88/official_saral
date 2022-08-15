@@ -62,12 +62,7 @@ export const App = () => {
       <Form/> */}
       <BrowserRouter>
         <Navbar />
-        <Header
-          logo={logo}
-          account={Account}
-          handler={menuHandler}
-          isMenuOpen={isMenuOpen}
-        />
+        <Header handler={menuHandler} isMenuOpen={isMenuOpen} />
         {/* <NavbarBottom /> */}
         <MobileMenu isMenuOpen={isMenuOpen} />
 

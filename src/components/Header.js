@@ -13,14 +13,22 @@ import logo from "./../component/Images/Logo/logo.png";
 import CustomerService from "./CustomerService";
 import Login from "./Login";
 import NavbarBottom from "./NavbarBottom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { loginActions } from "./../Redux/LoginReducer";
 // import MobileMenu from "./MobileMenu";
 
-function Header(props) {
-  const [isLoggedIn, setLoggedIn] = useState(true);
+function Header({ handler, isMenuOpen }) {
+  const [showProfile, setShowProfile] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
   const cart = useSelector((state) => state.cart.cart);
   console.log("cart", cart);
+  const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  console.log("logined", isLoggedIn);
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    console.log("logout not redux");
+    dispatch(loginActions.logout());
+  };
 
   // const [isToggleActive, setToggleActive] = useState(false);
   // const toggleBurger = () => {
@@ -48,26 +56,26 @@ function Header(props) {
               )}
             </i> */}
             <div
-              onClick={props.handler}
+              onClick={handler}
               className="flex relative md:hidden cursor-pointer w-[10%] h-1/5 mr-4 flex-col justify-between items-center"
             >
               <span
                 className={
-                  props.isMenuOpen
+                  !isMenuOpen
                     ? "block h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
                     : "rotate-45 translate-y-1.5 block h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
                 }
               ></span>
               <span
                 className={
-                  props.isMenuOpen
+                  !isMenuOpen
                     ? "block h-0.5 w-6 bg-current transform transition duration-700 delay-500 ease-in-out"
                     : "hidden h-0.5 w-6 bg-current transform transition duration-700 delay-200 ease-in-out"
                 }
               ></span>
               <span
                 className={
-                  props.isMenuOpen
+                  !isMenuOpen
                     ? "block h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
                     : "-rotate-45 -translate-y-1.5 h-0.5 w-6 bg-current transform transition duration-700 ease-in-out"
                 }
@@ -85,7 +93,7 @@ function Header(props) {
             </i>
           </div>
           {!isLoggedIn ? (
-            <div className="w-full md:w-[35%] lg:w-[25%] h-[25%] text-[15px] md:h-full flex items-center justify-center md:justify-around">
+            <div className="w-full md:w-[35%] lg:w-[20%] h-[25%] text-[15px] md:h-full flex items-center justify-center md:justify-around">
               <div className="w-[30%] px-6 py-1 md:w-[45%] flex justify-between items-center rounded-md cursor-pointer">
                 <button
                   className=" text-black "
@@ -102,7 +110,7 @@ function Header(props) {
                 >
                   Register
                 </button>
-                <GrUserNew className="text-[18px]" />
+                <GrUserNew className="text-[16px]" />
               </div>
               {/* <div className="w-[25%] md:w-[40%] px-6 py-1flex justify-around items-center rounded:md cursor-pointer border-2 border-black">
                 <button
@@ -124,11 +132,29 @@ function Header(props) {
                 <AiOutlinePrinter className="text-[16px]" />
                 <span className="ml-1">[{cart.length}]</span>
               </div>
-              <div className="relative w-[35%] md:w-[42%] lg:w-[37%] flex items-center rounded:md">
+              <div
+                onClick={() => setShowProfile(!showProfile)}
+                className="relative w-[35%] md:w-[42%] lg:w-[37%] flex items-center justify-between rounded:md"
+              >
                 <MdPermIdentity className="text-[16px]" />
                 <button>Name profile</button>
                 <IoIosArrowDown className="text-[16px]" />
-                {/* <div className="absolute w-full h-[200px] bg-red-400 top-full left-0"></div> */}
+                {showProfile && (
+                  <div className="absolute w-full border-2 border-gray-100 bg-white shadow-md top-full left-0">
+                    <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
+                      Profile
+                    </div>
+                    <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
+                      Change Password
+                    </div>
+                    <div
+                      onClick={logoutHandler}
+                      className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2"
+                    >
+                      Logout
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

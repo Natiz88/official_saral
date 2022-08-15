@@ -76,7 +76,7 @@ function Footer() {
     //   </div>
     // </div>
     <>
-      <div className=" bg-sky-500 py-8">
+      <div className=" bg-gradient-to-b from-sky-400 via-sky-300 to-gray-300 py-8">
         <div className="flex flex-col w-4/5 lg:w-4/5  m-auto text-white">
           {/* First div of four column */}
           <div className="flex flex-col lg:flex-row justify-between">

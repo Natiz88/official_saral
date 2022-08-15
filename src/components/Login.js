@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, Navigate, Link } from "react-router-dom";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { loginActions } from "./../Redux/LoginReducer";
 
 import Facebook from "../assets/facebook.png";
 import Google from "../assets/google.svg";
@@ -45,27 +47,36 @@ const Login = ({ setLoginOpen }) => {
     //   console.log(error);
     // }
   };
+  const logined = useSelector((state) => state.login.isLoggedIn);
+  console.log("logined", logined);
+  const dispatch = useDispatch();
+  const loginHandler = () => {
+    dispatch(loginActions.login());
+  };
+  const logoutHandler = () => {
+    dispatch(loginActions.logout());
+  };
   const active =
-    "absolute left-0 bg-blue-600 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out";
+    "absolute left-0 bg-gradient-to-r from-blue-600 to-sky-300 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out";
   return (
     <>
       {/* Main Container */}
       <div
-        className={`h-full w-full backdrop-blur-sm z-20 flex justify-center items-center fixed top-[65px] inset-0`}
+        className={`h-full w-full backdrop-blur-sm z-50 fixed inset-0 `}
         onClick={() => {
           setLoginOpen(false);
         }}
       >
         {/* Form Container */}
         <div
-          className="w-[80%] h-[37rem] bg-white rounded-3xl z-20 shadow-lg border-gray-300 border-[1px] p-2 md:w-[60%] md:p-2 md:h-[36rem] lg:w-[50%] lg:p-2 xl:w-[40%] relative"
+          className="w-[85%] h-[30rem] md:h-[34rem] bg-white rounded-3xl z-20 mt-[25%] md:mt-[10%] lg:mt-[5%] shadow-lg border-gray-300 border-[1px] p-2 md:w-[60%] m-auto md:p-2 lg:w-[50%] lg:p-2 xl:w-[40%] relative"
           onClick={(e) => {
             e.stopPropagation();
           }}
         >
           {/* Header */}
           <div className="flex justify-center items-center">
-            <h1 className="text-[20px] font-semibold">Login Page</h1>
+            <h1 className="text-[20px] font-Normal">Login Page</h1>
             {/* <Link
               className="text-red-600 font-bold uppercase px-6 py-2 text-2xl md:text-3xl lg:text-3xl outline-none focus:outline-none absolute right-0 mr-1 mb-1 ease-linear transition-all duration-150 hover:text-red-800"
               to="/"
@@ -90,13 +101,13 @@ const Login = ({ setLoginOpen }) => {
           </div>
           {/* Toggle Container */}
           <div className="w-full relative z-10 text-sm sm:text-md md:text-lg lg:text-xl text-[15px]">
-            <i className="absolute top-4 right-4 cursor-pointer"></i>
-            <div className="relative flex w-11/12 m-auto mt-5 bg-white justify-around items-center cursor-pointer h-[45px] shadow-lg border-gray-300 border-[1px] rounded-[20px]">
+            {/* <i className="absolute top-4 right-4 cursor-pointer"></i> */}
+            <div className="relative flex w-11/12 m-auto mt-2 md:mt-5 bg-white justify-around items-center cursor-pointer h-[45px] shadow-lg border-gray-300 border-[1px] rounded-[20px]">
               <p
                 className={
                   !isActive
-                    ? "z-10 text-white w-1/2 text-center"
-                    : "z-10 w-1/2 text-center"
+                    ? "z-10 text-white w-1/2 h-full flex items-center justify-center"
+                    : "z-10 w-1/2 h-full flex items-center justify-center"
                 }
                 onClick={toggleActive}
               >
@@ -105,8 +116,8 @@ const Login = ({ setLoginOpen }) => {
               <p
                 className={
                   isActive
-                    ? "z-10 text-white w-1/2 text-center"
-                    : "z-10 w-1/2 text-center"
+                    ? "z-10 text-white w-1/2 text-center  h-full flex items-center justify-center"
+                    : "z-10 w-1/2 text-center  h-full flex items-center justify-center"
                 }
                 onClick={toggleActive}
               >
@@ -114,12 +125,14 @@ const Login = ({ setLoginOpen }) => {
               </p>
               <div
                 className={
-                  !isActive ? active : `${active} translate-x-full bg-red-400`
+                  !isActive
+                    ? "absolute left-0 bg-gradient-to-r from-blue-500 to-sky-200 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out"
+                    : `absolute left-0 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out translate-x-full bg-gradient-to-r from-red-200 to-red-400`
                 }
               ></div>
             </div>
           </div>
-          <form className="flex flex-col mt-4 p-4">
+          <form className="flex flex-col md:mt-4 p-4">
             <p>{errorMessage}</p>
             <label className="font-medium">Email</label>
             <input
@@ -141,28 +154,33 @@ const Login = ({ setLoginOpen }) => {
               }}
               value={password}
               placeholder=" Enter Password"
-              className="block border border-grey-light w-full p-2 rounded mb-4"
+              className="block border border-grey-light w-full p-2 rounded mb-2"
             />
             <div className="flex">
-              <a href="/">Forgot Password?</a>
+              <a
+                href="/"
+                className="mb-1 text-[14px] text-gray-400 hover:text-black"
+              >
+                Forgot Password?
+              </a>
             </div>
-            <div className="px-4 mt-6 flex flex-col justify-center items-center">
+            <div className="px-4 md:mt-2 flex flex-col justify-center items-center">
               <button
                 type="submit"
                 // className="h-[45px] bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] w-[70%] text-[20px] lg:w-[50%]"
-                className="bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] h-[45px] w-full md:w-1/2 text-[20px]"
+                className="bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] h-[40px] w-[70%] lg:w-[50%] text-[16px]"
                 onClick={login}
               >
                 Login
               </button>
-              <hr className="bg-slate-400 w-full h-[1.2px] mt-4 " />
+              <hr className="bg-slate-400 w-full h-[1.2px] mt-2 " />
             </div>
           </form>
           <div className="px-8 mb-1 md:mb-0 flex flex-col justify-center items-center">
-            <button className="bg-red-600 hover:bg-red-800 text-white rounded-[20px] w-full h-[45px] text-[20px] text-bold md:w-[60%] lg:w-[60%] xl:w-[50%]">
+            <button className="bg-red-600 hover:bg-red-800 text-white rounded-[20px] w-[70%] h-[40px] text-[16px] text-bold md:w-[60%] lg:w-[60%] xl:w-[50%]">
               Create Account
             </button>
-            <label className="mb-2">or Signup with</label>
+            <label className="mb-2 text-[14px]">or Signup with</label>
           </div>
           <div className="flex justify-center gap-[1rem] md:gap-[2rem]">
             <button className="w-[7.5rem] flex justify-center py-3 px-2 lg:px-6 lg:w-[8rem] bg-red-50 rounded-xl transition hover:bg-red-100 shadow-lg border-gray-300 border-[1px]">
@@ -173,7 +191,7 @@ const Login = ({ setLoginOpen }) => {
                 </span>
               </span>
             </button>
-            <button className="w-[7.5rem] flex justify-center py-3 lg:px-6 lg:w-[8.5rem] bg-blue-50 rounded-xl transition hover:bg-blue-100 shadow-lg border-gray-300 border-[1px]">
+            <button className="w-[7.5rem] flex justify-center py-2 lg:px-6 lg:w-[8.5rem] bg-blue-50 rounded-xl transition hover:bg-blue-100 shadow-lg border-gray-300 border-[1px]">
               <span className="flex justify-center items-center gap-2 ">
                 <img src={Facebook} alt="Facebook" className="w-[25px] " />
                 <span className="text-sm font-semibold tracking-wide text-blue-400 ">

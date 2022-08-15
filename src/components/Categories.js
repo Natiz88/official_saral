@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Image from "./../assets/heading.png";
 import NavbarBottom from "./NavbarBottom";
@@ -15,11 +15,17 @@ const Categories = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
 
   const links = useSelector((state) => state.cart.links);
+  const loggedIn = useSelector((state) => state.login.loggedIn);
 
   const dispatch = useDispatch();
   const addToCart = (name) => {
+    // if (!loggedIn) {
+    //   navigate("/login");
+    //   return;
+    // }
     const obj = { name: name };
     dispatch(cartActions.addToCart(obj));
   };
@@ -56,11 +62,11 @@ const Categories = () => {
   return (
     <div>
       <div className="w-full h-[200px]">
-        <div className="hidden w-full h-[17%] md:flex items-center">
+        <div className="hidden w-full h-[17%] md:flex items-center ">
           <div
             onMouseEnter={() => setToggle(true)}
             onMouseLeave={() => setToggle(false)}
-            className="ml-[9%] h-full"
+            className="ml-[9%] h-full "
           >
             <p
               onClick={() => setToggle(!toggle)}
@@ -72,7 +78,7 @@ const Categories = () => {
           </div>
         </div>
 
-        <h1 className="w-full h-[83%] flex items-center justify-start text-white text-[22px] sm:text-[30px] bg-gray-600">
+        <h1 className="w-full h-[83%] flex items-center justify-start text-white text-[22px] sm:text-[30px] bg-gradient-to-b from-red-600 to-blue-200">
           Categories
         </h1>
       </div>
