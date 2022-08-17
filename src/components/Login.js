@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { useNavigate, Navigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useHistory, Navigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { loginActions } from "./../Redux/LoginReducer";
@@ -16,20 +16,32 @@ const Login = ({ setLoginOpen }) => {
   const toggleActive = () => {
     setActive(!isActive);
   };
+  const [errorMsg, setErrorMsg] = useState("");
+  const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const name = () => {
-    return localStorage.getItem("token");
+  const dispatch = useDispatch();
+  const loginHandler = () => {
+    dispatch(loginActions.login());
+  };
+  const logoutHandler = () => {
+    dispatch(loginActions.logout());
   };
   const login = async (e) => {
     e.preventDefault();
+    setError(false);
+    if (email === "" || password === "") {
+      setError(true);
+      setErrorMsg("Please fill up the required fields");
+      return;
+    }
     const loginData = {
-      old_password: email,
+      email: email,
       password: password,
-      device_name: window.navigator.userAgentData.platform,
+      device_name: "acer",
     };
+    console.log("logindata", loginData);
     const config = {
       header: {
         Accept: "application/json",
@@ -38,24 +50,33 @@ const Login = ({ setLoginOpen }) => {
     await axios
       .post("http://192.168.100.17:8081/api/login", loginData, config)
       .then((response) => {
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("token", response?.data?.token);
+        localStorage.setItem("authenticated", 1);
+        setLoginOpen(false);
         console.log("success");
+        loginHandler();
       })
-      .catch((err) => console.log("error", err));
+      .catch((err) => {
+        setError(true);
+        setErrorMsg(err?.response?.data?.message);
+      });
 
     // } catch (error) {
     //   console.log(error);
     // }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const authenticated = localStorage.getItem("authenticated");
+    if (token && authenticated) {
+      navigate("/");
+    }
+  }, []);
+
   const logined = useSelector((state) => state.login.isLoggedIn);
   console.log("logined", logined);
-  const dispatch = useDispatch();
-  const loginHandler = () => {
-    dispatch(loginActions.login());
-  };
-  const logoutHandler = () => {
-    dispatch(loginActions.logout());
-  };
+
   const active =
     "absolute left-0 bg-gradient-to-r from-blue-600 to-sky-300 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out";
   return (
@@ -133,7 +154,7 @@ const Login = ({ setLoginOpen }) => {
             </div>
           </div>
           <form className="flex flex-col md:mt-4 p-4">
-            <p>{errorMessage}</p>
+            {error && <p className="text-red-400">{errorMsg}</p>}
             <label className="font-medium">Email</label>
             <input
               type="email"

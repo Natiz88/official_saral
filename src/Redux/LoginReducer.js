@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useState } from "react";
+
+const token = localStorage.getItem("token");
+const tokenPresent = !!token;
+console.log("token", tokenPresent);
 
 const initialState = {
-  isLoggedIn: true,
+  isLoggedIn: tokenPresent,
 };
 
 const loginSlice = createSlice({
@@ -9,7 +14,7 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     login(state, action) {
-      return (state.isLoggedIn = true);
+      state.isLoggedIn = true;
     },
     logout(state) {
       console.log("logout");

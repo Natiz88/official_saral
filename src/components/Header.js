@@ -21,13 +21,13 @@ function Header({ handler, isMenuOpen }) {
   const [showProfile, setShowProfile] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
   const cart = useSelector((state) => state.cart.cart);
-  console.log("cart", cart);
+
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
-  console.log("logined", isLoggedIn);
   const dispatch = useDispatch();
   const logoutHandler = () => {
-    console.log("logout not redux");
     dispatch(loginActions.logout());
+    localStorage.removeItem("token");
+    localStorage.removeItem("authentication");
   };
 
   // const [isToggleActive, setToggleActive] = useState(false);
@@ -104,12 +104,9 @@ function Header({ handler, isMenuOpen }) {
                 <HiOutlineLogin className="text-[18px]" />
               </div>
               <div className="w-[25%] px-4 py-1 md:w-[45%] ml-2 md:ml-0 flex justify-around items-center rounded-md cursor-pointer">
-                <button
-                  className=" text-black "
-                  onClick={() => setLoginOpen(true)}
-                >
-                  Register
-                </button>
+                <Link to="/signup">
+                  <button className=" text-black ">Register</button>
+                </Link>
                 <GrUserNew className="text-[16px]" />
               </div>
               {/* <div className="w-[25%] md:w-[40%] px-6 py-1flex justify-around items-center rounded:md cursor-pointer border-2 border-black">
@@ -128,9 +125,13 @@ function Header({ handler, isMenuOpen }) {
                 <TbTruckDelivery className="text-[16px]" />
                 <button>Track Order</button>
               </div>
+
               <div className="w-[20%] md:w-[16%] lg:w-[20%] h-4/5 md:h-[60%] bg-blue-400 text-white flex justify-center items-center rounded:md">
-                <AiOutlinePrinter className="text-[16px]" />
-                <span className="ml-1">[{cart.length}]</span>
+                <Link to="/payment" className="flex items-center">
+                  <AiOutlinePrinter className="text-[16px]" />
+
+                  <span className="ml-1">{cart.length}</span>
+                </Link>
               </div>
               <div
                 onClick={() => setShowProfile(!showProfile)}

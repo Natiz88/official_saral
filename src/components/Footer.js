@@ -76,8 +76,8 @@ function Footer() {
     //   </div>
     // </div>
     <>
-      <div className=" bg-gradient-to-b from-sky-400 via-sky-300 to-gray-300 py-8">
-        <div className="flex flex-col w-4/5 lg:w-4/5  m-auto text-white">
+      <div className=" bg-gradient-to-b from-gray-200 to-gray-200 py-8">
+        <div className="flex flex-col w-4/5 lg:w-4/5  m-auto text-black">
           {/* First div of four column */}
           <div className="flex flex-col lg:flex-row justify-between">
             <div className="w-full lg:w-[15%] text-[15px]">
@@ -133,7 +133,7 @@ function Footer() {
             </div>
           </div>
 
-          <hr className="bg-white w-full h-[1px]" />
+          {/* <hr className="bg-white w-full h-[1px]" /> */}
 
           {/* below underline there is also another child div */}
           <div className="flex mt-10 flex-col-reverse lg:justify-between lg:flex-row md:justify-between">
@@ -157,6 +157,7 @@ function Footer() {
         </div>
         {/* <ItemsFooter /> */}
       </div>
+      <hr className="bg-red-400 w-[70%] m-auto h-[3px]" />
       <ItemsFooter />
     </>
   );

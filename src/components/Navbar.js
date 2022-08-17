@@ -1,7 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { loginActions } from "./../Redux/LoginReducer";
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const authenticated = localStorage.getItem("authenticated");
+    if (!token || !authenticated) {
+      dispatch(loginActions.logout());
+    }
+  }, []);
   return (
     <div className="sticky top-0 z-20 w-full bg-pink-700 hidden md:block">
       <div className="w-[60%] md:w-[85%] m-auto h-6">

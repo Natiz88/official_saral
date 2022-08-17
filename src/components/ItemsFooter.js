@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 const Footer = () => {
   const links = useSelector((state) => state.cart.links);
   return (
-    <div className="w-full bg-gray-300">
-      <div className="w-4/5 bg-gray-300 m-auto py-8 lg:h-[2000px] text-[12px] lg:flex flex-col flex-wrap text-gray-600">
+    <div className="w-full bg-gradient-to-b from-gray-200 to-white">
+      <div className="w-4/5  m-auto py-8 lg:h-[2000px] text-[12px] lg:flex flex-col flex-wrap text-gray-600">
         {links.map((link) => (
           <>
             <Link to={`/categories?heading=${link.name}`}>

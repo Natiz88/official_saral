@@ -293,6 +293,15 @@ export const links = [
         ],
       },
       {
+        Head: "Mug33",
+        sublink: [
+          { name: "Mug - White & Large Size", link: "" },
+          { name: "Mug - White & Small Size", link: "" },
+          { name: "Magic Mug", link: "" },
+          { name: "Two Tone Mug", link: "" },
+        ],
+      },
+      {
         Head: "Pin Badge",
         sublink: [
           { name: "Pin Badge - 44 mm", link: "" },

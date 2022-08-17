@@ -36,6 +36,8 @@ import OrderHistory from "./components/OrderHistory";
 import MobileMenu from "./components/MobileMenu";
 import Categories from "./components/Categories";
 import Api from "./components/Api";
+import Payment from "./components/Payment";
+import Signup from "./components/Signup";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -68,7 +70,8 @@ export const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/signup" element={<Signup />} />
           <Route path="/product" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
@@ -78,6 +81,7 @@ export const App = () => {
           <Route path="/history" element={<OrderHistory />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/api" element={<Api />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
         <Footer />
       </BrowserRouter>

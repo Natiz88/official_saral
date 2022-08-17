@@ -17,7 +17,7 @@ function NavbarBottom() {
 
   return (
     <>
-      <div className="hidden md:flex z-10 bg-white md:w-[20%] lg:w-[12%] h-[350px] shadow-lg m-auto absolute md:top-[134px] md:left-0 lg:left-[15%] flex-col items-center justify-around">
+      <div className="hidden md:flex z-10 bg-white md:w-[20%] lg:w-[12%] min-h-[350px] shadow-lg m-auto absolute md:top-[134px] md:left-0 lg:left-[15%] flex-col items-center justify-around">
         {links.map((link) => (
           <div
             onMouseLeave={() => setHeading("")}
@@ -52,7 +52,7 @@ function NavbarBottom() {
                   : "hidden"
               }
             >
-              <div className="w-full h-full relative flex flex-col">
+              <div className="w-full min-h-full bg-white shadow-md relative flex flex-col">
                 {link.sublinks.map((mysublinks) => (
                   <div
                     onMouseLeave={() => setSubHeading("")}
@@ -85,7 +85,7 @@ function NavbarBottom() {
                     <div
                       className={
                         subHeading === mysublinks.Head
-                          ? "absolute top-0 left-full w-[300px] h-full shadow-md bg-white overflow-scroll"
+                          ? "absolute top-0 left-full w-[300px] h-full shadow-md bg-white overflow-auto"
                           : "hidden"
                       }
                     >
