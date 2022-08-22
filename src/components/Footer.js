@@ -8,7 +8,7 @@ import { GrLinkedinOption, GrFacebookOption } from "react-icons/gr";
 import FooterLogo from "./../component/Images/FooterLogo/footerLogo.png";
 import khalti from "./../component/Images/PaymentProcess/khalti.png";
 import connectIps from "./../component/Images/PaymentProcess/ips.png";
-import cod from "./../component/Images/PaymentProcess/cod.png";
+// import cod from "./../component/Images/PaymentProcess/cod.png";
 import ItemsFooter from "./../components/ItemsFooter";
 
 // import ItemsFooter from "./../components/ItemsFooter"
@@ -101,7 +101,7 @@ function Footer() {
               <p className="font-bold uppercase mb-1 ">Payment Options</p>
               <div className=" flex md:flex-col w-full">
                 <img
-                  src={cod}
+                  // src={cod}
                   alt="logo"
                   className="h-[35px] w-[70%] md:w-[35%] lg:w-[45%]"
                 />
@@ -128,7 +128,7 @@ function Footer() {
                 +97714593222 <br />
                 6:00 AM - 9:00 PM <br />
                 <br />
-                support@saralprint.com.np
+                print@saralprint.com.np
               </p>
             </div>
           </div>
@@ -145,11 +145,11 @@ function Footer() {
             </div>
             <div className="flex md:flex-row md:justify-between">
               <div className="flex md:mt-2 w-full gap-3 md:w-[100%] mb-5">
-                <GrFacebookOption className="text-[25px] md:text-[30px] border-2 hover:cursor-pointer" />
-                <AiFillInstagram className=" text-[25px] border-2 md:text-[30px] hover:cursor-pointer" />
-                <GrLinkedinOption className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer" />
-                <AiFillYoutube className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer" />
-                <AiOutlineTwitter className="text-[25px] border-2 md:text-[30px]  hover:cursor-pointer" />
+                <GrFacebookOption className="text-[25px] md:text-[30px] border-2 hover:cursor-pointer hover:bg-red-400" />
+                <AiFillInstagram className=" text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />
+                <GrLinkedinOption className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />
+                <AiFillYoutube className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />
+                <AiOutlineTwitter className="text-[25px] border-2 md:text-[30px]  hover:cursor-pointer hover:bg-red-400" />
               </div>
             </div>
           </div>

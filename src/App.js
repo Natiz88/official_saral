@@ -38,7 +38,7 @@ import Categories from "./components/Categories";
 import Api from "./components/Api";
 import Payment from "./components/Payment";
 import Signup from "./components/Signup";
-import Messenger from "./components/Messenger";
+import Product from "./components/Product";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -49,6 +49,7 @@ export const App = () => {
   // const token = localStorage.getItem("token");
   return (
     <>
+    {/* hello */}
       {/* <Router>
       <Nav />
       <div className="h-[5rem] w-full"></div>
@@ -68,25 +69,24 @@ export const App = () => {
         <Navbar />
         <Header handler={menuHandler} isMenuOpen={isMenuOpen} />
         {/* <NavbarBottom /> */}
-        <MobileMenu handler={menuHandler} isMenuOpen={isMenuOpen} />
+        <MobileMenu isMenuOpen={isMenuOpen} />
 
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/product" element={<ProductDetail />} />
+          {/* <Route path="/product" element={<ProductDetail />} /> */}
           <Route path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<UserProfile />} />
           <Route path="/products" element={<ProductCollection />} />
+          <Route path="/product" element={<Product />} />
           <Route path="/history" element={<OrderHistory />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/api" element={<Api />} />
           <Route path="/payment" element={<Payment />} />
         </Routes>
-
-        <Messenger />
         <Footer />
       </BrowserRouter>
     </>
