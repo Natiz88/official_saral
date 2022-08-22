@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Banner from "./Banner";
 
 function Disclaimer() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className=" ">
-      <banner className="w-full flex justify-center p-6 text-gray-600 bg-cyan-100  text-3xl text-gray-700 pl-1">
-        Privacy Policy
-      </banner>
+      <Banner text="Privacy Policy" />
 
       <div className=" w-4/5 m-auto pl-1 py-12">
         <li className="list-decimal ml-4 text-[20px] py-1 text-gray-600 font-bold">
@@ -110,7 +112,7 @@ function Disclaimer() {
         <li className="list-decimal ml-4 text-[20px] text-gray-600 font-bold">
           Accessing Web Account Information
         </li>
-        <p className="py-4 text-[15px]">
+        <p className="py-4 text-[15px] text-gray-500">
           We will provide you with the means to ensure that personally
           identifiable information in your web account file is correct and
           current. You may review this information by contacting us by sending

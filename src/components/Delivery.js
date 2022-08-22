@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import Banner from "./Banner";
 
 function Delivery() {
   useEffect(() => {
@@ -8,9 +9,7 @@ function Delivery() {
 
   return (
     <div className="">
-      <banner className="w-full flex justify-center p-6 bg-cyan-100  text-3xl text-gray-700 pl-1">
-        Delivery Terms
-      </banner>
+      <Banner text="Delivery Terms" />
       <div className="w-4/5 m-auto p-8">
         <li className="list-decimal ml-4 text-[20px] text-gray-600">
           Selecting the best option for you to deliver your booked order
