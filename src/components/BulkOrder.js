@@ -15,7 +15,7 @@ const BulkOrder = ({ setShowBulk }) => {
   };
   return (
     <div className="w-full h-[120vh] flex justify-center items-center absolute inset-0 backdrop-blur-sm z-10">
-      <div className=" w-[28rem]  m-auto bg-white shadow-xl p-[1rem] flex flex-col gap-[1rem]">
+      <div className=" w-[28rem]  m-auto bg-white shadow-2xl p-[1rem] flex flex-col gap-[1rem]">
         <h1 className="font-bold text-xl">
           Bulk Order
           <hr className="border-t-2" />
