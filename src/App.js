@@ -38,6 +38,7 @@ import Categories from "./components/Categories";
 import Api from "./components/Api";
 import Payment from "./components/Payment";
 import Signup from "./components/Signup";
+import Messenger from "./components/Messenger";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -66,7 +67,7 @@ export const App = () => {
         <Navbar />
         <Header handler={menuHandler} isMenuOpen={isMenuOpen} />
         {/* <NavbarBottom /> */}
-        <MobileMenu isMenuOpen={isMenuOpen} />
+        <MobileMenu handler={menuHandler} isMenuOpen={isMenuOpen} />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -83,6 +84,8 @@ export const App = () => {
           <Route path="/api" element={<Api />} />
           <Route path="/payment" element={<Payment />} />
         </Routes>
+
+        <Messenger />
         <Footer />
       </BrowserRouter>
     </>

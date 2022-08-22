@@ -39,7 +39,7 @@ const Login = ({ setLoginOpen }) => {
     const loginData = {
       email: email,
       password: password,
-      device_name: "acer",
+      // device_name: "acer",
     };
     console.log("logindata", loginData);
     const config = {
@@ -48,7 +48,7 @@ const Login = ({ setLoginOpen }) => {
       },
     };
     await axios
-      .post("http://192.168.100.17:8081/api/login", loginData, config)
+      .post("http://192.168.1.68:5000/api/v1/users/login", loginData, config)
       .then((response) => {
         localStorage.setItem("token", response?.data?.token);
         localStorage.setItem("authenticated", 1);
@@ -57,6 +57,7 @@ const Login = ({ setLoginOpen }) => {
         loginHandler();
       })
       .catch((err) => {
+        console.log("err", err);
         setError(true);
         setErrorMsg(err?.response?.data?.message);
       });
@@ -66,13 +67,13 @@ const Login = ({ setLoginOpen }) => {
     // }
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const authenticated = localStorage.getItem("authenticated");
-    if (token && authenticated) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   const authenticated = localStorage.getItem("authenticated");
+  //   if (token && authenticated) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const logined = useSelector((state) => state.login.isLoggedIn);
   console.log("logined", logined);
