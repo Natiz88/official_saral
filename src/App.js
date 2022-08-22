@@ -93,8 +93,8 @@ export const App = () => {
           <Route path="/refundpolicy" element={<Policy />} />
           <Route path="/cancellation" element={<Cancellation />} />
           <Route path="/privacypolicy" element={<Disclaimer />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/deliveryterms" element={<Delivery />} />
+          <Route path="/abodeliverytermsut" element={<AboutUs />} />
+          <Route path="/" element={<Delivery />} />
           <Route path="/qualityterms" element={<Quality />} />
           <Route path="/termsandconditions" element={<TermsCondition />} />
         </Routes>
