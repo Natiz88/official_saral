@@ -31,6 +31,7 @@ const Categories = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const head = new URLSearchParams(search).get("heading");
     const sub = new URLSearchParams(search).get("subheading");
     // const head = location.search
