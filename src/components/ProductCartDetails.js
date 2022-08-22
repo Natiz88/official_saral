@@ -31,7 +31,7 @@ const ProductCartDetails = ({
     useState(false);
 
   const ProductCartData = {
-    size: "8.8x5.5",
+    size: "10.8x5.5",
     paperWeight: 300,
     lamination: "Matte",
     weight: 1.34,
@@ -254,8 +254,8 @@ const ProductCartDetails = ({
                     ? "h-[60px] w-[125px] border-[#E5113C] border-2 rounded-md hover:bg-[#E5113C] hover:shadow-[#E5113C] hover:shadow-lg hover:text-white hover:-translate-y-2 hover:duration-500 ease-in-out xl:w-[99px]"
                     : "h-[60px] w-[125px] border-[#E5113C] border-2 rounded-md bg-[#E5113C] shadow-[#E5113C] shadow-lg text-white -translate-y-2 xl:w-[99px]"
                 }
-                onClick={() =>{
-                  handleTooltipOpen()
+                onClick={() => {
+                  handleTooltipOpen();
                   setUploadDesign1(false);
                   setUploadDesign2(false);
                   setUploadDesign3(false);
