@@ -44,6 +44,7 @@ export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const menuHandler = () => {
     setMenuOpen(!isMenuOpen);
+    window.scrollTo(0, 0);
   };
   // const token = localStorage.getItem("token");
   return (

@@ -17,6 +17,10 @@ const MobileMenu = ({ isMenuOpen, handler }) => {
     setSubHeading("");
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const category = (link) => {
     navigate(`/categories?heading=${link.name}`);
     handler();
