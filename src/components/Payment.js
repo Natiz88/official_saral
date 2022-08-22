@@ -1,5 +1,5 @@
 import React from "react";
-import COD from "./../component/Images/PaymentProcess/cod.png";
+// import COD from "./../component/Images/PaymentProcess/cod.png";
 import Connectips from "./../component/Images/PaymentProcess/Connectips.png";
 import Khalti from "./../component/Images/PaymentProcess/khalti.png";
 import { useState, useEffect } from "react";
@@ -131,7 +131,9 @@ const Payment = () => {
                 name="paymentOption"
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
-              <img src={COD} alt="" className="w-[30%]" />
+              <img 
+              // src={COD}
+               alt="" className="w-[30%]" />
               <input
                 type="radio"
                 value="Connectips"
