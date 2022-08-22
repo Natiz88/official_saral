@@ -27,7 +27,6 @@ import Login from "./components/Login";
 import ProductDetail from "./components/ProductDetail";
 import Header from "./components/Header";
 import NavbarBottom from "./components/NavbarBottom";
-import About from "./components/About";
 import Test from "./components/Test";
 import UserProfile from "./components/UserProfile";
 import ProductCollection from "./components/ProductCollection";
@@ -39,6 +38,13 @@ import Api from "./components/Api";
 import Payment from "./components/Payment";
 import Signup from "./components/Signup";
 import Product from "./components/Product";
+import Policy from "./components/RefundPolicy";
+import Cancellation from "./components/Cancellation";
+import Disclaimer from "./components/PrivacyPolicy";
+import AboutUs from "./components/AboutUs";
+import Delivery from "./components/Delivery";
+import Quality from "./components/QualityTerms";
+import TermsCondition from "./components/TermsCondition";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -49,7 +55,7 @@ export const App = () => {
   // const token = localStorage.getItem("token");
   return (
     <>
-    {/* hello */}
+      {/* hello */}
       {/* <Router>
       <Nav />
       <div className="h-[5rem] w-full"></div>
@@ -75,7 +81,6 @@ export const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           {/* <Route path="/product" element={<ProductDetail />} /> */}
-          <Route path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<UserProfile />} />
@@ -85,6 +90,13 @@ export const App = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/api" element={<Api />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/refundpolicy" element={<Policy />} />
+          <Route path="/cancellation" element={<Cancellation />} />
+          <Route path="/privacypolicy" element={<Disclaimer />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/deliveryterms" element={<Delivery />} />
+          <Route path="/qualityterms" element={<Quality />} />
+          <Route path="/termsandconditions" element={<TermsCondition />} />
         </Routes>
         <Footer />
       </BrowserRouter>

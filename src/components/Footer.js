@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   AiFillInstagram,
   AiFillYoutube,
@@ -82,13 +83,27 @@ function Footer() {
           <div className="flex flex-col lg:flex-row justify-between">
             <div className="w-full lg:w-[15%] text-[15px]">
               <p className="py-1 cursor-pointer">FAQs</p>
-              <p className="py-1 cursor-pointer">Terms & Conditions</p>
-              <p className="py-1 cursor-pointer">Privacy Policy</p>
-              <p className="py-1 cursor-pointer">Delivery</p>
+              <Link to="/termsandconditions">
+                <p className="py-1 cursor-pointer">Terms & Conditions</p>
+              </Link>
+              <Link to="/privacypolicy">
+                <p className="py-1 cursor-pointer">Privacy Policy</p>
+              </Link>
+              <Link to="/refundpolicy">
+                <p className="py-1 cursor-pointer">Refund Policy</p>
+              </Link>
+              <Link to="/cancellationpolicy">
+                <p className="py-1 cursor-pointer">Cancellation Policy</p>
+              </Link>
+              <Link to="/deliveryterms">
+                <p className="py-1 cursor-pointer">Delivery</p>
+              </Link>
               <p className="py-1 cursor-pointer">Need Help?</p>
             </div>
             <div className="w-full lg:w-[30%] mt-4 lg:mt-0 text-[15px] ">
-              <p className="font-bold uppercase">About us</p>
+              <Link to="/aboutus">
+                <p className="font-bold uppercase">About us</p>
+              </Link>
               <p className="pt-2">
                 Saral Print is a complete e-commerce site and the first-ever
                 online printing service in Purwanchal. We are a comprehensive
