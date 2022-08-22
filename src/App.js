@@ -76,7 +76,6 @@ export const App = () => {
         <Header handler={menuHandler} isMenuOpen={isMenuOpen} />
         {/* <NavbarBottom /> */}
         <MobileMenu isMenuOpen={isMenuOpen} />
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
