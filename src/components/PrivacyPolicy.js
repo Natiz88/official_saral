@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Banner from "./Banner";
 
 function Disclaimer() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className=" ">
-      <banner className="w-full flex justify-center p-6 text-gray-600 bg-cyan-100  text-3xl text-gray-700 pl-1">
-        Privacy Policy
-      </banner>
+      <Banner text="Privacy Policy" />
 
       <div className=" w-4/5 m-auto pl-1 py-12">
         <li className="list-decimal ml-4 text-[20px] py-1 text-gray-600 font-bold">
           Acknowlagdement and Acceptance of terms
         </li>
-        <p className="py-1 text-[15px] text-gray-500">
+        <p className="py-4 text-[15px] text-gray-500">
           SaralPrint.com - a division of Saral Multipurpose Private Limited is
           committed to protecting our visitors and registered user’s privacy.
           This Privacy Statement sets forth our current privacy practices with
@@ -26,7 +28,7 @@ function Disclaimer() {
         <li className="list-decimal ml-4 text-[20px] text-gray-600 font-bold">
           Information We collecyt and How to Use it
         </li>
-        <p className="py-1 text-[15px] text-gray-500">
+        <p className="py-4 text-[15px] text-gray-500">
           SaralPrint.com collects certain information from and about its
           visitors and registered user’s three ways: directly from our Web
           Server logs, the user, and with Cookies.
@@ -37,7 +39,7 @@ function Disclaimer() {
           site and analyze its usage. Examples of information we may track
           include:
         </p>
-        <ul className="list-disc ml-9 text-[15px] py-1 text-gray-500 font-bold">
+        <ul className="list-disc ml-9 text-[15px] py-4 text-gray-500">
           <li>Your Internet protocol address.</li>
           <li>The kind of browser or computer you use.</li>
           <li>The number of links you click within the site.</li>
@@ -52,7 +54,7 @@ function Disclaimer() {
         <ul className="ml-2 text-[20px] text-gray-600 font-bold">
           B. Use of Cookies
         </ul>
-        <p className="ml-2 py-1 text-[15px] text-gray-500">
+        <p className="ml-2 py-4 text-[15px] text-gray-500">
           SaralPrint.com in may use cookies to personalize or enhance your user
           experience. A cookie is a small text file that is placed on your hard
           disk by a Web page server. Cookies cannot be used to run programs or
@@ -91,12 +93,12 @@ function Disclaimer() {
           troubleshooting.
         </p>
         <br />
-        <p className="ml-2 py-1 text-[15px] text-gray-500">
+        <p className="ml-2 py-4 text-[15px] text-gray-500">
           We will not disclose personally identifiable information we collect
           from you to third parties without your permission except to the extent
           necessary including:
         </p>
-        <ul className="list-disc ml-9 text-[15px] text-gray-500 font-bold">
+        <ul className="list-disc ml-9 text-[15px] text-gray-500 ">
           <li>To fulfill your service requests for services.</li>
           <li>To protect ourselves from liability.</li>
           <li>To respond to legal process or comply with the law, or</li>
@@ -110,7 +112,7 @@ function Disclaimer() {
         <li className="list-decimal ml-4 text-[20px] text-gray-600 font-bold">
           Accessing Web Account Information
         </li>
-        <p className="py-1 text-[15px]">
+        <p className="py-4 text-[15px] text-gray-500">
           We will provide you with the means to ensure that personally
           identifiable information in your web account file is correct and
           current. You may review this information by contacting us by sending
@@ -125,7 +127,7 @@ function Disclaimer() {
         <li className="list-decimal ml-4 text-[20px] text-gray-600 font-bold">
           Contacting Us
         </li>
-        <p className="py-1 text-[15px] text-gray-500">
+        <p className="py-4 text-[15px] text-gray-500">
           If you have questions regarding our Privacy Statement, its
           implementation, failure to adhere to this Privacy Statement, and/or
           our general practices, please contact us at{" "}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import Banner from "./Banner";
 
 function Policy() {
   useEffect(() => {
@@ -7,9 +8,7 @@ function Policy() {
   }, []);
   return (
     <div>
-      <h1 className="w-full flex justify-center p-6  bg-cyan-100  text-3xl text-gray-700 pl-1">
-        Fefund Policy
-      </h1>
+      <Banner text="Refund Policy" />
       <div className="py-12">
         <p className="w-4/5 m-auto pl-1 text-[15px] text-gray-500">
           If you are placing an order on our website and your payment gets

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Banner from "./Banner";
 
 function Cancellation() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="w-full">
-      <banner className="w-full flex justify-center p-6  bg-cyan-100 font-bold text-3xl text-red-500">
-        Cancellation Policy
-      </banner>
+      <Banner text="Cancellation Policy" />
 
       <div className="w-4/5 m-auto py-12">
         <div className="">

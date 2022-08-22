@@ -1,11 +1,14 @@
 import React from "react";
+import { useEffect } from "react";
+import Banner from "./Banner";
 
 function TermsCondition() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="">
-      <banner className="w-full flex justify-center p-6 text-gray-600 bg-cyan-100  text-3xl text-gray-700 pl-1">
-        Terms And Conditions
-      </banner>
+      <Banner text="Terms & Condition" />
       <div className="w-4/5 m-auto p-12">
         <ul className="text-[20px] text-gray-600 py-4 font-bold">GENERAL</ul>
         <p className="text-gray-500 text-[15px]">

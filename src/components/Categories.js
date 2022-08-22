@@ -8,6 +8,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "./../Redux/CartReducer";
+import Banner from "./Banner";
 
 const Categories = () => {
   const location = useLocation();
@@ -79,9 +80,7 @@ const Categories = () => {
           </div>
         </div>
 
-        <h1 className="w-full h-[83%] flex items-center justify-start text-white text-[22px] sm:text-[30px] bg-gradient-to-b from-red-600 to-blue-200">
-          Categories
-        </h1>
+        <Banner text="Categories" />
       </div>
       <div className="w-[80%] m-auto flex flex-wrap justify-center sm:justify-start">
         {item &&

@@ -92,7 +92,7 @@ function Footer() {
               <Link to="/refundpolicy">
                 <p className="py-1 cursor-pointer">Refund Policy</p>
               </Link>
-              <Link to="/cancellationpolicy">
+              <Link to="/cancellation">
                 <p className="py-1 cursor-pointer">Cancellation Policy</p>
               </Link>
               <Link to="/deliveryterms">
