@@ -14,8 +14,18 @@ const BulkOrder = ({ setShowBulk }) => {
     }
   };
   return (
-    <div className="w-full h-[120vh] flex justify-center items-center absolute inset-0 backdrop-blur-sm z-10">
-      <div className=" w-[28rem]  m-auto bg-white shadow-2xl p-[1rem] flex flex-col gap-[1rem]">
+    <div
+      className="w-full h-[120vh] flex justify-center items-center absolute inset-0 backdrop-blur-sm z-50"
+      onClick={() => {
+        setShowBulk(false);
+      }}
+    >
+      <div
+        className=" w-[28rem]  m-auto bg-white border-2 shadow-2xl p-[1rem] flex flex-col gap-[0.8rem]"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <h1 className="font-bold text-xl">
           Bulk Order
           <hr className="border-t-2" />
