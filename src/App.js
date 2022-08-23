@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ModalLogin from "./ModalLogin";
 import ResetPassword from "./ResetPassword";
 import { useState } from "react";
@@ -52,6 +52,7 @@ export const App = () => {
     setMenuOpen(!isMenuOpen);
     window.scrollTo(0, 0);
   };
+
   // const token = localStorage.getItem("token");
   return (
     <>
@@ -93,8 +94,8 @@ export const App = () => {
           <Route path="/refundpolicy" element={<Policy />} />
           <Route path="/cancellation" element={<Cancellation />} />
           <Route path="/privacypolicy" element={<Disclaimer />} />
-          <Route path="/abodeliverytermsut" element={<AboutUs />} />
-          <Route path="/" element={<Delivery />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/deliveryterms" element={<Delivery />} />
           <Route path="/qualityterms" element={<Quality />} />
           <Route path="/termsandconditions" element={<TermsCondition />} />
         </Routes>

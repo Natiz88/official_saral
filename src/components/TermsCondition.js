@@ -9,7 +9,7 @@ function TermsCondition() {
   return (
     <div className="">
       <Banner text="Terms & Condition" />
-      <div className="w-4/5 m-auto p-12">
+      <div className="w-4/5 m-auto py-12">
         <ul className="text-[20px] text-gray-600 py-4 font-bold">GENERAL</ul>
         <p className="text-gray-500 text-[15px]">
           This Agreement contains the complete terms and conditions that apply

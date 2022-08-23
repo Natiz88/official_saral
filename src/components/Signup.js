@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Char from "../component/Images/PaymentProcess/khalti.png";
-import Base from "../component/Images/PaymentProcess/khalti.png";
+import Char from "../component/Images/Car.png";
+import Base from "../component/Images/Base.png";
+import { useSelector, useDispatch } from "react-redux";
+import { loginActions } from "./../Redux/LoginReducer";
 
 export default function Signup() {
   const [type, setType] = useState("individual");
@@ -16,6 +19,21 @@ export default function Signup() {
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [error, setError] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const loginHandler = () => {
+    navigate("/");
+    dispatch(loginActions.login());
+  };
+
+  const userHandler = (user) => {
+    dispatch(loginActions.updateUser(user));
+    localStorage.setItem("user", user);
+  };
 
   const callApi = (e) => {
     e.preventDefault();
@@ -31,7 +49,6 @@ export default function Signup() {
     // formData.append("pan", pan);
     formData.append("gender", gender);
     formData.append("type", type);
-
     formData.forEach((data, value) => console.log(data, value));
 
     console.log("api callled");
@@ -41,11 +58,23 @@ export default function Signup() {
       "content-type": "multipart/form-data;",
     };
 
-    axios({ method: "POST", url, data: formData, headers })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    axios
+      .post(url, formData, headers)
+      .then((response) => {
+        console.log(response?.data?.user);
+        localStorage.setItem("token", response?.data?.token);
+        localStorage.setItem("authenticated", 1);
+        userHandler(response?.data?.user);
+        loginHandler();
+      })
+      .catch((err) => {
+        setError(true);
+        console.log(err);
+        setErrorMsg(err?.response?.data?.message);
+      });
   };
 
+  console.log("typess", gender);
   const options = [
     "",
     "Itahari",
@@ -129,6 +158,16 @@ export default function Signup() {
     "Diktel",
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  // const [isActive, setActive] = useState(false);
+  // const corporateHandler = () => {
+  //   setActive(!isActive);
+  // };
+  const active =
+    "absolute left-0 bg-gradient-to-r from-blue-600 to-sky-300 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out";
+
   return (
     <>
       {/* main page */}
@@ -139,47 +178,41 @@ export default function Signup() {
 
           <form className="flex flex-col p-3 space-x-0 md:w-[26rm] lg:flex lg:w-[65%]   ">
             {/* user type */}
-            <div className=" ">
-              <h1>Types of user</h1>
-              {/* Individual */}
-              <div
-                onClick={() => setType("individual")}
-                className=" font-semibold  text-white  bg-blue-500 ml-4  hover:bg-blue-600 px-4 py-2 rounded-md h-11 inline-flex hover:shadow-lg hover:shadow-blue-500"
-              >
-                <input
-                  type="radio"
-                  class="form-radio "
-                  name="accountType"
-                  value="individual"
-                  checked={type === "individual" ? true : false}
-                  className="mr-2 mt-1.5 cursor-pointer w-4 h-4"
-                  onChange={(e) => {
-                    setType(e.target.value);
-                  }}
-                />
-                <label>Individual</label>
-              </div>
-              {/* Corporate */}
-              <div
-                onClick={() => setType("corporate")}
-                className=" font-semibold  text-white  bg-blue-500 ml-4  hover:bg-blue-600 px-4 py-2 rounded-md h-11 inline-flex hover:shadow-lg hover:shadow-blue-500"
-              >
-                <input
-                  type="radio"
-                  class="form-radio "
-                  name="accountType"
-                  value="corporate"
-                  checked={type === "corporate" ? true : false}
-                  className="mr-2 mt-1.5 cursor-pointer w-4 h-4"
-                  onChange={(e) => {
-                    setType(e.target.value);
-                  }}
-                />
-                <label>Corporate</label>
+            <div className="w-full relative z-10 text-sm sm:text-md md:text-lg lg:text-xl text-[15px] mb-4">
+              {/* <i className="absolute top-4 right-4 cursor-pointer"></i> */}
+              <div className="relative flex w-full m-auto mt-2 md:mt-5 bg-white justify-around items-center cursor-pointer h-[45px] shadow-lg border-gray-300 border-[1px] rounded-[20px]">
+                <p
+                  className={
+                    !type === "individual"
+                      ? "z-10 text-white w-1/2 h-full flex items-center justify-center"
+                      : "z-10 w-1/2 h-full flex items-center justify-center"
+                  }
+                  onClick={() => setType("individual")}
+                >
+                  Individual Account
+                </p>
+                <p
+                  className={
+                    !type === "individual"
+                      ? "z-10 text-white w-1/2 text-center  h-full flex items-center justify-center"
+                      : "z-10 w-1/2 text-center  h-full flex items-center justify-center"
+                  }
+                  onClick={() => setType("corporate")}
+                >
+                  Corporate Account
+                </p>
+                <div
+                  className={
+                    type === "individual"
+                      ? "absolute left-0 bg-gradient-to-r from-blue-500 to-sky-200 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out"
+                      : `absolute left-0 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out translate-x-full bg-gradient-to-r from-red-200 to-red-400`
+                  }
+                ></div>
               </div>
             </div>
             {/* Name */}
             <div className="flex flex-col ">
+              {error && <p className="text-red-400">{errorMsg}</p>}
               <label for="Name" className="mt-3 text-base">
                 {type === "individual" ? " Full Name" : "Company Name"}
               </label>
@@ -345,6 +378,7 @@ export default function Signup() {
                   }}
                   className="h-9 shadow-inner m-1 px-1 text-base border"
                 >
+                  <option value=""></option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="others">Others</option>

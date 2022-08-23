@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Image from "./../assets/heading.png";
-import NavbarBottom from "./NavbarBottom";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "./../Redux/CartReducer";
 import Banner from "./Banner";
@@ -63,25 +60,7 @@ const Categories = () => {
 
   return (
     <div>
-      <div className="w-full h-[200px]">
-        <div className="hidden w-full h-[17%] md:flex items-center ">
-          <div
-            onMouseEnter={() => setToggle(true)}
-            onMouseLeave={() => setToggle(false)}
-            className="ml-[9%] h-full "
-          >
-            <p
-              onClick={() => setToggle(!toggle)}
-              className="w-full h-full cursor-pointer flex items-center justify-between"
-            >
-              Categories {!toggle ? <IoIosArrowForward /> : <IoIosArrowBack />}
-            </p>
-            {toggle && <NavbarBottom />}
-          </div>
-        </div>
-
-        <Banner text="Categories" />
-      </div>
+      <Banner text="categories" />
       <div className="w-[80%] m-auto flex flex-wrap justify-center sm:justify-start">
         {item &&
           !subItem &&

@@ -10,7 +10,7 @@ function Policy() {
     <div>
       <Banner text="Refund Policy" />
       <div className="py-12">
-        <p className="w-4/5 m-auto pl-1 text-[15px] text-gray-500">
+        <p className="w-4/5 m-auto pl-1 text-[15px] text-gray-700">
           If you are placing an order on our website and your payment gets
           deducted but the payment is not received by SaralPrint.com for any
           reason then the payment will be automatically refunded to the source

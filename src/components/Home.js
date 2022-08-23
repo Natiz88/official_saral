@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import reminder from "../assets/reminder.svg";
 import interf from "../assets/interface.svg";
 import image1 from "../assets/image1.jpg";
@@ -20,6 +20,9 @@ import step4 from "./../component/Images/Steps/Step-4.png";
 import NavbarBottom from "./NavbarBottom";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="">
       {/* Image Slider section */}
