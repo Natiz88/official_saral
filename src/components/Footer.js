@@ -82,7 +82,9 @@ function Footer() {
           {/* First div of four column */}
           <div className="flex flex-col lg:flex-row justify-between">
             <div className="w-full lg:w-[15%] text-[15px]">
-              <p className="py-1 cursor-pointer">FAQs</p>
+              <Link to="/faqs">
+                <p className="py-1 cursor-pointer">FAQs</p>
+              </Link>
               <Link to="/termsandconditions">
                 <p className="py-1 cursor-pointer">Terms & Conditions</p>
               </Link>
@@ -98,7 +100,9 @@ function Footer() {
               <Link to="/deliveryterms">
                 <p className="py-1 cursor-pointer">Delivery</p>
               </Link>
-              <p className="py-1 cursor-pointer">Need Help?</p>
+              <Link to="/contactus">
+                <p className="py-1 cursor-pointer">Need Help?</p>
+              </Link>
             </div>
             <div className="w-full lg:w-[30%] mt-4 lg:mt-0 text-[15px] ">
               <Link to="/aboutus">

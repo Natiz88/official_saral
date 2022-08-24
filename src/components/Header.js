@@ -138,10 +138,10 @@ function Header({ handler, isMenuOpen }) {
               </div>
               <div
                 onClick={() => setShowProfile(!showProfile)}
-                className="relative w-[45%] md:w-[42%] lg:w-[42%] flex items-center justify-between rounded:md"
+                className="relative max-w-[45%] md:max-w-[42%] lg:max-w-[42%] flex items-center justify-between rounded:md cursor-pointer"
               >
-                <MdPermIdentity className="text-[12px]" />
-                <p className="text-[14px]">{user?.name}</p>
+                <MdPermIdentity className="text-[14px]" />
+                <p className="text-[14px] px-1">{user?.name}</p>
                 <IoIosArrowDown className="text-[16px]" />
                 {showProfile && (
                   <div className="absolute w-full border-2 border-gray-100 bg-white shadow-md top-full left-0">
@@ -150,6 +150,9 @@ function Header({ handler, isMenuOpen }) {
                     </div>
                     <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                       Change Password
+                    </div>
+                    <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
+                      Order History
                     </div>
                     <div
                       onClick={logoutHandler}
