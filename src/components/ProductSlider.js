@@ -30,10 +30,10 @@ const ProductSlider = () => {
         modules={[Pagination, Autoplay]}
       >
         <SwiperSlide className="flex justify-center items-center m-auto">
-          <img src={BusinessCard1} alt="hello" className="" />
+          <img src={BusinessCard1} alt="hello" className="w-[19rem]"/>
         </SwiperSlide>
         <SwiperSlide className="flex justify-center items-center m-auto">
-          <img src={BusinessCard2} alt="hello" className="" />
+          <img src={BusinessCard2} alt="hello" className="w-[19rem]" />
         </SwiperSlide>
       </Swiper>
     </div>

@@ -45,6 +45,7 @@ import AboutUs from "./components/AboutUs";
 import Delivery from "./components/Delivery";
 import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
+import Profile from "./components/Profile";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -84,6 +85,7 @@ export const App = () => {
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<UserProfile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/products" element={<ProductCollection />} />
           <Route path="/product" element={<Product />} />
           <Route path="/history" element={<OrderHistory />} />

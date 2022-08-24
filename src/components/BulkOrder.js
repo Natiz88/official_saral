@@ -15,13 +15,13 @@ const BulkOrder = ({ setShowBulk }) => {
   };
   return (
     <div
-      className="w-full h-[120vh] flex justify-center items-center absolute inset-0 backdrop-blur-sm z-50"
+      className="w-full h-[120vh] flex justify-center items-center fixed -top-[10%] left-[0%] backdrop-blur-sm z-50"
       onClick={() => {
         setShowBulk(false);
       }}
     >
       <div
-        className=" w-[28rem]  m-auto bg-white border-2 shadow-2xl p-[1rem] flex flex-col gap-[0.8rem]"
+        className=" w-[28rem]  m-auto bg-white border-2 shadow-2xl p-[2rem] flex flex-col gap-[0.8rem]"
         onClick={(e) => {
           e.stopPropagation();
         }}
