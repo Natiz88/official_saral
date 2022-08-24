@@ -46,6 +46,7 @@ import Delivery from "./components/Delivery";
 import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
 import Profile from "./components/Profile";
+import Modal from "./components/Modal";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -82,6 +83,8 @@ export const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/modal" element={<Modal />} />
+          <Route path="/changepassword" element={<ResetPassword />} />
           {/* <Route path="/product" element={<ProductDetail />} /> */}
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />

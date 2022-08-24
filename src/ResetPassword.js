@@ -7,6 +7,7 @@ import Show from "./assets/show.svg";
 import Hide from "./assets/hide.svg";
 import Done from "./assets/done.svg";
 import NotDone from "./assets/notDone.svg";
+import Banner from "./components/Banner";
 
 const ResetPassword = () => {
   const [isEmpty, setIsEmpty] = useState(false);
@@ -73,7 +74,8 @@ const ResetPassword = () => {
   };
   return (
     <>
-      <div className="h-screen w-full flex justify-center items-center">
+      <Banner text="Change Password" />
+      <div className="w-full flex flex-col py-[3rem] items-center">
         <div
           className={
             !showPop
@@ -83,8 +85,8 @@ const ResetPassword = () => {
         >
           <div className="flex flex-col justify-center items-center ">
             <img src={PasswordSVG} alt="Logo" className="w-[5rem] " />
-            <h1 className="text-[24px] font-bold text-blue-600">
-              Reset Password
+            <h1 className="text-[24px] font-bold text-[#1874D1]">
+              Change Password
             </h1>
           </div>
           <form className="flex flex-col mt-1 gap-2">
@@ -175,7 +177,7 @@ const ResetPassword = () => {
             </div>
             <div className="flex flex-col justify-center items-center">
               <button
-                className="bg-blue-600 rounded-xl mt-1 p-1 text-lg w-[50%] hover:bg-blue-700"
+                className="bg-[#1874D1] rounded-xl mt-1 p-1 text-lg text-white w-[50%] hover:bg-[#166abe]"
                 // onClick={(e)=>{
                 //   reset();
                 //   e.preventDefault();
@@ -183,7 +185,7 @@ const ResetPassword = () => {
                 // }}
                 onClick={reset}
               >
-                Reset Password
+                Change Password
               </button>
               <a
                 href="#"
