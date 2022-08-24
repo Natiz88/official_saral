@@ -45,11 +45,8 @@ import AboutUs from "./components/AboutUs";
 import Delivery from "./components/Delivery";
 import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
-<<<<<<< HEAD
 import FAQs from "./components/FAQs";
-=======
 import Profile from "./components/Profile";
->>>>>>> b55c64ba85425599c10183dffba6faf77390f901
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -78,7 +75,7 @@ export const App = () => {
     </Router>
       <Form/> */}
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Header handler={menuHandler} isMenuOpen={isMenuOpen} />
         {/* <NavbarBottom /> */}
         <MobileMenu isMenuOpen={isMenuOpen} />

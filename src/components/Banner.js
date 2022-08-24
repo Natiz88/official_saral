@@ -45,7 +45,7 @@ const Banner = ({ text }) => {
         </div>
       </div>
       <div className="h-[120px] bg-gradient-to-r from-sky-400 to-sky-200 flex justify-between items-center relative">
-        <h1 className="pl-[10%] text-[38px] text-white font-semibold left-[20%]">
+        <h1 className="pl-[10%] text-[22px] lg:text-[38px] text-white font-semibold left-[20%]">
           {text}
         </h1>
         <img

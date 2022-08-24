@@ -20,7 +20,7 @@ const FAQs = () => {
         {/* Banner */}
         {/* End of Banner */}
         {/* FAQs Container*/}
-        <div className="w-[80%] md:w-[70%] lg:w-[70%] lg:-ml-48 xl:w-[60%] flex flex-col gap-[1rem] hover:$()">
+        <div className="w-[95%] md:w-[70%] lg:w-[70%] lg:-ml-48 xl:w-[60%] flex flex-col gap-[1rem] hover:$()">
           {/* FAQ1 */}
           {faqs.map((faq) => (
             <>
@@ -39,7 +39,10 @@ const FAQs = () => {
                       : "px-3 text-gray-800 hover:text-red-600 py-3 cursor-pointer flex justify-between bg-white  rounded-md  text-sm "
                   }
                 >
-                  <p className="text-[16px] px-2 "> {faq.question}</p>
+                  <p className="text-[14px] lg:text-[16px] px-2 ">
+                    {" "}
+                    {faq.question}
+                  </p>
                   {/* <img src={X} alt="" className={!isFAQ1 === faq.question?"w-[22px] rotate-45 duration-100":"w-[22px] rotate-90 duration-100"} /> */}
                   {isFAQ1 === faq.question ? (
                     <span className="text-20px">
@@ -52,7 +55,7 @@ const FAQs = () => {
                   )}
                 </h1>
                 {isFAQ1 === faq.question && (
-                  <div className="block bg-slate-50 text-sm text-[14px] text-gray-600 tracking-wide px-8 py-4 shadow-md rounded-md">
+                  <div className="block bg-slate-50 text-sm text-[12px] lg:text-[14px] text-gray-600 tracking-wide px-8 py-4 shadow-md rounded-md">
                     {faq.answer}
                     {/* <p>{faq.answer1}</p>
                     <p>{faq.answer2}</p>

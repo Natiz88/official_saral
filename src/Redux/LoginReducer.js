@@ -6,12 +6,12 @@ const token = localStorage.getItem("token");
 const authenticated = localStorage.getItem("authenticated");
 const userDetails = localStorage.getItem("user");
 const user = userDetails && jwtDecode(userDetails);
-const tokenPresent = !!token && !!authenticated && !!user;
+const tokenPresent = !!token && !!authenticated;
 console.log("userDetails", user);
 
 const initialState = {
   isLoggedIn: tokenPresent,
-  userDetails: user,
+  userDetails: user?.data || {},
 };
 
 const loginSlice = createSlice({
