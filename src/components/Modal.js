@@ -1,12 +1,12 @@
-// import React from 'react'
-// import {Modal as Modolo} from '@mui/material/Modal';
+import React from 'react'
+import Modal from '@mui/material/Modal';
 
-// const Modal = () => {
-//   return (
-//     <div>
-//         <Modolo></Modolo>
-//     </div>
-//   )
-// }
+const ModalPop = () => {
+  return (
+    <div>
+        <Modal>hello</Modal>
+    </div>
+  )
+}
 
-// export default Modal
+export default ModalPop
