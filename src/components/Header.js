@@ -41,7 +41,7 @@ function Header({ handler, isMenuOpen }) {
   return (
     <>
       <CustomerService />
-      <div className="sticky z-50 top-0 md:top-6 border-gray-200 border-b-2 h-[150px] md:h-[70px] bg-white">
+      <div className="sticky z-50 top-0  border-gray-200 border-b-2 h-[150px] md:h-[70px] bg-white">
         <nav className="flex flex-col pt-1 items-center justify-around md:flex-row md:justify-between relative w-full md:w-[90%] lg:w-[85%] md:m-auto h-full md:h-[60px] bg-white text-md md:text-md md:text-lg lg:text-xl">
           <div className="w-11/12 flex justify-between items-center md:w-[25%] h-[45%] md:h-full">
             <Link to="/">

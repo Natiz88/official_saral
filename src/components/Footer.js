@@ -100,7 +100,7 @@ function Footer() {
               <Link to="/deliveryterms">
                 <p className="py-1 cursor-pointer">Delivery</p>
               </Link>
-              <Link to="/contactus">
+              <Link to="/contact">
                 <p className="py-1 cursor-pointer">Need Help?</p>
               </Link>
             </div>

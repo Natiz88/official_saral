@@ -45,9 +45,7 @@ import AboutUs from "./components/AboutUs";
 import Delivery from "./components/Delivery";
 import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
-
 import FAQs from "./components/FAQs";
-
 import Profile from "./components/Profile";
 import ModalPop from "./components/ModalPop";
 
@@ -79,7 +77,7 @@ export const App = () => {
     </Router>
       <Form/> */}
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Header handler={menuHandler} isMenuOpen={isMenuOpen} />
         {/* <NavbarBottom /> */}
         <MobileMenu isMenuOpen={isMenuOpen} />

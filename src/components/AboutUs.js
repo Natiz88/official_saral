@@ -10,7 +10,7 @@ function AboutUs() {
     <div className="w-full">
       <Banner text="About Us" />
 
-      <div className="w-4/5 m-auto pl-1 text-[15px] text-gray-600 py-12lll">
+      <div className="w-4/5 m-auto pl-1 text-[15px] text-gray-600 py-8">
         <p>
           <a
             href="www.saralmultipurpose.com"

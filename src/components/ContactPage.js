@@ -32,7 +32,7 @@ const Contact = () => {
   const [mMessage, setMMessage] = useState("");
 
   const [src, setSrc] = useState(
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.4656688965665!2d87.2750432149648!3d26.66558548323467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d74c533b773%3A0x9feb33f6bd3009fd!2sBlue%20Fox%20Pvt%20Ltd!5e0!3m2!1sen!2snp!4v1658379489469!5m2!1sen!2snp"
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.4653315754886!2d87.275025014848!3d26.665596277104434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d3888521dc9%3A0x6f968eb5e095907b!2sSaral%20Multipurpose%20Group%20Pvt%20Ltd!5e0!3m2!1sen!2snp!4v1661321402998!5m2!1sen!2snp"
   );
 
   const details = async (e) => {
@@ -193,26 +193,6 @@ const Contact = () => {
             <h2 className="font-semibold">Mail</h2>
             <p>{email}</p>
           </div>
-        </div>
-        {/* socials */}
-        <h1 className=" text-[24px]">Talk in Socials</h1>
-        <div className="flex justify-evenly w-full p-4">
-          <a href={facebook} className="">
-            <img
-              src={Facebook}
-              alt="facebook"
-              className="w-[3rem] hover:w-[calc(100%+1rem)] "
-            />
-          </a>
-          <a href={twitter}>
-            <img src={Twitter} alt="facebook" />
-          </a>
-          <a href={instagram}>
-            <img src={Instagram} alt="facebook" />
-          </a>
-          <a href={linkedIn}>
-            <img src={Linkedin} alt="facebook" />
-          </a>
         </div>
       </div>
     </>
