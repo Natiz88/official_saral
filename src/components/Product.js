@@ -3,16 +3,16 @@ import { useState } from "react";
 
 import PriceList from "../components/PriceList";
 import BulkOrder from "./BulkOrder";
-import BulkPop from "./BulkPop";
+import ModalPop from "./ModalPop";
 import OrderDetails from "./OrderDetails";
 import ProductCartDetails from "./ProductCartDetails";
 import ProductDetails from "./ProductDetails";
 
-const Product = () => {
+const Product = ({isModalPop, setModalPop}) => {
   const [isOrderDetails, setIsOrderDetails] = useState(false);
   const [showBulkButton, setShowBulkButton] = useState(false);
   const [showBulk, setShowBulk] = useState(false);
-  const [showBulkPop, setShowBulkPop] = useState(false);
+  // const [showBulkPop, setShowBulkPop] = useState(false);
   const [showOrderDetails, setShowOrderDetails] = useState(false);
   const [quantity, setQuantity] = useState();
 
@@ -30,7 +30,7 @@ const Product = () => {
           <ProductCartDetails
             setIsOrderDetails={setIsOrderDetails}
             setShowBulk={setShowBulk}
-            setShowBulkPop={setShowBulkPop}
+            setModalPop={setModalPop}
             setShowBulkButton={setShowBulkButton}
             showBulkButton={showBulkButton}
             setShowOrderDetails={setShowOrderDetails}
@@ -58,8 +58,9 @@ const Product = () => {
           <div className={!showBulk ? "hidden" : ""}>
             <BulkOrder setShowBulk={setShowBulk} />
           </div>
-          <div className={!showBulkPop ? "hidden" : ""}>
-            <BulkPop setShowBulkPop={setShowBulkPop} />
+          {/* <div className={!showBulkPop ? "hidden" : ""}> */}
+          <div>
+            <ModalPop isModalPop={isModalPop} setModalPop={setModalPop} title="Info" des="Quantity range exceeded. Please place a bulk order." />
           </div>
         </div>
       </div>

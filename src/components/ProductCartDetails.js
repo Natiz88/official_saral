@@ -15,7 +15,7 @@ import PriceListDetails from "./PriceListData";
 const ProductCartDetails = ({
   setIsOrderDetails,
   setShowBulk,
-  setShowBulkPop,
+  setModalPop,
   setShowBulkButton,
   showBulkButton,
   setShowOrderDetails,
@@ -83,7 +83,7 @@ const ProductCartDetails = ({
       setShowBulk(true);
       // setShowBulkButton(true);
       setShowBulkButton(!showBulkButton);
-      setShowBulkPop(true);
+      setModalPop(true);
     } else if (conditions.includes(true)) {
       setIsOrderDetails(true);
     } else {

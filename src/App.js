@@ -49,10 +49,11 @@ import TermsCondition from "./components/TermsCondition";
 import FAQs from "./components/FAQs";
 
 import Profile from "./components/Profile";
-import ModalPop from "./components/Modal";
+import ModalPop from "./components/ModalPop";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isModalPop, setModalPop] = useState(false);
   const menuHandler = () => {
     setMenuOpen(!isMenuOpen);
     window.scrollTo(0, 0);
@@ -86,7 +87,7 @@ export const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/modal" element={<ModalPop />} />
+          <Route path="/modal" element={<ModalPop isModalPop={isModalPop} setModalPop={setModalPop} />} />
           <Route path="/changepassword" element={<ResetPassword />} />
           {/* <Route path="/product" element={<ProductDetail />} /> */}
           <Route exact path="/contact" element={<Contact />} />
@@ -94,7 +95,7 @@ export const App = () => {
           <Route path="/user" element={<UserProfile />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/products" element={<ProductCollection />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product" element={<Product setModalPop={setModalPop} isModalPop={isModalPop}/>} />
           <Route path="/history" element={<OrderHistory />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/api" element={<Api />} />
