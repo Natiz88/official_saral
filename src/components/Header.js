@@ -148,6 +148,12 @@ function Header({ handler, isMenuOpen }) {
                     <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                       Profile
                     </div>
+
+                    <Link to="/changepassword">
+                      <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
+                        Change Password
+                      </div>
+                    </Link>
                     <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                       Change Password
                     </div>

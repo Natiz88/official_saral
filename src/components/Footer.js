@@ -9,7 +9,7 @@ import { GrLinkedinOption, GrFacebookOption } from "react-icons/gr";
 import FooterLogo from "./../component/Images/FooterLogo/footerLogo.png";
 import khalti from "./../component/Images/PaymentProcess/khalti.png";
 import connectIps from "./../component/Images/PaymentProcess/ips.png";
-import cod from "./../component/Images/PaymentProcess/cod.png";
+// import cod from "./../component/Images/PaymentProcess/cod.png";
 import ItemsFooter from "./../components/ItemsFooter";
 
 // import ItemsFooter from "./../components/ItemsFooter"
@@ -120,7 +120,7 @@ function Footer() {
               <p className="font-bold uppercase mb-1 ">Payment Options</p>
               <div className=" flex md:flex-col w-full">
                 <img
-                  src={cod}
+                  // src={cod}
                   alt="logo"
                   className="h-[35px] w-[70%] md:w-[35%] lg:w-[45%]"
                 />
