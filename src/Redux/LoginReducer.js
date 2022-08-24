@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { useState } from "react";
+import jwtDecode from "jwt-decode";
 
 const token = localStorage.getItem("token");
+const authenticated = localStorage.getItem("authenticated");
 const userDetails = localStorage.getItem("user");
-const tokenPresent = !!token;
-console.log("userDetails", userDetails);
+const user = userDetails && jwtDecode(userDetails);
+const tokenPresent = !!token && !!authenticated && !!user;
+console.log("userDetails", user);
 
 const initialState = {
   isLoggedIn: tokenPresent,
-  userDetails: userDetails?.data,
+  userDetails: user,
 };
 
 const loginSlice = createSlice({

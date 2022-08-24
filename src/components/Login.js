@@ -4,11 +4,8 @@ import { useNavigate, useHistory, Navigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { loginActions } from "./../Redux/LoginReducer";
-
-import Facebook from "../assets/facebook.png";
-import Google from "../assets/google.svg";
-import Home from "./Home";
 import { GrClose } from "react-icons/gr";
+const sign = require("jwt-encode");
 
 const Login = ({ setLoginOpen }) => {
   const navigate = useNavigate();
@@ -24,7 +21,8 @@ const Login = ({ setLoginOpen }) => {
 
   const userHandler = (user) => {
     dispatch(loginActions.updateUser(user));
-    localStorage.setItem("user", user);
+    // const userEncoded = jwt.sign(user, "saralprint");
+    localStorage.setItem("user");
   };
 
   const login = async (e) => {
@@ -51,6 +49,9 @@ const Login = ({ setLoginOpen }) => {
         localStorage.setItem("token", response?.data?.token);
         localStorage.setItem("authenticated", 1);
         setLoginOpen(false);
+        const jwt =
+          response?.data?.user && sign(response?.data?.user, "saralprint");
+        localStorage.setItem("user", jwt);
         userHandler(response?.data?.user);
         loginHandler();
       })

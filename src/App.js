@@ -45,8 +45,10 @@ import AboutUs from "./components/AboutUs";
 import Delivery from "./components/Delivery";
 import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
+<<<<<<< HEAD
+import FAQs from "./components/FAQs";
+=======
 import Profile from "./components/Profile";
-import Modal from "./components/Modal";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -103,6 +105,7 @@ export const App = () => {
           <Route path="/deliveryterms" element={<Delivery />} />
           <Route path="/qualityterms" element={<Quality />} />
           <Route path="/termsandconditions" element={<TermsCondition />} />
+          <Route path="/faqs" element={<FAQs />} />
         </Routes>
         <Footer />
       </BrowserRouter>
