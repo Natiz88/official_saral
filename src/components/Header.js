@@ -148,20 +148,18 @@ function Header({ handler, isMenuOpen }) {
                     <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                       Profile
                     </div>
-<<<<<<< HEAD
+
                     <Link to="/changepassword">
                       <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                         Change Password
                       </div>
                     </Link>
-=======
                     <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                       Change Password
                     </div>
                     <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                       Order History
                     </div>
->>>>>>> 41810ecefbe5c7c5ff1272667e1e46a4abd57828
                     <div
                       onClick={logoutHandler}
                       className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2"

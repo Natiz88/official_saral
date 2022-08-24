@@ -45,9 +45,9 @@ import AboutUs from "./components/AboutUs";
 import Delivery from "./components/Delivery";
 import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
-<<<<<<< HEAD
+
 import FAQs from "./components/FAQs";
-=======
+
 import Profile from "./components/Profile";
 
 export const App = () => {
