@@ -45,7 +45,11 @@ import AboutUs from "./components/AboutUs";
 import Delivery from "./components/Delivery";
 import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
+<<<<<<< HEAD
 import FAQs from "./components/FAQs";
+=======
+import Profile from "./components/Profile";
+>>>>>>> b55c64ba85425599c10183dffba6faf77390f901
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -86,6 +90,7 @@ export const App = () => {
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<UserProfile />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/products" element={<ProductCollection />} />
           <Route path="/product" element={<Product />} />
           <Route path="/history" element={<OrderHistory />} />

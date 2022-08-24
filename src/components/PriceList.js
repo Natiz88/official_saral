@@ -3,8 +3,8 @@ import PriceListDetails from "./PriceListData";
 
 const PriceList = () => {
   const trStyle = "text-center";
-  const tdStyle = " text-sm p-[0.5rem] m-1";
-  const quantityRange = "text-right font-semibold p-1 m-1";
+  const tdStyle = " text-[13px] p-[0.5rem] m-1";
+  const quantityRange = "text-[13px] text-right font-semibold p-1 m-1";
   const thStyle = "p-1 py-[0.5rem] m-1 text-[]";
   return (
     <div className="shadow-lg">

@@ -17,7 +17,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState();
 
   return (
-    <div className=" flex flex-col bg-blue-100 px-[2rem] py-[2rem] gap-[1rem] lg:flex-row xl:px-[8rem] ">
+    <div className=" flex flex-col bg-blue-50 px-[2rem] py-[2rem] gap-[1rem] lg:flex-row xl:px-[8rem] ">
       <div className="flex flex-col bg-white gap-[1rem] px-[2rem] py-[1rem] shadow-lg lg:flex-row lg:justify-between lg:w-[70%] xl:w-[80%]">
         {/* Products Details */}
         <div className=" flex flex-col items-center lg:w-[calc(48%)]">

@@ -4,7 +4,7 @@ import Info from "../assets/info.svg";
 const BulkPop = ({ setShowBulkPop }) => {
   return (
     <div
-      className="w-full h-[120vh] flex justify-center items-center absolute inset-0 backdrop-blur-sm z-50"
+      className="w-full h-[120vh] flex justify-center items-center fixed inset-0 -top-[10%] backdrop-blur-sm z-50"
       onClick={() => {
         setShowBulkPop(false);
       }}

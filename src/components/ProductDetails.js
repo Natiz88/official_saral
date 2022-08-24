@@ -23,7 +23,7 @@ const ProductDetails = () => {
     message: "(One design card is accepted in one order)"
   }
   return (
-    <div className="w-[22.25rem] flex flex-col gap-[1rem] lg:w-full">
+    <div className="w-[18rem] flex flex-col gap-[1rem] md:w-[22rem] lg:w-full">
       {/* <img src={BusinessCard1} alt="hello" className="" /> */}
       <ProductSlider />
       <div className="flex flex-col">
