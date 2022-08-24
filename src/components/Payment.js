@@ -1,9 +1,10 @@
 import React from "react";
-// import COD from "./../component/Images/PaymentProcess/cod.png";
+import COD from "./../component/Images/PaymentProcess/cod.png";
 import Connectips from "./../component/Images/PaymentProcess/Connectips.png";
 import Khalti from "./../component/Images/PaymentProcess/khalti.png";
 import { useState, useEffect } from "react";
 import CartItemData from "./CartItemData";
+import Banner from "./Banner";
 
 const Payment = () => {
   const [active, setActive] = useState(false);
@@ -33,13 +34,13 @@ const Payment = () => {
   // }, [totalMRP, CartItemData]);
 
   return (
-    <div className="w-full p-[1rem]">
-      <div className="font-normal text-red-500 text-2xl p-2 ">Checkout</div>
+    <div className="w-full">
+      <Banner text=" Checkout" />
 
       {/* SubMain Div */}
-      <div className="bg-white  p-3 flex flex-col md:flex-row gap-8 shadow-lg border-2 border-gray-200">
+      <div className="bg-white  p-3 flex flex-col md:flex-row gap-8 shadow-lg border-gray-200">
         {/* first Div */}
-        <div className="flex flex-col gap-2 md:w-1/2">
+        <div className="flex flex-col gap-2 md:w-1/2 border-2 border-gray-200 p-4 shadow-lg">
           <div>
             <h1 className="font-semibold text-xl text-red-500 p-2">
               Shipping & Billing
@@ -75,7 +76,7 @@ const Payment = () => {
             </button>
           </div>
           <div className={!active ? "p-2 mt-5" : "hidden"}>
-            <h1 className="font-semibold mb-1 ">Shipping Address</h1>
+            <h1 className="font-normal mb-1 ">Shipping Address</h1>
             <p className="text-xs font-semibold text-gray-500">
               Transportation cost will be charged on the basis of the weight,
               when delivered outside Provence.
@@ -131,23 +132,21 @@ const Payment = () => {
                 name="paymentOption"
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
-              <img 
-              // src={COD}
-               alt="" className="w-[30%]" />
+              <img src={COD} alt="" className="w-[15%]" />
               <input
                 type="radio"
                 value="Connectips"
                 name="paymentOption"
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
-              <img src={Connectips} alt="" className="w-[20%]" />
+              <img src={Connectips} alt="" className="w-[16%]" />
               <input
                 type="radio"
                 value="Khalti"
                 name="paymentOption"
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
-              <img src={Khalti} alt="" className="w-[30%]" />
+              <img src={Khalti} alt="" className="w-[20%]" />
             </div>
           </div>
           <div className="w-full border-2 border-gray-200">
@@ -175,7 +174,7 @@ const Payment = () => {
         </div>
 
         {/* Card Items  */}
-        <div className="p-2 flex flex-col md:w-1/2">
+        <div className="p-2 flex flex-col md:w-1/2 font-semibold">
           Cart Items
           <div className="flex border-2 flex-col gap-[1rem] max-h-[460px] overflow-auto">
             {CartItemData.map((items) => {
@@ -190,25 +189,25 @@ const Payment = () => {
                   </div>
                   <div className=" flex w-full md:w-[80] items:center">
                     <div className="w-[80%]">
-                      <h1 className="text-blue-500 font-bold ml-3 lg:pt-[35px]">
+                      <h1 className="font-bold text-[16px] pl-5 lg:pt-[35px]">
                         {items.productname}
                       </h1>
-                      <div className="flex justify-around text-blue-500 text-xs font-bold">
-                        <div>
+                      <div className="flex justify-around text-[14px] font-normal">
+                        <div className="flex flex-col justify-center items-center">
                           <h1>Quantity</h1>
-                          <p>{items.quantity}</p>
+                          <p className="pt-2">{items.quantity}</p>
                         </div>
-                        <div>
+                        <div className="flex flex-col justify-center items-center">
                           <h1>Discount</h1>
-                          <p>{items.discount}</p>
+                          <p className="pt-2">{items.discount}</p>
                         </div>
-                        <div>
+                        <div className="flex flex-col justify-center items-center">
                           <h1>Additional Cost</h1>
-                          <p>{items.additionalCost}</p>
+                          <p className="pt-2">{items.additionalCost}</p>
                         </div>
-                        <div>
+                        <div className="flex flex-col justify-center items-center">
                           <h1>Sub Total</h1>
-                          <p>{items.total}</p>
+                          <p className="pt-2">{items.total}</p>
                         </div>
                       </div>
                     </div>

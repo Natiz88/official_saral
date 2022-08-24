@@ -10,11 +10,11 @@ function Delivery() {
   return (
     <div className="">
       <Banner text="Delivery Terms" />
-      <div className="w-4/5 m-auto p-8">
-        <li className="list-decimal ml-4 text-[20px] text-gray-600">
+      <div className="w-4/5 m-auto py-12">
+        <li className="list-decimal ml-4 mt-4 font-semibold text-[20px] text-gray-600">
           Selecting the best option for you to deliver your booked order
         </li>
-        <p className="text-[15px] text-gray-500">
+        <p className="text-[15px] text-gray-500 mt-4">
           At Saral Print we are dedicated to delivering your booked order
           quickly and inexpensively. We offer a range of delivery and pickup
           options, so you can choose the shipping method that best meets your
@@ -22,10 +22,10 @@ function Delivery() {
         </p>
         <br />
 
-        <li className="text-[20px] text-gray-600 list-decimal ml-4">
+        <li className="text-[20px] text-gray-600 list-decimal ml-4 mt-4 font-semibold">
           When can I expect my order?
         </li>
-        <p className="text-[15px] text-gray-500">
+        <p className="text-[15px] text-gray-500 mt-4">
           Your order will arrive based on the printing turnaround option and
           shipping options you chose. Printing turnaround time typically ranges
           from the same day to 7 business days depending on your selection and
@@ -38,10 +38,10 @@ function Delivery() {
         </p>
         <br />
 
-        <li className="text-[20px] text-gray-600 list-decimal ml-4">
+        <li className="text-[20px] text-gray-600 list-decimal ml-4 mt-4 font-semibold">
           Order Tracking
         </li>
-        <p className="text-[15px] text-gray-500">
+        <p className="text-[15px] text-gray-500 mt-4">
           Kindly make sure to provide a valid email address or phone number when
           you order as you will receive an email / text message from Saral Print
           that contains your shipping tracking number once the order is shipped.
@@ -50,10 +50,10 @@ function Delivery() {
         </p>
         <br />
 
-        <li className="text-[20px] text-gray-600 list-decimal ml-4">
+        <li className="text-[20px] text-gray-600 list-decimal ml-4 mt-4 font-semibold">
           Pickup Order
         </li>
-        <p className="text-[15px] text-gray-500">
+        <p className="text-[15px] text-gray-500 mt-4">
           If you live in the Itahari area, you can choose "Will Pick up My
           Order" and pick it up from our facility located in Itahari. By
           selecting "Will Pick up My Order" you do not need to pay the shipping

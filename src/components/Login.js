@@ -12,10 +12,6 @@ import { GrClose } from "react-icons/gr";
 
 const Login = ({ setLoginOpen }) => {
   const navigate = useNavigate();
-  const [isActive, setActive] = useState(false);
-  const toggleActive = () => {
-    setActive(!isActive);
-  };
   const [errorMsg, setErrorMsg] = useState("");
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,9 +21,12 @@ const Login = ({ setLoginOpen }) => {
   const loginHandler = () => {
     dispatch(loginActions.login());
   };
-  const logoutHandler = () => {
-    dispatch(loginActions.logout());
+
+  const userHandler = (user) => {
+    dispatch(loginActions.updateUser(user));
+    localStorage.setItem("user", user);
   };
+
   const login = async (e) => {
     e.preventDefault();
     setError(false);
@@ -41,7 +40,6 @@ const Login = ({ setLoginOpen }) => {
       password: password,
       device_name: "acer",
     };
-    console.log("logindata", loginData);
     const config = {
       header: {
         Accept: "application/json",
@@ -53,7 +51,7 @@ const Login = ({ setLoginOpen }) => {
         localStorage.setItem("token", response?.data?.token);
         localStorage.setItem("authenticated", 1);
         setLoginOpen(false);
-        console.log("success");
+        userHandler(response?.data?.user);
         loginHandler();
       })
       .catch((err) => {
@@ -76,9 +74,6 @@ const Login = ({ setLoginOpen }) => {
 
   const logined = useSelector((state) => state.login.isLoggedIn);
   console.log("logined", logined);
-
-  const active =
-    "absolute left-0 bg-gradient-to-r from-blue-600 to-sky-300 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out";
   return (
     <>
       {/* Main Container */}
@@ -97,7 +92,7 @@ const Login = ({ setLoginOpen }) => {
         >
           {/* Header */}
           <div className="flex justify-center items-center">
-            <h1 className="text-[20px] font-Normal">Login Page</h1>
+            <h1 className="text-[24px] mt-8 font-semibold">Login Page</h1>
             {/* <Link
               className="text-red-600 font-bold uppercase px-6 py-2 text-2xl md:text-3xl lg:text-3xl outline-none focus:outline-none absolute right-0 mr-1 mb-1 ease-linear transition-all duration-150 hover:text-red-800"
               to="/"
@@ -121,38 +116,6 @@ const Login = ({ setLoginOpen }) => {
             </div>
           </div>
           {/* Toggle Container */}
-          <div className="w-full relative z-10 text-sm sm:text-md md:text-lg lg:text-xl text-[15px]">
-            {/* <i className="absolute top-4 right-4 cursor-pointer"></i> */}
-            <div className="relative flex w-11/12 m-auto mt-2 md:mt-5 bg-white justify-around items-center cursor-pointer h-[45px] shadow-lg border-gray-300 border-[1px] rounded-[20px]">
-              <p
-                className={
-                  !isActive
-                    ? "z-10 text-white w-1/2 h-full flex items-center justify-center"
-                    : "z-10 w-1/2 h-full flex items-center justify-center"
-                }
-                onClick={toggleActive}
-              >
-                Individual Account
-              </p>
-              <p
-                className={
-                  isActive
-                    ? "z-10 text-white w-1/2 text-center  h-full flex items-center justify-center"
-                    : "z-10 w-1/2 text-center  h-full flex items-center justify-center"
-                }
-                onClick={toggleActive}
-              >
-                Corporate Account
-              </p>
-              <div
-                className={
-                  !isActive
-                    ? "absolute left-0 bg-gradient-to-r from-blue-500 to-sky-200 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out"
-                    : `absolute left-0 rounded-[20px] w-1/2 h-full transition-all duration-500 ease-in-out translate-x-full bg-gradient-to-r from-red-200 to-red-400`
-                }
-              ></div>
-            </div>
-          </div>
           <form className="flex flex-col md:mt-4 p-4">
             {error && <p className="text-red-400">{errorMsg}</p>}
             <label className="font-medium">Email</label>
@@ -164,9 +127,9 @@ const Login = ({ setLoginOpen }) => {
               }}
               value={email}
               placeholder=" Enter Email"
-              className="block border border-grey-light w-full p-2 rounded mb-4"
+              className="block border border-grey-light outline-none w-full p-2 rounded mb-2 mt-2"
             />
-            <label className="font-medium">Password</label>
+            <label className="font-medium mt-4">Password</label>
             <input
               type="password"
               name="name"
@@ -175,12 +138,12 @@ const Login = ({ setLoginOpen }) => {
               }}
               value={password}
               placeholder=" Enter Password"
-              className="block border border-grey-light w-full p-2 rounded mb-2"
+              className="block border border-grey-light outline-none w-full p-2 rounded mb-2 mt-2"
             />
             <div className="flex">
               <a
                 href="/"
-                className="mb-1 text-[14px] text-gray-400 hover:text-black"
+                className="mb-1 text-[14px] text-gray-400 hover:text-black mt-2"
               >
                 Forgot Password?
               </a>
@@ -189,7 +152,7 @@ const Login = ({ setLoginOpen }) => {
               <button
                 type="submit"
                 // className="h-[45px] bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] w-[70%] text-[20px] lg:w-[50%]"
-                className="bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] h-[40px] w-[70%] lg:w-[50%] text-[16px]"
+                className="bg-blue-600 hover:bg-blue-800 text-white rounded-[20px] h-[40px] w-[70%] lg:w-[50%] text-[16px] mt-4"
                 onClick={login}
               >
                 Login
@@ -201,9 +164,9 @@ const Login = ({ setLoginOpen }) => {
             <button className="bg-red-600 hover:bg-red-800 text-white rounded-[20px] w-[70%] h-[40px] text-[16px] text-bold md:w-[60%] lg:w-[60%] xl:w-[50%]">
               Create Account
             </button>
-            <label className="mb-2 text-[14px]">or Signup with</label>
+            {/* <label className="mb-2 text-[14px]">or Signup with</label> */}
           </div>
-          <div className="flex justify-center gap-[1rem] md:gap-[2rem]">
+          {/* <div className="flex justify-center gap-[1rem] md:gap-[2rem]">
             <button className="w-[7.5rem] flex justify-center py-3 px-2 lg:px-6 lg:w-[8rem] bg-red-50 rounded-xl transition hover:bg-red-100 shadow-lg border-gray-300 border-[1px]">
               <span className="flex justify-center items-center gap-2">
                 <img src={Google} alt="Google" className="w-[22px] " />
@@ -220,7 +183,7 @@ const Login = ({ setLoginOpen }) => {
                 </span>
               </span>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

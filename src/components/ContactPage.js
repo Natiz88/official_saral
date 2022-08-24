@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Banner from "./Banner";
 
 import Mail from "../assets/mail.svg";
 import Phone from "../assets/phone.svg";
@@ -30,7 +31,9 @@ const Contact = () => {
   const [mPhone, setMPhone] = useState("");
   const [mMessage, setMMessage] = useState("");
 
-  const [src, setSrc] = useState("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.4656688965665!2d87.2750432149648!3d26.66558548323467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d74c533b773%3A0x9feb33f6bd3009fd!2sBlue%20Fox%20Pvt%20Ltd!5e0!3m2!1sen!2snp!4v1658379489469!5m2!1sen!2snp")
+  const [src, setSrc] = useState(
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.4656688965665!2d87.2750432149648!3d26.66558548323467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d74c533b773%3A0x9feb33f6bd3009fd!2sBlue%20Fox%20Pvt%20Ltd!5e0!3m2!1sen!2snp!4v1658379489469!5m2!1sen!2snp"
+  );
 
   const details = async (e) => {
     try {
@@ -50,8 +53,6 @@ const Contact = () => {
           setTwitter(response.data[0].twitter);
           setInstagram(response.data[0].instagram);
           setlinkedIn(response.data[0].linkedIn);
-
-          
         });
     } catch (error) {
       console.log(error);
@@ -63,7 +64,7 @@ const Contact = () => {
 
   // const sendMessage = async (e) => {
   //   try {
-      
+
   //     const messageData = {
   //       name: mName,
   //       email: mEmail,
@@ -71,7 +72,7 @@ const Contact = () => {
   //       message: mMessage
   //     }
   //     const config = {
-        
+
   //     }
   //     await axios.post("/api",messageData,config)
   //     .then((response)=>{
@@ -81,21 +82,19 @@ const Contact = () => {
   //       }
   //     });
   //   } catch (error) {
-      
+
   //   }
   // }
   return (
     <>
+      <Banner text="Contact us" />
       {/* page */}
-      <div className=" flex flex-col justify-center items-center gap-[2rem]">
-        <div className=" h-[8rem] w-full text-[40px] text-center text-white bg-blue-800">
-          CONTACT US
-        </div>
+      <div className=" flex flex-col justify-center items-center gap-[2rem] mt-4">
         <div className=" w-[90%] flex flex-col gap-[4rem] md:w-[80%] lg:flex-row lg:w-[80%] lg:gap-[2rem]">
           {/* map */}
           <div className=" h-[20rem] w-[100%] lg:h-[28rem] lg:w-[50%]">
             <iframe
-            title="map"
+              title="map"
               src={src}
               width="100%"
               height="100%"
@@ -103,7 +102,7 @@ const Contact = () => {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              onClick={(e)=>console.log("hello",e)}
+              onClick={(e) => console.log("hello", e)}
             />
           </div>
           {/* form */}

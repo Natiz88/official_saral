@@ -23,11 +23,14 @@ function Header({ handler, isMenuOpen }) {
   const cart = useSelector((state) => state.cart.cart);
 
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  const user = useSelector((state) => state.login.userDetails);
+  console.log("user", user);
   const dispatch = useDispatch();
   const logoutHandler = () => {
     dispatch(loginActions.logout());
     localStorage.removeItem("token");
     localStorage.removeItem("authentication");
+    localStorage.removeItem("user");
   };
 
   // const [isToggleActive, setToggleActive] = useState(false);
@@ -38,7 +41,7 @@ function Header({ handler, isMenuOpen }) {
   return (
     <>
       <CustomerService />
-      <div className="sticky z-50 top-0 md:top-6 shadow-lg h-[150px] md:h-[70px] bg-white">
+      <div className="sticky z-50 top-0 md:top-6 border-gray-200 border-b-2 h-[150px] md:h-[70px] bg-white">
         <nav className="flex flex-col pt-1 items-center justify-around md:flex-row md:justify-between relative w-full md:w-[90%] lg:w-[85%] md:m-auto h-full md:h-[60px] bg-white text-md md:text-md md:text-lg lg:text-xl">
           <div className="w-11/12 flex justify-between items-center md:w-[25%] h-[45%] md:h-full">
             <Link to="/">
@@ -120,7 +123,7 @@ function Header({ handler, isMenuOpen }) {
               </div> */}
             </div>
           ) : (
-            <div className="w-[90%] md:w-[50%] lg:w-[35%] h-[30%] md:h-full lg:ml-8 text-[15px] text-gray-600 flex items-center justify-around">
+            <div className="w-[90%] md:w-[50%] lg:w-[40%] h-[30%] md:h-full lg:ml-8 text-[15px] text-gray-600 flex items-center justify-around">
               <div className="w-[28%] md:w-[32%] lg:w-[28%] flex justify-around items-center rounded:md">
                 <TbTruckDelivery className="text-[16px]" />
                 <button>Track Order</button>
@@ -135,10 +138,10 @@ function Header({ handler, isMenuOpen }) {
               </div>
               <div
                 onClick={() => setShowProfile(!showProfile)}
-                className="relative w-[35%] md:w-[42%] lg:w-[37%] flex items-center justify-between rounded:md"
+                className="relative w-[45%] md:w-[42%] lg:w-[42%] flex items-center justify-between rounded:md"
               >
-                <MdPermIdentity className="text-[16px]" />
-                <button>Name profile</button>
+                <MdPermIdentity className="text-[12px]" />
+                <p className="text-[14px]">{user?.name}</p>
                 <IoIosArrowDown className="text-[16px]" />
                 {showProfile && (
                   <div className="absolute w-full border-2 border-gray-100 bg-white shadow-md top-full left-0">
