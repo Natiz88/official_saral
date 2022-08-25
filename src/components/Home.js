@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import reminder from "../assets/reminder.svg";
 import interf from "../assets/interface.svg";
 import image1 from "../assets/image1.jpg";
-import photo_gift from "../assets/sweater.jpg";
+import image from "../assets/sweater.jpg";
 import Banner from "../assets/banner.webp";
 import MyCarousel from "./MyCarousel";
 import Steps from "./Steps";
-import PopularProduct from "./PopularProduct";
+import ProductDescription from "./ProductDescription";
 import Advertise from "./Advertise";
 import SelfAdv from "./SelfAdv";
 import ProductCategoryHeading from "./ProductCategoryHeading";
@@ -21,8 +21,45 @@ import NavbarBottom from "./NavbarBottom";
 
 const Home = () => {
   useEffect(() => {
+    console.log("home reloaded");
     window.scrollTo(0, 0);
   }, []);
+
+  const products = [
+    {
+      image: image,
+      name: "Normal Sweat Shirt",
+      description:
+        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
+      price: "Rs. 80",
+      discount: "30",
+    },
+    {
+      image: image,
+      name: "Normal Sweat Shirt",
+      description:
+        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
+      price: "Rs. 80",
+      discount: "30",
+    },
+    {
+      image: image,
+      name: "Normal Sweat Shirt",
+      description:
+        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
+      price: "Rs. 80",
+      discount: "30",
+    },
+    {
+      image: image,
+      name: "Normal Sweat Shirt",
+      description:
+        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
+      price: "Rs. 80",
+      discount: "30",
+    },
+  ];
+
   return (
     <div className="">
       {/* Image Slider section */}
@@ -82,10 +119,7 @@ const Home = () => {
             </div>
             <div className=" flex justify-center">
               <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                <PopularProduct product={photo_gift} />
-                <PopularProduct product={photo_gift} />
-                <PopularProduct product={photo_gift} />
-                <PopularProduct product={photo_gift} />
+                <ProductDescription products={products} />
               </div>
             </div>
           </div>
@@ -97,10 +131,7 @@ const Home = () => {
             </div>
             <div className=" flex justify-center">
               <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                <PopularProduct product={photo_gift} />
-                <PopularProduct product={photo_gift} />
-                <PopularProduct product={photo_gift} />
-                <PopularProduct product={photo_gift} />
+                <ProductDescription products={products} />
               </div>
             </div>
           </div>

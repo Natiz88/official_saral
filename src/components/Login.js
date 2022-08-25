@@ -24,6 +24,8 @@ const Login = ({ setLoginOpen }) => {
     // const userEncoded = jwt.sign(user, "saralprint");
     localStorage.setItem("user");
   };
+  const logined = useSelector((state) => state.login.isLoggedIn);
+  console.log("logged in", logined);
 
   const login = async (e) => {
     e.preventDefault();
@@ -46,14 +48,13 @@ const Login = ({ setLoginOpen }) => {
     await axios
       .post("http://192.168.100.17:8081/api/login", loginData, config)
       .then((response) => {
-        localStorage.setItem("token", response?.data?.token);
-        localStorage.setItem("authenticated", 1);
         setLoginOpen(false);
+        localStorage.setItem("token", response?.data?.token);
+        loginHandler();
         const jwt =
           response?.data?.user && sign(response?.data?.user, "saralprint");
         localStorage.setItem("user", jwt);
         userHandler(response?.data?.user);
-        loginHandler();
       })
       .catch((err) => {
         setError(true);
@@ -73,8 +74,6 @@ const Login = ({ setLoginOpen }) => {
     }
   }, []);
 
-  const logined = useSelector((state) => state.login.isLoggedIn);
-  console.log("logined", logined);
   return (
     <>
       {/* Main Container */}

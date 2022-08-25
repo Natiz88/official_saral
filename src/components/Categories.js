@@ -6,6 +6,7 @@ import Image from "./../assets/heading.png";
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "./../Redux/CartReducer";
 import Banner from "./Banner";
+import ProductDescription from "./ProductDescription";
 
 const Categories = () => {
   const location = useLocation();

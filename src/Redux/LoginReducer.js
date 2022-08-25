@@ -3,15 +3,13 @@ import { useState } from "react";
 import jwtDecode from "jwt-decode";
 
 const token = localStorage.getItem("token");
-const authenticated = localStorage.getItem("authenticated");
 const userDetails = localStorage.getItem("user");
 const user = userDetails && jwtDecode(userDetails);
-const tokenPresent = !!token && !!authenticated;
-console.log("userDetails", user);
+const tokenPresent = !!token && !!user;
 
 const initialState = {
   isLoggedIn: tokenPresent,
-  userDetails: user?.data || {},
+  userDetails: user,
 };
 
 const loginSlice = createSlice({

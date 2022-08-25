@@ -1,5 +1,6 @@
 import React from "react";
 import image from "./../component/Images/Car.png";
+import { Link } from "react-router-dom";
 
 function SelfAdv(props) {
   return (
@@ -15,9 +16,11 @@ function SelfAdv(props) {
           with variety of printing services and quality
         </p>
         <div className="flex justify-center mt-2 md:mt-5">
-          <button className=" bg-red-600 rounded-md text-[14px] px-4 py-1 lg:px-6 lg:py-2  text-stone-50 text-lg lg:text-[16px] p-1 md:w-48">
-            Get Started
-          </button>
+          <Link to="/signup">
+            <button className=" bg-red-600 rounded-md text-[14px] px-4 py-1 lg:px-6 lg:py-2  text-stone-50 text-lg lg:text-[16px] p-1 md:w-48">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
       <div className="w-full sm:w-1/2 md:w-2/5">

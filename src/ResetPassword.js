@@ -79,8 +79,8 @@ const ResetPassword = () => {
         <div
           className={
             !showPop
-              ? "h-[26rem] w-[28em] px-7 shadow-lg border-gray-300 border-[1px] rounded-3xl p-4 md:w-[50%] lg:w-[40%]"
-              : "h-[29rem] w-[28em] px-7 shadow-lg border-gray-300 border-[1px] rounded-3xl p-4 md:w-[50%] lg:w-[40%]"
+              ? "w-[28em] px-7 shadow-lg border-gray-300 border-[1px] rounded-3xl p-4 md:w-[50%] lg:w-[40%]"
+              : "w-[28em] px-7 shadow-lg border-gray-300 border-[1px] rounded-3xl p-4 md:w-[50%] lg:w-[40%]"
           }
         >
           <div className="flex flex-col justify-center items-center ">
@@ -110,7 +110,7 @@ const ResetPassword = () => {
               }}
               value={password}
               autoComplete="off"
-              className="border border-grey-light rounded"
+              className="border border-grey-light rounded h-10"
             />
             {/* <label className="flex justify-between">New Password</label> */}
             <label className="flex justify-between">
@@ -133,7 +133,7 @@ const ResetPassword = () => {
               }}
               value={newPassword}
               autoComplete="off"
-              className="border border-grey-light rounded"
+              className="border border-grey-light rounded h-10"
             />
             <label className="flex justify-between">
               Confirm Password
@@ -155,7 +155,7 @@ const ResetPassword = () => {
               }}
               value={confirmPassword}
               autoComplete="off"
-              className="border border-grey-light rounded"
+              className="border border-grey-light rounded h-10"
             />
             <div className={showPop ? "block" : "hidden"}>
               {/* <div className="hidden "> */}
@@ -177,7 +177,7 @@ const ResetPassword = () => {
             </div>
             <div className="flex flex-col justify-center items-center">
               <button
-                className="bg-[#1874D1] rounded-xl mt-1 p-1 text-lg text-white w-[50%] hover:bg-[#166abe]"
+                className="bg-[#1874D1] rounded-xl p-1 text-lg text-white w-[50%] hover:bg-[#166abe] mt-4"
                 // onClick={(e)=>{
                 //   reset();
                 //   e.preventDefault();
@@ -191,7 +191,7 @@ const ResetPassword = () => {
                 href="#"
                 className="text-sm text-blue-500 hover:text-blue-800 hover:underline"
               >
-                Forget Password?
+                Forgot Password?
               </a>
             </div>
           </form>
