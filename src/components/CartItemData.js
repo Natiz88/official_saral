@@ -1,41 +1,27 @@
 import Khalti from "./../component/contactBG.jpg";
-const CartItemData = [
-  {
-    id: 1,
-    image: Khalti,
-    productname: "Pin Badge",
-    quantity: 5,
-    discount: 0,
-    additionalCost: 0,
-    total: 100,
-  },
-  {
-    id: 2,
-    image: Khalti,
-    productname: "Pin Badge",
-    quantity: 5,
-    discount: 0,
-    additionalCost: 0,
-    total: 100,
-  },
-  // {
-  //   id: 3,
-  //   image: Khalti,
-  //   productname: "Pin Badge",
-  //   quantity: 5,
-  //   discount: 0,
-  //   additionalCost: 0,
-  //   total: 200,
-  // },
-  // {
-  //   id: 4,
-  //   image: Khalti,
-  //   productname: "Pin Badge",
-  //   quantity: 5,
-  //   discount: 0,
-  //   additionalCost: 0,
-  //   total: 200,
-  // },
-];
-
-export default CartItemData;
+export const CartItemData = {
+  cart_amount: 1500,
+  cart_tax: 113,
+  cart_shipping: 100,
+  cart_net_amount: 1513,
+  cart_item: [
+    {
+      id: 1,
+      image: Khalti,
+      productname: "Pin Badge",
+      quantity: 5,
+      discount: 0,
+      additionalCost: 0,
+      total: 100,
+    },
+    {
+      id: 2,
+      image: Khalti,
+      productname: "Pin Badge",
+      quantity: 5,
+      discount: 0,
+      additionalCost: 0,
+      total: 100,
+    },
+  ],
+};
