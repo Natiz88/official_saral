@@ -3,38 +3,21 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartItemData from "./CartItemData";
 import Khalti from "./../component/Images/PaymentProcess/khalti.png";
+import { useSelector } from "react-redux";
 
 import Banner from "./Banner";
+import OrderSummary from "./OrderSummary";
 
 function Checkout() {
   const [active, setActive] = useState(false);
   const [modal, setModal] = useState(false);
-  const CartItemData = {
-    cart_amount: 1500,
-    cart_tax: 113,
-    cart_shipping: 100,
-    cart_net_amount: 1513,
-    cart_item: [
-      {
-        id: 1,
-        image: Khalti,
-        productname: "Pin Badge",
-        quantity: 5,
-        discount: 0,
-        additionalCost: 0,
-        total: 100,
-      },
-      {
-        id: 2,
-        image: Khalti,
-        productname: "Pin Badge",
-        quantity: 5,
-        discount: 0,
-        additionalCost: 0,
-        total: 100,
-      },
-    ],
-  };
+  const [defaultAddress, setDefaultAddress] = useState(true);
+  const [address, setAddress] = useState("");
+
+  const user = useSelector((state) => state.login.userDetails);
+  console.log("checkout", user);
+
+  const city = ["itahari", "dharan", "biratnagar"];
 
   return (
     <div className="w-full">
@@ -43,13 +26,15 @@ function Checkout() {
       {/* SubMain Div */}
       <div className="bg-white  p-3 flex flex-col lg:flex-row gap-8 shadow-lg border-gray-200">
         {/* first Div */}
-        <div className="flex flex-col gap-2 lg:w-1/2 border-2 border-gray-200 p-4 shadow-lg">
+        <div className="flex flex-col gap-2 lg:w-2/3 border-2 border-gray-200 p-4 shadow-lg">
           <div>
             <h1 className="font-semibold text-red-500 p-2 text-[20px]">
               Shipping Address
             </h1>
+
             <div className="bg-slate-400 h-[1px]" />
           </div>
+          <div></div>
           <div className="flex gap-8 mt-3">
             <button
               className={
@@ -80,41 +65,67 @@ function Checkout() {
           </div>
           <div className={!active ? "p-2 mt-5" : "hidden"}>
             <h1 className="font-normal mb-1 ">Shipping Address</h1>
-            <p className="text-xs font-semibold text-gray-500">
-              Transportation cost will be charged on the basis of the weight,
-              when delivered outside Provence.
-            </p>
-            <div className="border p-3 mt-3">
-              <form className="flex flex-col">
-                <label htmlFor="city">
-                  City<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  className="mt-1 border-b-2 outline-none border-gray-300 pl-1"
-                />
-                <label className="mt-2" htmlFor="street">
-                  Street Address<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  className="mt-1 border-b-2 outline-none border-gray-300 pl-1"
-                />
-                <label className="mt-2" htmlFor="number">
-                  Phone Number<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="number"
-                  name=""
-                  id=""
-                  className="mt-1 border-b-2 outline-none border-gray-300 pl-1"
-                />
-              </form>
+            <div className="w-full flex">
+              <input
+                type="radio"
+                checked={defaultAddress}
+                onClick={() => setDefaultAddress(true)}
+                className="text-green-400"
+              />
+              <p className=" ml-4" onClick={() => setDefaultAddress(true)}>
+                {user.address},{user.address}
+              </p>
             </div>
+            <button
+              onClick={() => setDefaultAddress(false)}
+              className="py-2 px-4 bg-red-600 text-white rounded-md mt-4"
+            >
+              Deliver to Different Address
+            </button>
+
+            {!defaultAddress && (
+              <div className="border p-3 mt-3">
+                <form className="flex flex-col">
+                  <label htmlFor="city">
+                    City<span className="text-red-500">*</span>
+                  </label>
+                  {/* <input
+                  type="text"
+                  name=""
+                  id=""
+                  className="mt-1 border-b-2 outline-none border-gray-300 pl-1"
+                /> */}
+                  <select className="h-[35px] bg-white border-b-2 border-gray-300">
+                    <option value=""></option>
+                    {city.map((c) => (
+                      <option value={c}>{c}</option>
+                    ))}
+                  </select>
+                  <label className="mt-2" htmlFor="street">
+                    Street Address<span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    className="mt-1 border-b-2 outline-none border-gray-300 pl-1"
+                  />
+                  <label className="mt-2" htmlFor="number">
+                    Phone Number<span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    name=""
+                    id=""
+                    className="mt-1 border-b-2 outline-none border-gray-300 pl-1"
+                  />
+                  <p className="text-xs font-normal text-gray-500">
+                    Transportation cost will be charged on the basis of the
+                    weight
+                  </p>
+                </form>
+              </div>
+            )}
 
             {/* <button className="mt-2 text-red-500">
             + Add new address
@@ -168,28 +179,8 @@ function Checkout() {
             </p>
           </div> */}
         </div>
-        <div className="w-full lg:w-1/2">
-          <div className="w-full h-[180px] mt-8 border-2 border-gray-200">
-            <p className="w-full flex justify-between p-2 border-gray-200 font-bold">
-              Total Cost
-              <span className="font-normal">Rs.{CartItemData.cartAmount}</span>
-            </p>
-            <p className="w-full flex justify-between p-2 border-gray-200 font-bold">
-              Shipping Cost per Item{" "}
-              <span className="font-normal">
-                Rs.{CartItemData.cart_shipping}
-              </span>
-            </p>
-            <p className="w-full flex justify-between p-2 border-gray-200 font-bold">
-              Tax<span className="font-normal">Rs.{CartItemData.cart_tax}</span>
-            </p>
-            <p className="w-full flex justify-between p-2 border-gray-200 font-bold">
-              Net Amount
-              <span className="font-normal">
-                Rs.{CartItemData.cart_netAmount}
-              </span>
-            </p>
-          </div>
+        <div className="w-full lg:w-[30%]">
+          <OrderSummary />
           <div className="w-full flex justify-end">
             <Link to="/payment">
               <button className="bg-red-500 mt-5 rounded-[5px] py-2 px-4 text-white">

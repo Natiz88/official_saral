@@ -4,6 +4,7 @@ export const CartItemData = {
   cart_tax: 113,
   cart_shipping: 100,
   cart_net_amount: 1513,
+  cart_discount: 0,
   cart_item: [
     {
       id: 1,

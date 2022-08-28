@@ -2,6 +2,7 @@ import React from "react";
 import image from "../assets/sweater.jpg";
 
 function ProductDescription({ products }) {
+  console.log("prod", products);
   return (
     <>
       {products &&

@@ -81,26 +81,9 @@ const Categories = () => {
               </div>
             </Link>
           ))}
-        {item &&
-          subItem &&
-          subItem.sublink.map((subs) => (
-            <div className="w-[220px] h-[240px] cursor-pointer group shadow-lg rounded-[5px] my-4 mx-6 relative overflow-hidden">
-              <img
-                src={Image}
-                alt="heading"
-                className="h-[80%] w-full overflow-hidden group-hover:scale-[1.1] transition-all ease-in"
-              />
-              <p className="w-full h-[20%] text-[14px] absolute top-[80%] group-hover:text-red-400 bg-white flex justify-center items-center">
-                {subs.name}
-                <button
-                  className="px-4 py-2 bg-green-500"
-                  onClick={() => addToCart(subs.name)}
-                >
-                  Add to cart
-                </button>
-              </p>
-            </div>
-          ))}
+        <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {item && subItem && <ProductDescription products={subItem.sublink} />}
+        </div>
       </div>
     </div>
   );
