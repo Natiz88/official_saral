@@ -35,6 +35,8 @@ import OrderHistory from "./components/OrderHistory";
 import MobileMenu from "./components/MobileMenu";
 import Categories from "./components/Categories";
 import Api from "./components/Api";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 import Payment from "./components/Payment";
 import Signup from "./components/Signup";
 import Product from "./components/Product";
@@ -85,7 +87,12 @@ export const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/modal" element={<ModalPop isModalPop={isModalPop} setModalPop={setModalPop} />} />
+          <Route
+            path="/modal"
+            element={
+              <ModalPop isModalPop={isModalPop} setModalPop={setModalPop} />
+            }
+          />
           <Route path="/changepassword" element={<ResetPassword />} />
           {/* <Route path="/product" element={<ProductDetail />} /> */}
           <Route exact path="/contact" element={<Contact />} />
@@ -93,10 +100,12 @@ export const App = () => {
           <Route path="/user" element={<UserProfile />} />
           <Route path="/profile" element={<Profile isModalPop={isModalPop} setModalPop={setModalPop}/>} />
           <Route path="/products" element={<ProductCollection />} />
-          <Route path="/product" element={<Product isModalPop={isModalPop} setModalPop={setModalPop}/>} />
+          <Route path="/product" element={<Product setModalPop={setModalPop} isModalPop={isModalPop}/>} />
           <Route path="/history" element={<OrderHistory />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/api" element={<Api />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/refundpolicy" element={<Policy />} />
           <Route path="/cancellation" element={<Cancellation />} />

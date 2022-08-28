@@ -130,7 +130,7 @@ function Header({ handler, isMenuOpen }) {
               </div>
 
               <div className="w-[20%] md:w-[16%] lg:w-[20%] h-4/5 md:h-[60%] bg-blue-400 text-white flex justify-center items-center rounded:md">
-                <Link to="/payment" className="flex items-center">
+                <Link to="/cart" className="flex items-center">
                   <AiOutlinePrinter className="text-[16px]" />
 
                   <span className="ml-1">{cart.length}</span>
