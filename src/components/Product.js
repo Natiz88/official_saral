@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 
 import PriceList from "../components/PriceList";
 import BulkOrder from "./BulkOrder";
@@ -8,7 +9,9 @@ import OrderDetails from "./OrderDetails";
 import ProductCartDetails from "./ProductCartDetails";
 import ProductDetails from "./ProductDetails";
 
-const Product = ({isModalPop, setModalPop}) => {
+import Info from "../assets/info.svg";
+
+const Product = ({ isModalPop, setModalPop }) => {
   const [isOrderDetails, setIsOrderDetails] = useState(false);
   const [showBulkButton, setShowBulkButton] = useState(false);
   const [showBulk, setShowBulk] = useState(false);
@@ -60,7 +63,15 @@ const Product = ({isModalPop, setModalPop}) => {
           </div>
           {/* <div className={!showBulkPop ? "hidden" : ""}> */}
           <div>
-            <ModalPop isModalPop={isModalPop} setModalPop={setModalPop} title="Info" des="Quantity range exceeded. Please place a bulk order." />
+            <ModalPop
+              isModalPop={isModalPop}
+              setModalPop={setModalPop}
+              title="Info"
+              des="Quantity range exceeded. Please place a bulk order."
+              headImg={Info}
+              btn1="Ok"
+              onclickBtn1={() => setModalPop(false)}
+            />
           </div>
         </div>
       </div>

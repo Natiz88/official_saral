@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
 
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
@@ -10,7 +11,7 @@ import Whatsapp from "../assets/whatsapp.svg";
 import Viber from "../assets/viber.svg";
 
 import PriceListDetails from "./PriceListData";
-// import ProductCartData from "./ProductCartData";
+// import ProductData from "./ProductData";
 
 const ProductCartDetails = ({
   setIsOrderDetails,
@@ -21,7 +22,18 @@ const ProductCartDetails = ({
   setShowOrderDetails,
   setQuantity,
 }) => {
+  const [productHeading, setProductHeading] = useState(
+    "BUSINESS CARD - SINGLE SIDE"
+  );
+
+  const [size, setSize] = useState("A4");
+  const [paperWeight, setPaperWeight] = useState("300 Gsm");
+  const [lamination, setLamination] = useState("Matte");
+  const [weight, setWeight] = useState("1.34");
+  // const [quantity, setQuantity] = useState("BUSINESS CARD - SINGLE SIDE");
   const [priceMode, setPriceMode] = useState("normal");
+  // const [uploadedDesign, setUploadedDesign] = useState([]);
+
   const [uploadDesign1, setUploadDesign1] = useState(false);
   const [uploadDesign2, setUploadDesign2] = useState(false);
   const [uploadDesign3, setUploadDesign3] = useState(false);
@@ -32,7 +44,7 @@ const ProductCartDetails = ({
     useState(false);
 
   const ProductCartData = {
-    size: "10.8x5.5",
+    size: "",
     paperWeight: 300,
     lamination: "Matte",
     weight: 1.34,
@@ -40,6 +52,41 @@ const ProductCartDetails = ({
     priceMode: "Normal",
     uploadedDesign: [],
   };
+
+  // ProductCartData.size = "large";
+
+  const details = async (e) => {
+    try {
+      // const token = localStorage.getItem("token");
+      // // const token = "6|p0DSoCMJSkgefsCJvTRNdv58ETeFwj27ewzvglXy";
+      // const config = {
+      //   headers: { Authorization: `Bearer ${token}` },
+      // };
+      await axios
+        .get(
+          "http://192.168.100.17:8081/api/product/1/data"
+          // config
+        )
+        .then((response) => {
+          // setUserName(response.data.name);
+          // setTypeOfUser(response.data.type.charAt(0).toUpperCase()+response.data.type.slice(1));
+          // setEmail(response.data.email);
+          // setMobileNumber(response.data.mobile_number);
+          // setCity(response.data.city);
+          // setCity(response.data.address.split(" ")[0]);
+          // setStreetAddress(response.data.address);
+          // setContactNumber(response.data.mobile_number);
+          // setPanNumber(response.data.pan_number);
+          console.log(response.data.size);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  React.useEffect(() => {
+    details();
+  }, []);
+
   function between(x, min, max) {
     return x >= min && x <= max;
   }
@@ -162,7 +209,7 @@ const ProductCartDetails = ({
   return (
     <>
       <h1 className="font-bold text-xl">
-        BUSINESS CARD - SINGLE SIDE
+        {productHeading}
         <hr className="border-t-2" />
       </h1>
       <div className="flex">

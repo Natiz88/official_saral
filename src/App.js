@@ -91,9 +91,9 @@ export const App = () => {
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<UserProfile />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile isModalPop={isModalPop} setModalPop={setModalPop}/>} />
           <Route path="/products" element={<ProductCollection />} />
-          <Route path="/product" element={<Product setModalPop={setModalPop} isModalPop={isModalPop}/>} />
+          <Route path="/product" element={<Product isModalPop={isModalPop} setModalPop={setModalPop}/>} />
           <Route path="/history" element={<OrderHistory />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/api" element={<Api />} />

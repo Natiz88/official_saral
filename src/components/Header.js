@@ -145,10 +145,11 @@ function Header({ handler, isMenuOpen }) {
                 <IoIosArrowDown className="text-[16px]" />
                 {showProfile && (
                   <div className="absolute w-full border-2 border-gray-100 bg-white shadow-md top-full left-0">
-                    <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
-                      Profile
-                    </div>
-
+                    <Link to={'/profile'}>
+                      <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
+                        Profile
+                      </div>
+                    </Link>
                     <Link to="/changepassword">
                       <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                         Change Password
