@@ -1,80 +1,87 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { links } from "./../utils/LinkItems";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { useSelector, useDispatch } from "react-redux";
 
 function NavbarBottom() {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [isMenuOpen, setMenuOpen] = useState(true);
 
+  // const links = useSelector((state) => state.cart.links);
+
+  console.log("sib", links[0]?.sub_categories || "nope");
+
   // useEffect(() => {
   //   setHeading("");
   //   setSubHeading("");
   // }, [isToggleActive]);
 
+  const navigate = useNavigate();
+  const clickHandler = (id) => {
+    navigate(`/category/${id}`);
+  };
+
   return (
     <>
-      <div className="hidden md:flex z-10 bg-white md:w-[180px] min-h-[350px] shadow-lg m-auto absolute md:top-[110px] md:left-0 lg:left-[15%] flex-col items-center justify-around">
+      <div className="hidden md:flex z-30 bg-white md:wfull max-h-[80px] flex-wrap min-h-[35px] shadow-lg m-auto items-center border-b-2 border-gray-300">
         {links.map((link) => (
           <div
             onMouseLeave={() => setHeading("")}
-            className="w-full h-full cursor-pointer"
+            className="cursor-pointer relative [&:nth-child(3)]"
           >
-            <Link to={`/categories?heading=${link.name}`}>
-              <div
-                onMouseEnter={() => {
-                  heading !== link.name
-                    ? setHeading(link.name)
-                    : setHeading("");
-                }}
-                className={
-                  heading === link.name
-                    ? "w-full h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
-                    : "w-full h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
-                }
-              >
-                <p>{link.name}</p>
-                {heading !== link.name ? (
-                  <IoIosArrowForward />
-                ) : (
-                  <IoIosArrowBack />
-                )}
-              </div>
-            </Link>
+            <div
+              onMouseEnter={() => {
+                heading !== link.name ? setHeading(link.name) : setHeading("");
+              }}
+              onClick={() => clickHandler()}
+              className={
+                heading === link.name
+                  ? "md:ml-4 h-[35px] flex justify-between items-center cursor-pointer text-[14px] text-red-600 relative px-2"
+                  : "md:ml-4 h-[35px] flex items-center cursor-pointer text-[14px] px-2 "
+              }
+            >
+              <p>{link.name}</p>
+              {heading !== link.name ? (
+                <IoIosArrowForward />
+              ) : (
+                <IoIosArrowBack />
+              )}
+            </div>
 
             <div
               className={
                 heading === link.name
-                  ? "absolute w-full h-full left-full top-0 bg-white shadow-lg"
+                  ? "absolute min-w-[150px] left-0 top-full bg-white shadow-lg z-40"
                   : "hidden"
               }
             >
-              <div className="w-full min-h-full bg-white shadow-md relative flex flex-col">
-                {link.sublinks.map((mysublinks) => (
+              <div className="w-full min-h-[300px] bg-white shadow-md flex flex-col">
+                {link.sub_categories.map((mysublinks) => (
                   <div
                     onMouseLeave={() => setSubHeading("")}
                     className="w-full"
                   >
                     <Link
-                      to={`/categories?heading=${link.name}&subheading=${mysublinks.Head}`}
+                      to={`/categories?heading=${link.name}&subheading=${mysublinks.name}`}
                     >
                       <div
                         onMouseEnter={() => {
-                          subHeading !== mysublinks.Head
-                            ? setSubHeading(mysublinks.Head)
+                          subHeading !== mysublinks.name
+                            ? setSubHeading(mysublinks.name)
                             : setSubHeading("");
                         }}
                         className={
-                          subHeading === mysublinks.Head
+                          subHeading === mysublinks.name
                             ? "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
                             : "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
                         }
                       >
-                        <p>{mysublinks.Head}</p>
-                        {subHeading === mysublinks.Head ? (
+                        <p>{mysublinks.name}</p>
+                        {subHeading === mysublinks.name ? (
                           <IoIosArrowBack />
                         ) : (
                           <IoIosArrowForward />
@@ -84,14 +91,14 @@ function NavbarBottom() {
 
                     <div
                       className={
-                        subHeading === mysublinks.Head
-                          ? "absolute top-0 left-full w-[300px] h-full shadow-md bg-white overflow-auto"
+                        subHeading === mysublinks.name
+                          ? "absolute top-0 left-full min-w-[250px] px-1 h-full shadow-md bg-white overflow-auto z-50"
                           : "hidden"
                       }
                     >
-                      {mysublinks.sublink.map((slink) => (
+                      {mysublinks.products.map((slink) => (
                         <div className="hover:bg-gray-200">
-                          <p className="h-[35px] text-sm text-[14px] text-gray-600 hover:text-red-600 mx-2 flex items-center">
+                          <p className="h-[35px] text-sm text-[14px] text-gray-600 hover:text-red-600 flex items-center">
                             {slink.name}
                           </p>
                         </div>

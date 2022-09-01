@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { links } from "./../components/Links";
 
 const initialState = {
-  links,
+  links: [],
   cart: [],
 };
 
@@ -16,6 +16,10 @@ const cartSlice = createSlice({
     },
     removeFromCart(state) {
       return { num: state.num - 1 };
+    },
+    addCategories(state, action) {
+      console.log("cat", action.payload);
+      state.links = action.payload;
     },
   },
 });

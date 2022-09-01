@@ -8,31 +8,31 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function MyCarousel() {
   return (
-    <div className="w-full sm:h-[348px] mb-2 sm:mb-0 -z-10 relative md:bg-sky-200 overflow-hidden">
-      <div className="w-full object-contain lg:w-3/5 sm:absolute md:left-[20%] lg:left-[27%] sm:flex sm:justify-center">
-        <Carousel
-          showThumbs={false}
-          showArrows={false}
-          autoPlay
-          infiniteLoop
-          useKeyboardArrows
-          transitionTime={1000}
-        >
-          <div>
-            <img src={image1} alt="slider" />
-          </div>
-          <div>
-            <img src={image2} alt="slider" />
-          </div>
-          <div>
-            <img src={image3} alt="slider" />
-          </div>
-          <div>
-            <img src={image4} alt="slider" />
-          </div>
-        </Carousel>
-      </div>
+    <div className="w-full md:w-4/5 m-auto -z-10">
+      {/* //   <div className="w-full object-contain lg:w-3/5 sm:absolute md:left-[20%] lg:left-[27%] sm:flex sm:justify-center"> */}
+      <Carousel
+        showThumbs={false}
+        showArrows={false}
+        autoPlay
+        infiniteLoop
+        useKeyboardArrows
+        transitionTime={1000}
+      >
+        <div>
+          <img src={image1} alt="slider" />
+        </div>
+        <div>
+          <img src={image2} alt="slider" />
+        </div>
+        <div>
+          <img src={image3} alt="slider" />
+        </div>
+        <div>
+          <img src={image4} alt="slider" />
+        </div>
+      </Carousel>
     </div>
+    // </div>
   );
 }
 

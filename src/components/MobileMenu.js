@@ -27,7 +27,7 @@ const MobileMenu = ({ isMenuOpen, handler }) => {
   };
 
   const subCategory = (link, mysublinks) => {
-    navigate(`/categories?heading=${link.name}&subheading=${mysublinks.Head}`);
+    navigate(`/categories?heading=${link.name}&subheading=${mysublinks.name}`);
     handler();
   };
 
@@ -84,11 +84,11 @@ const MobileMenu = ({ isMenuOpen, handler }) => {
                   : "w-10/11 m-auto hidden"
               }
             >
-              {link.sublinks.map((mysublinks) => (
+              {link.sub_categories.map((mysublinks) => (
                 <div className="w-full">
                   <p
                     className={
-                      subHeading !== mysublinks.Head
+                      subHeading !== mysublinks.name
                         ? "w-full text-[14px] h-[35px] font-normal px-8 flex justify-between items-center border-t-2"
                         : "w-full text-[14px] h-[35px] font-semibold px-8 bg-gray-200 flex justify-between items-center border-t-2"
                     }
@@ -97,17 +97,17 @@ const MobileMenu = ({ isMenuOpen, handler }) => {
                       className="w-[70%] h-full flex items-center"
                       onClick={() => subCategory(link, mysublinks)}
                     >
-                      {mysublinks.Head}
+                      {mysublinks.name}
                     </p>
                     <span
                       onClick={() => {
-                        subHeading !== mysublinks.Head
-                          ? setSubHeading(mysublinks.Head)
+                        subHeading !== mysublinks.name
+                          ? setSubHeading(mysublinks.name)
                           : setSubHeading("");
                       }}
                       className="w-[30%] flex justify-end items-center h-full"
                     >
-                      {subHeading !== mysublinks.Head ? (
+                      {subHeading !== mysublinks.name ? (
                         <IoIosArrowForward />
                       ) : (
                         <IoIosArrowUp />
@@ -116,10 +116,10 @@ const MobileMenu = ({ isMenuOpen, handler }) => {
                   </p>
                   <div
                     className={
-                      subHeading === mysublinks.Head ? "block w-full" : "hidden"
+                      subHeading === mysublinks.name ? "block w-full" : "hidden"
                     }
                   >
-                    {mysublinks.sublink.map((slink) => (
+                    {mysublinks.products.map((slink) => (
                       <p className="text-sm text-[14px] px-16 font-normal py-2 hover:text-red-400 my-2">
                         {slink.name}
                       </p>

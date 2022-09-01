@@ -10,7 +10,6 @@ import FooterLogo from "./../component/Images/FooterLogo/footerLogo.png";
 import khalti from "./../component/Images/PaymentProcess/khalti.png";
 import connectIps from "./../component/Images/PaymentProcess/ips.png";
 import cod from "./../component/Images/PaymentProcess/cod.png";
-import ItemsFooter from "./../components/ItemsFooter";
 
 // import ItemsFooter from "./../components/ItemsFooter"
 function Footer() {
@@ -103,6 +102,9 @@ function Footer() {
               <Link to="/contact">
                 <p className="py-1 cursor-pointer">Need Help?</p>
               </Link>
+              <Link to="/sitemap">
+                <p className="py-1 cursor-pointer">Sitemap</p>
+              </Link>
             </div>
             <div className="w-full lg:w-[30%] mt-4 lg:mt-0 text-[15px] ">
               <Link to="/aboutus">
@@ -164,11 +166,11 @@ function Footer() {
             </div>
             <div className="flex md:flex-row md:justify-between">
               <div className="flex md:mt-2 w-full gap-3 md:w-[100%] mb-5">
-                <GrFacebookOption className="text-[25px] md:text-[30px] border-2 hover:cursor-pointer hover:bg-red-400" />
-                <AiFillInstagram className=" text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />
-                <GrLinkedinOption className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />
-                <AiFillYoutube className="text-[25px] border-2 md:text-[30px] hover:cursor-pointer hover:bg-red-400" />
-                <AiOutlineTwitter className="text-[25px] border-2 md:text-[30px]  hover:cursor-pointer hover:bg-red-400" />
+                <GrFacebookOption className="text-[25px] md:text-[30px] border-2 cursor-pointer" />
+                <AiFillInstagram className=" text-[25px] border-2 md:text-[30px] cursor-pointer" />
+                <GrLinkedinOption className="text-[25px] border-2 md:text-[30px] cursor-pointer" />
+                <AiFillYoutube className="text-[25px] border-2 md:text-[30px] cursor-pointer" />
+                <AiOutlineTwitter className="text-[25px] border-2 md:text-[30px]  cursor-pointer" />
               </div>
             </div>
           </div>
@@ -176,8 +178,6 @@ function Footer() {
         </div>
         {/* <ItemsFooter /> */}
       </div>
-      <hr className="bg-red-400 w-[70%] m-auto h-[3px]" />
-      <ItemsFooter />
     </>
   );
 }
