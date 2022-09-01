@@ -13,8 +13,6 @@ function NavbarBottom() {
 
   // const links = useSelector((state) => state.cart.links);
 
-  console.log("sib", links[0]?.sub_categories || "nope");
-
   // useEffect(() => {
   //   setHeading("");
   //   setSubHeading("");
@@ -23,6 +21,13 @@ function NavbarBottom() {
   const navigate = useNavigate();
   const clickHandler = (id) => {
     navigate(`/category/${id}`);
+  };
+  const findPos = () => {
+    const win = window.innerWidth;
+    const element = document.getElementById("pos");
+    var rect = element.getBoundingClientRect().right;
+    console.log("width", win);
+    console.log("el", rect);
   };
 
   return (
@@ -74,11 +79,13 @@ function NavbarBottom() {
                             ? setSubHeading(mysublinks.name)
                             : setSubHeading("");
                         }}
+                        id="pos"
                         className={
                           subHeading === mysublinks.name
                             ? "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
                             : "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
                         }
+                        onClick={findPos}
                       >
                         <p>{mysublinks.name}</p>
                         {subHeading === mysublinks.name ? (
@@ -98,7 +105,10 @@ function NavbarBottom() {
                     >
                       {mysublinks.products.map((slink) => (
                         <div className="hover:bg-gray-200">
-                          <p className="h-[35px] text-sm text-[14px] text-gray-600 hover:text-red-600 flex items-center">
+                          <p
+                            className="h-[35px] text-sm text-[14px] text-gray-600 hover:text-red-600 flex items-center"
+                            onClick={findPos}
+                          >
                             {slink.name}
                           </p>
                         </div>

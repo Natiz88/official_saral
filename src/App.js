@@ -107,7 +107,7 @@ export const App = () => {
           />
           <Route path="/products" element={<ProductCollection />} />
           <Route
-            path="/product/:id"
+            path="/product"
             element={
               <Product setModalPop={setModalPop} isModalPop={isModalPop} />
             }
