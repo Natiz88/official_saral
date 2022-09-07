@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { links } from "./../utils/LinkItems";
 import { IoIosArrowForward } from "react-icons/io";
@@ -10,33 +10,42 @@ function NavbarBottom() {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [isMenuOpen, setMenuOpen] = useState(true);
+  const [isPosCorrect, setPosCorrect] = useState(true);
 
   // const links = useSelector((state) => state.cart.links);
 
-  // useEffect(() => {
-  //   setHeading("");
-  //   setSubHeading("");
-  // }, [isToggleActive]);
+  useEffect(() => {}, []);
+  const mouse = (e) => {
+    const main = document.getElementById("main");
+    let bnds = main.getBoundingClientRect();
+    let x = e.clientX - bnds.left;
+    const win = window.innerWidth;
+    win - x > 350 ? setPosCorrect(true) : setPosCorrect(false);
+  };
 
   const navigate = useNavigate();
   const clickHandler = (id) => {
     navigate(`/category/${id}`);
   };
-  const findPos = () => {
-    const win = window.innerWidth;
-    const element = document.getElementById("pos");
-    var rect = element.getBoundingClientRect().right;
-    console.log("width", win);
-    console.log("el", rect);
+
+  const classChild = (sublinks) => {
+    if (subHeading === sublinks.name) {
+      return "absolute top-0 right-full min-w-[250px] px-1 h-full shadow-md bg-white overflow-auto z-50";
+    } else if (subHeading !== sublinks.name) {
+      return "hidden";
+    }
   };
 
   return (
     <>
-      <div className="hidden md:flex z-30 bg-white md:wfull max-h-[80px] flex-wrap min-h-[35px] shadow-lg m-auto items-center border-b-2 border-gray-300">
+      <div
+        id="main"
+        className=" hidden md:flex z-30 bg-white w-full max-h-[80px] flex-wrap min-h-[35px] shadow-lg m-auto items-center border-b-2 border-gray-300 justify-around px-8"
+      >
         {links.map((link) => (
           <div
             onMouseLeave={() => setHeading("")}
-            className="cursor-pointer relative [&:nth-child(3)]"
+            className="cursor-pointer relative [&:nth-child(1)]"
           >
             <div
               onMouseEnter={() => {
@@ -68,6 +77,7 @@ function NavbarBottom() {
                 {link.sub_categories.map((mysublinks) => (
                   <div
                     onMouseLeave={() => setSubHeading("")}
+                    onMouseMove={mouse}
                     className="w-full"
                   >
                     <Link
@@ -79,13 +89,11 @@ function NavbarBottom() {
                             ? setSubHeading(mysublinks.name)
                             : setSubHeading("");
                         }}
-                        id="pos"
                         className={
                           subHeading === mysublinks.name
                             ? "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2 text-red-600 bg-gray-200"
                             : "h-[35px] flex justify-between items-center cursor-pointer text-[14px] px-2"
                         }
-                        onClick={findPos}
                       >
                         <p>{mysublinks.name}</p>
                         {subHeading === mysublinks.name ? (
@@ -96,24 +104,39 @@ function NavbarBottom() {
                       </div>
                     </Link>
 
-                    <div
-                      className={
-                        subHeading === mysublinks.name
-                          ? "absolute top-0 left-full min-w-[250px] px-1 h-full shadow-md bg-white overflow-auto z-50"
-                          : "hidden"
-                      }
-                    >
-                      {mysublinks.products.map((slink) => (
-                        <div className="hover:bg-gray-200">
-                          <p
-                            className="h-[35px] text-sm text-[14px] text-gray-600 hover:text-red-600 flex items-center"
-                            onClick={findPos}
-                          >
-                            {slink.name}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
+                    {isPosCorrect ? (
+                      <div
+                        className={
+                          subHeading === mysublinks.name
+                            ? "absolute top-0 left-full min-w-[250px] px-1 h-full shadow-md bg-white overflow-auto z-50"
+                            : "hidden"
+                        }
+                      >
+                        {mysublinks.products.map((slink) => (
+                          <div className="hover:bg-gray-200">
+                            <p className="h-[35px] text-sm text-[14px] text-gray-600 hover:text-red-600 flex items-center">
+                              {slink.name}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div
+                        className={
+                          subHeading === mysublinks.name
+                            ? "absolute top-0 right-full min-w-[250px] h-full shadow-md bg-white overflow-auto z-50"
+                            : "hidden"
+                        }
+                      >
+                        {mysublinks.products.map((slink) => (
+                          <div className="hover:bg-gray-200">
+                            <p className="h-[35px] text-sm text-[14px] text-gray-600 hover:text-red-600 flex items-center">
+                              {slink.name}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

@@ -60,6 +60,12 @@ const Login = ({ setLoginOpen }) => {
       userHandler(response?.data?.user);
     } catch (err) {
       setError(true);
+      if (err?.response?.status === 404) {
+        setErrorMsg("");
+      }
+      if (err?.response?.status === 404) {
+        setErrorMsg("");
+      }
       setErrorMsg(err?.response?.data?.message);
     }
 

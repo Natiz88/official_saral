@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Char from "../component/Images/Car.png";
@@ -15,12 +15,25 @@ export default function Signup() {
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
   const [pan, setPan] = useState("");
-  const [pphoto, setPphoto] = useState("");
+  const [file, setFile] = useState();
+  const [pphoto, setPphoto] = useState();
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [error, setError] = useState(false);
+
+  const filePickerRef = useRef();
+
+  const pickedHandler = (event) => {
+    if (event.target.files && event.target.files.length > 0) {
+      const pickedFile = event.target.files[0];
+      setFile(pickedFile);
+      onImageChange();
+    }
+  };
+
+  const pickImageHandler = (event) => {};
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,43 +48,43 @@ export default function Signup() {
     localStorage.setItem("user", user);
   };
   const onImageChange = (e) => {
-    const [file] = e.target.files;
     setPphoto(URL.createObjectURL(file));
   };
 
   const callApi = (e) => {
     e.preventDefault();
+    console.log("photo", file);
 
     const url = "http://192.168.100.17:8081/api/signup";
     let formData = new FormData();
-    formData.append("name", name);
-    formData.append("address", address);
-    formData.append("mobile_number", phone);
-    formData.append("password", password);
-    formData.append("password_confirmation", cpassword);
-    formData.append("email", email);
-    // formData.append("pan", pan);
-    formData.append("gender", gender);
-    formData.append("type", type);
-    formData.append("pan_number", pan);
-    formData.append("pan_document", pphoto);
+    // formData.append("name", name);
+    // formData.append("address", address);
+    // formData.append("mobile_number", phone);
+    // formData.append("password", password);
+    // formData.append("password_confirmation", cpassword);
+    // formData.append("email", email);
+    // // formData.append("pan", pan);
+    // formData.append("gender", gender);
+    // formData.append("type", type);
+    // formData.append("pan_number", pan);
+    formData.append("pan_document", file);
     formData.forEach((data, value) => console.log(data, value));
 
     console.log("api callled");
 
     const headers = {
       accept: "application/json",
-      "content-type": "multipart/form-data;",
+      "content-type": "multipart/form-data",
     };
 
     axios
       .post(url, formData, headers)
       .then((response) => {
         console.log(response?.data?.user);
-        localStorage.setItem("token", response?.data?.token);
-        localStorage.setItem("authenticated", 1);
-        userHandler(response?.data?.user);
-        loginHandler();
+        // localStorage.setItem("token", response?.data?.token);
+        // localStorage.setItem("authenticated", 1);
+        // userHandler(response?.data?.user);
+        // loginHandler();
       })
       .catch((err) => {
         setError(true);
@@ -360,10 +373,11 @@ export default function Signup() {
                     PAN photo*
                   </label>
                   <input
-                    onChange={onImageChange}
+                    ref={filePickerRef}
+                    onChange={pickedHandler}
                     type="file"
                     name="Pan Photo"
-                    accept="image/*"
+                    accept=".jpg,.png,.jpeg"
                     placeholder=" Phone Number"
                     className="border h-9 shadow-inner m-1 px-1 text-base md:w-[190px] "
                   />
@@ -452,10 +466,7 @@ export default function Signup() {
               </label>
             </div>
             <div className="md:absolute bottom-0 left-0">
-              <img
-                src="http://192.168.100.17:8000/storage/630b0ab65f71c.jpg"
-                alt="pphote"
-              />
+              <img src={pphoto} alt="pphote" />
             </div>
           </div>
         </div>
