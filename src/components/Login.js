@@ -74,6 +74,7 @@ const Login = ({ setLoginOpen }) => {
     }
   }, []);
 
+  console.log(`email: ${email} password: ${password}`);
   return (
     <>
       {/* Main Container */}
@@ -116,7 +117,7 @@ const Login = ({ setLoginOpen }) => {
             </div>
           </div>
           {/* Toggle Container */}
-          <form className="flex flex-col md:mt-4 p-4">
+          <form className="flex flex-col md:mt-4 p-4 md:px-[2rem]" autoComplete="off">
             {error && <p className="text-red-400">{errorMsg}</p>}
             <label className="font-medium">Email</label>
             <input
@@ -127,6 +128,7 @@ const Login = ({ setLoginOpen }) => {
               }}
               value={email}
               placeholder=" Enter Email"
+              autoComplete="off"
               className="block border border-grey-light outline-none w-full p-2 rounded mb-2 mt-2"
             />
             <label className="font-medium mt-4">Password</label>
@@ -138,6 +140,7 @@ const Login = ({ setLoginOpen }) => {
               }}
               value={password}
               placeholder=" Enter Password"
+              autoComplete="off"
               className="block border border-grey-light outline-none w-full p-2 rounded mb-2 mt-2"
             />
             <div className="flex">

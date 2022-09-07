@@ -50,6 +50,7 @@ import TermsCondition from "./components/TermsCondition";
 import FAQs from "./components/FAQs";
 import Profile from "./components/Profile";
 import ModalPop from "./components/ModalPop";
+import Chat from "./components/Chat";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -116,6 +117,7 @@ export const App = () => {
           <Route path="/termsandconditions" element={<TermsCondition />} />
           <Route path="/faqs" element={<FAQs />} />
         </Routes>
+        <Chat/>
         <Footer />
       </BrowserRouter>
     </>

@@ -87,6 +87,7 @@ const Profile = ({ isModalPop, setModalPop }) => {
           setStreetAddress(response.data.address);
           setContactNumber(response.data.mobile_number);
           // setPanNumber(response.data.pan_number);
+          // setPanImg(response.data.pan_document);
           console.log(response.data);
         });
     } catch (error) {

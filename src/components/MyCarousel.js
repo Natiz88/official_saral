@@ -19,16 +19,16 @@ function MyCarousel() {
           transitionTime={1000}
         >
           <div>
-            <img src={image1} alt="slider" />
+            <img src={image1} alt="slider" className="sm:h-[348px]" />
           </div>
           <div>
-            <img src={image2} alt="slider" />
+            <img src={image2} alt="slider" className="sm:h-[348px]"/>
           </div>
           <div>
-            <img src={image3} alt="slider" />
+            <img src={image3} alt="slider" className="sm:h-[348px]"/>
           </div>
           <div>
-            <img src={image4} alt="slider" />
+            <img src={image4} alt="slider" className="sm:h-[348px]"/>
           </div>
         </Carousel>
       </div>
