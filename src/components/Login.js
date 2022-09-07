@@ -45,21 +45,23 @@ const Login = ({ setLoginOpen }) => {
         Accept: "application/json",
       },
     };
-    await axios
-      .post("http://192.168.100.17:8081/api/login", loginData, config)
-      .then((response) => {
-        setLoginOpen(false);
-        localStorage.setItem("token", response?.data?.token);
-        loginHandler();
-        const jwt =
-          response?.data?.user && sign(response?.data?.user, "saralprint");
-        localStorage.setItem("user", jwt);
-        userHandler(response?.data?.user);
-      })
-      .catch((err) => {
-        setError(true);
-        setErrorMsg(err?.response?.data?.message);
-      });
+    try {
+      const response = await axios.post(
+        "http://192.168.100.17:8081/api/login",
+        loginData,
+        config
+      );
+      setLoginOpen(false);
+      localStorage.setItem("token", response?.data?.token);
+      loginHandler();
+      const jwt =
+        response?.data?.user && sign(response?.data?.user, "saralprint");
+      localStorage.setItem("user", jwt);
+      userHandler(response?.data?.user);
+    } catch (err) {
+      setError(true);
+      setErrorMsg(err?.response?.data?.message);
+    }
 
     // } catch (error) {
     //   console.log(error);

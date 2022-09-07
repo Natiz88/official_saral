@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import reminder from "../assets/reminder.svg";
 import interf from "../assets/interface.svg";
 import image1 from "../assets/image1.jpg";
@@ -10,19 +11,32 @@ import ProductDescription from "./ProductDescription";
 import Advertise from "./Advertise";
 import SelfAdv from "./SelfAdv";
 import ProductCategoryHeading from "./ProductCategoryHeading";
-import MoreInfo from "./MoreInfo";
-import ProductCard from "./ProductCard";
-import ProductCollection from "./ProductCollection";
 import step1 from "./../component/Images/Steps/Step-1.png";
 import step2 from "./../component/Images/Steps/Step-2.png";
 import step3 from "./../component/Images/Steps/Step-3.png";
 import step4 from "./../component/Images/Steps/Step-4.png";
-import NavbarBottom from "./NavbarBottom";
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "./../Redux/CartReducer";
 
 const Home = () => {
+  const [categories, setCategories] = useState([]);
+  const dispatch = useDispatch();
+
+  const getCategories = async () => {
+    try {
+      const response = await axios.get(
+        "http://192.168.100.17:8081/api/category/show"
+      );
+      console.log("categories", response.data);
+      setCategories(response?.data);
+      dispatch(cartActions.addCategories(response?.data || []));
+    } catch (err) {
+      console.log("categories error", err);
+    }
+  };
   useEffect(() => {
-    console.log("home reloaded");
     window.scrollTo(0, 0);
+    getCategories();
   }, []);
 
   const products = [
@@ -157,7 +171,6 @@ const Home = () => {
           </div> */}
         </div>
       </div>
-      <NavbarBottom />
     </div>
   );
 };

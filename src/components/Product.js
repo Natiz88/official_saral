@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 import PriceList from "../components/PriceList";
 import BulkOrder from "./BulkOrder";
@@ -18,6 +19,19 @@ const Product = ({ isModalPop, setModalPop }) => {
   // const [showBulkPop, setShowBulkPop] = useState(false);
   const [showOrderDetails, setShowOrderDetails] = useState(false);
   const [quantity, setQuantity] = useState();
+  const [product, setProduct] = useState();
+  const { id } = useParams();
+
+  const getProduct = async () => {
+    try {
+      const response = await axios.get(
+        `http://192.168.100.17:8081/api/product/${id}/data`
+      );
+      setProduct(response?.data);
+    } catch (err) {
+      console.log("product", err);
+    }
+  };
 
   return (
     <div className=" flex flex-col bg-blue-50 px-[2rem] py-[2rem] gap-[1rem] lg:flex-row xl:px-[8rem] ">

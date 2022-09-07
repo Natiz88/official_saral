@@ -53,8 +53,8 @@ export default function Signup() {
     // formData.append("pan", pan);
     formData.append("gender", gender);
     formData.append("type", type);
-    // formData.append("pan_number", pan);
-    // formData.append("pan_document", pphoto);
+    formData.append("pan_number", pan);
+    formData.append("pan_document", pphoto);
     formData.forEach((data, value) => console.log(data, value));
 
     console.log("api callled");
@@ -452,7 +452,10 @@ export default function Signup() {
               </label>
             </div>
             <div className="md:absolute bottom-0 left-0">
-              <img src={pphoto} alt="pphote" />
+              <img
+                src="http://192.168.100.17:8000/storage/630b0ab65f71c.jpg"
+                alt="pphote"
+              />
             </div>
           </div>
         </div>

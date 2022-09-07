@@ -29,7 +29,7 @@ const Banner = ({ text }) => {
   const BannerPNGsIndex = Math.floor(Math.random() * 8);
   return (
     <div>
-      <div className="hidden w-full shadow-lg h-[35px] md:flex items-center border-b-2 border-gray-200">
+      {/* <div className="hidden w-full shadow-lg h-[35px] md:flex items-center border-b-2 border-gray-200">
         <div
           onMouseEnter={() => setToggle(true)}
           onMouseLeave={() => setToggle(false)}
@@ -43,7 +43,7 @@ const Banner = ({ text }) => {
           </p>
           {toggle && <NavbarBottom />}
         </div>
-      </div>
+      </div> */}
       <div className="h-[120px] bg-gradient-to-r from-sky-400 to-sky-200 flex justify-between items-center relative">
         <h1 className="pl-[10%] text-[22px] lg:text-[38px] text-white font-semibold left-[20%]">
           {text}

@@ -29,7 +29,6 @@ const Profile = ({ isModalPop, setModalPop }) => {
 
   const [panNumber, setPanNumber] = useState(1234567);
 
-
   const [editProfile, setEditProfile] = useState(false);
   const [editAddress, setEditAddress] = useState(false);
   const [editDocument, setEditDocument] = useState(false);
@@ -74,6 +73,7 @@ const Profile = ({ isModalPop, setModalPop }) => {
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       };
+<<<<<<< HEAD
       await axios
         .get("http://192.168.100.17:8081/api/profile", config)
         .then((response) => {
@@ -90,6 +90,25 @@ const Profile = ({ isModalPop, setModalPop }) => {
           // setPanImg(response.data.pan_document);
           console.log(response.data);
         });
+=======
+      const response = await axios.get(
+        "http://192.168.100.17:8081/api/profile",
+        config
+      );
+      setName(response.data.name);
+      setUserName(response.data.name);
+      setTypeOfUser(
+        response.data.type.charAt(0).toUpperCase() + response.data.type.slice(1)
+      );
+      setEmail(response.data.email);
+      setMobileNumber(response.data.mobile_number);
+      // setCity(response.data.city);
+      setCity(response.data.address.split(" ")[0]);
+      setStreetAddress(response.data.address);
+      setContactNumber(response.data.mobile_number);
+      // setPanNumber(response.data.pan_number);
+      console.log(response.data);
+>>>>>>> 8b4b6a732308bb50486b604342b835efe21bd4c6
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Image from "./../assets/heading.png";
 import { useSelector, useDispatch } from "react-redux";
@@ -28,6 +28,9 @@ const Categories = () => {
     const obj = { name: name };
     dispatch(cartActions.addToCart(obj));
   };
+
+  const { id } = useParams();
+  console.log("cat-id", id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,20 +69,16 @@ const Categories = () => {
         {item &&
           !subItem &&
           item.sublinks.map((subs) => (
-            <Link
-              to={`/categories?heading=${item.name}&subheading=${subs.Head}`}
-            >
-              <div className="w-[220px] h-[240px] cursor-pointer group shadow-lg rounded-[5px] my-4 mx-6 relative overflow-hidden">
-                <img
-                  src={Image}
-                  alt="heading"
-                  className="h-[80%] w-full overflow-hidden group-hover:scale-[1.1] transition-all ease-in"
-                />
-                <p className="w-full h-[20%] absolute top-[80%] text-[15px] group-hover:text-red-400 bg-white flex justify-center items-center">
-                  {subs.Head}
-                </p>
-              </div>
-            </Link>
+            <div className="w-[220px] h-[240px] cursor-pointer group shadow-lg rounded-[5px] my-4 mx-6 relative overflow-hidden">
+              <img
+                src={Image}
+                alt="heading"
+                className="h-[80%] w-full overflow-hidden group-hover:scale-[1.1] transition-all ease-in"
+              />
+              <p className="w-full h-[20%] absolute top-[80%] text-[15px] group-hover:text-red-400 bg-white flex justify-center items-center">
+                {subs.Head}
+              </p>
+            </div>
           ))}
         <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {item && subItem && <ProductDescription products={subItem.sublink} />}

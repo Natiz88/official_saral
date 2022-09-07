@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react";
 import image from "../assets/sweater.jpg";
 
 function ProductDescription({ products }) {

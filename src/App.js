@@ -49,6 +49,7 @@ import Quality from "./components/QualityTerms";
 import TermsCondition from "./components/TermsCondition";
 import FAQs from "./components/FAQs";
 import Profile from "./components/Profile";
+import Sitemap from "./components/Sitemap";
 import ModalPop from "./components/ModalPop";
 import Chat from "./components/Chat";
 
@@ -82,7 +83,7 @@ export const App = () => {
       <BrowserRouter>
         {/* <Navbar /> */}
         <Header handler={menuHandler} isMenuOpen={isMenuOpen} />
-        {/* <NavbarBottom /> */}
+        <NavbarBottom />
         <MobileMenu isMenuOpen={isMenuOpen} />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -99,11 +100,21 @@ export const App = () => {
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<UserProfile />} />
-          <Route path="/profile" element={<Profile isModalPop={isModalPop} setModalPop={setModalPop}/>} />
+          <Route
+            path="/profile"
+            element={
+              <Profile isModalPop={isModalPop} setModalPop={setModalPop} />
+            }
+          />
           <Route path="/products" element={<ProductCollection />} />
-          <Route path="/product" element={<Product setModalPop={setModalPop} isModalPop={isModalPop}/>} />
+          <Route
+            path="/product"
+            element={
+              <Product setModalPop={setModalPop} isModalPop={isModalPop} />
+            }
+          />
           <Route path="/history" element={<OrderHistory />} />
-          <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/:id" element={<Categories />} />
           <Route path="/api" element={<Api />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
@@ -116,6 +127,7 @@ export const App = () => {
           <Route path="/qualityterms" element={<Quality />} />
           <Route path="/termsandconditions" element={<TermsCondition />} />
           <Route path="/faqs" element={<FAQs />} />
+          <Route path="/sitemap" element={<Sitemap />} />
         </Routes>
         <Chat/>
         <Footer />

@@ -2,17 +2,17 @@ export const links = [
   {
     name: "Business Card",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Standard",
-        sublink: [
+        name: "Standard",
+        products: [
           { name: "Business Card -Single Side", link: "" },
           { name: "Business Card -Both Side", link: "" },
         ],
       },
       {
-        Head: "Metallic/Texture",
-        sublink: [
+        name: "Metallic/Texture",
+        products: [
           { name: "Metallic Card -Single Side", link: "" },
           { name: "Metallic Card -Both Side", link: "" },
         ],
@@ -22,14 +22,14 @@ export const links = [
   {
     name: "Stationery",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "LetterHead",
-        sublink: [{ name: "Letter Head -Standard", link: "" }],
+        name: "LetterHead",
+        products: [{ name: "Letter Head -Standard", link: "" }],
       },
       {
-        Head: "Certificates",
-        sublink: [
+        name: "Certificates",
+        products: [
           { name: "Certificate -Standard A4", link: "" },
           { name: "Certificate -Premium A4", link: "" },
           { name: "Certificate -Standard 12x18", link: "" },
@@ -37,8 +37,8 @@ export const links = [
         ],
       },
       {
-        Head: "ID Card",
-        sublink: [
+        name: "ID Card",
+        products: [
           { name: "RFID", link: "" },
           { name: "ID Card PVC Gloss - Single Side", link: "" },
           { name: "ID Card PVC Gloss - Both Side", link: "" },
@@ -47,8 +47,8 @@ export const links = [
         ],
       },
       {
-        Head: "ID Holder",
-        sublink: [
+        name: "ID Holder",
+        products: [
           { name: "Soft ID Card Holder", link: "" },
           { name: "ID Holder -B1 & A1", link: "" },
           { name: "Zipper ID Holder", link: "" },
@@ -59,8 +59,8 @@ export const links = [
         ],
       },
       {
-        Head: "ID Belt/Lanyard",
-        sublink: [
+        name: "ID Belt/Lanyard",
+        products: [
           { name: "Lanyard 20 MM - Digital Print", link: "" },
           { name: "ID Belt 15 MM - Plain", link: "" },
           { name: "Clip ID Holder", link: "" },
@@ -68,8 +68,8 @@ export const links = [
         ],
       },
       {
-        Head: "Envelope",
-        sublink: [
+        name: "Envelope",
+        products: [
           { name: "Standard Envelope with 1 color Screen Print", link: "" },
           { name: "9x4 Envelope with 1 color Screen print", link: "" },
           { name: "A4 Envelope with 1 color Screen print", link: "" },
@@ -81,36 +81,36 @@ export const links = [
         ],
       },
       {
-        Head: "Exercise Copy",
-        sublink: [
+        name: "Exercise Copy",
+        products: [
           { name: "Exercise Copy 100 pages", link: "" },
           { name: "Exercise Copy 200 pages", link: "" },
         ],
       },
       {
-        Head: "Note",
-        sublink: [
+        name: "Note",
+        products: [
           { name: "Name Badge", link: "" },
           { name: "Bookmark", link: "" },
         ],
       },
       {
-        Head: "Name Badge",
-        sublink: [],
+        name: "Name Badge",
+        products: [],
       },
     ],
   },
   {
     name: "Marketing Tools",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Brochures",
-        sublink: [{ name: "Brochure A4", link: "" }],
+        name: "Brochures",
+        products: [{ name: "Brochure A4", link: "" }],
       },
       {
-        Head: "Flyers",
-        sublink: [
+        name: "Flyers",
+        products: [
           { name: "Flyer A4 -Single Side", link: "" },
           { name: "Flyer A4 -Both Side", link: "" },
           { name: "Flyer A5 -Single Side", link: "" },
@@ -124,29 +124,29 @@ export const links = [
   {
     name: "Business Essentials",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Diary/Notebook",
-        sublink: [{ name: "Notebook (Wire Binding)", link: "" }],
+        name: "Diary/Notebook",
+        products: [{ name: "Notebook (Wire Binding)", link: "" }],
       },
       {
-        Head: "Catalogue",
-        sublink: [{ name: "Catalogue-16 Page", link: "" }],
+        name: "Catalogue",
+        products: [{ name: "Catalogue-16 Page", link: "" }],
       },
       {
-        Head: "Company Profile",
-        sublink: [{ name: "Company Profile-12 page", link: "" }],
+        name: "Company Profile",
+        products: [{ name: "Company Profile-12 page", link: "" }],
       },
       {
-        Head: "Stamps",
-        sublink: [
+        name: "Stamps",
+        products: [
           { name: "Normal Stamp", link: "" },
           { name: "Crystal Handle Stamp", link: "" },
         ],
       },
       {
-        Head: "Folder",
-        sublink: [
+        name: "Folder",
+        products: [
           {
             name: "Normal Folder with Paper Fastener- Multicolor Print",
             link: "",
@@ -156,16 +156,16 @@ export const links = [
         ],
       },
       {
-        Head: "Bill Pad",
-        sublink: [
+        name: "Bill Pad",
+        products: [
           { name: "Tax Invoice (3 ply) -A4", link: "" },
           { name: "Invoice A5 3 Ply", link: "" },
           { name: "Invoice A5 2 Ply", link: "" },
         ],
       },
       {
-        Head: "Packaginh Box",
-        sublink: [
+        name: "Packaginh Box",
+        products: [
           { name: "Corrugated Box 6x6x6", link: "" },
           { name: "Corrugated Box 8x8x8", link: "" },
           { name: "Corrugated Box 10x10x10", link: "" },
@@ -173,8 +173,8 @@ export const links = [
         ],
       },
       {
-        Head: "Receipt",
-        sublink: [
+        name: "Receipt",
+        products: [
           { name: "Receipt 2 Ply", link: "" },
           { name: "Receipt 3 Ply", link: "" },
         ],
@@ -184,25 +184,25 @@ export const links = [
   {
     name: "Events",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Posters",
-        sublink: [{ name: "Poster -Digital Print", link: "" }],
+        name: "Posters",
+        products: [{ name: "Poster -Digital Print", link: "" }],
       },
       {
-        Head: "Tickets",
-        sublink: [
+        name: "Tickets",
+        products: [
           { name: "Ticket Standard Bothside", link: "" },
           { name: "Ticket Standard", link: "" },
         ],
       },
       {
-        Head: "Khada Print",
-        sublink: [{ name: "Khada 8' wide with screen print", link: "" }],
+        name: "Khada Print",
+        products: [{ name: "Khada 8' wide with screen print", link: "" }],
       },
       {
-        Head: "Ribbon Badge",
-        sublink: [
+        name: "Ribbon Badge",
+        products: [
           { name: "1 Ring Ribbon Badge", link: "" },
           { name: "2 Ring Ribbon Badge", link: "" },
           { name: "3 Ring Ribbon Badge", link: "" },
@@ -212,8 +212,8 @@ export const links = [
         ],
       },
       {
-        Head: "Standee",
-        sublink: [
+        name: "Standee",
+        products: [
           { name: "Normal X Stand 2' x 5'", link: "" },
           { name: "Medium X Stand 2' x 5'", link: "" },
           { name: "Standard X Stand 2' x 5'", link: "" },
@@ -221,8 +221,8 @@ export const links = [
         ],
       },
       {
-        Head: "Tamra Patra",
-        sublink: [
+        name: "Tamra Patra",
+        products: [
           { name: "Tamrapatra 8x10 Inch", link: "" },
           { name: "Tamrapatra - A4", link: "" },
         ],
@@ -232,10 +232,10 @@ export const links = [
   {
     name: "Signage",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Acrylic Signage",
-        sublink: [
+        name: "Acrylic Signage",
+        products: [
           { name: "Acrylic Signage - Transparent Print", link: "" },
           { name: "Acrylic Signage - Transparent with spacer", link: "" },
           { name: "Acrylic Signage - Plottering", link: "" },
@@ -243,15 +243,15 @@ export const links = [
         ],
       },
       {
-        Head: "Forex Signage",
-        sublink: [
+        name: "Forex Signage",
+        products: [
           { name: "Forex Signage - Vinyl with Lamination", link: "" },
           { name: "Forex Signage - Plottering", link: "" },
         ],
       },
       {
-        Head: "Sign Board",
-        sublink: [
+        name: "Sign Board",
+        products: [
           { name: "3D Light Board - LED", link: "" },
           { name: "3D Normal Board", link: "" },
           { name: "2D Light Board - LED", link: "" },
@@ -270,22 +270,22 @@ export const links = [
         ],
       },
       {
-        Head: "Engraving",
-        sublink: [{ name: "Granite Engraving", link: "" }],
+        name: "Engraving",
+        products: [{ name: "Granite Engraving", link: "" }],
       },
       {
-        Head: "Letter Cutting",
-        sublink: [{ name: "Brass Letter 7.15 Inch", link: "" }],
+        name: "Letter Cutting",
+        products: [{ name: "Brass Letter 7.15 Inch", link: "" }],
       },
     ],
   },
   {
     name: "Gifts & Promotion",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Mug",
-        sublink: [
+        name: "Mug",
+        products: [
           { name: "Mug - White & Large Size", link: "" },
           { name: "Mug - White & Small Size", link: "" },
           { name: "Magic Mug", link: "" },
@@ -293,8 +293,8 @@ export const links = [
         ],
       },
       {
-        Head: "Mug33",
-        sublink: [
+        name: "Mug33",
+        products: [
           { name: "Mug - White & Large Size", link: "" },
           { name: "Mug - White & Small Size", link: "" },
           { name: "Magic Mug", link: "" },
@@ -302,33 +302,33 @@ export const links = [
         ],
       },
       {
-        Head: "Pin Badge",
-        sublink: [
+        name: "Pin Badge",
+        products: [
           { name: "Pin Badge - 44 mm", link: "" },
           { name: "Pin Badge - 58 mm", link: "" },
         ],
       },
       {
-        Head: "Pen Drive",
-        sublink: [
+        name: "Pen Drive",
+        products: [
           { name: "Card Pendrive 8GB", link: "" },
           { name: "Card Pendrive 16GB", link: "" },
         ],
       },
       {
-        Head: "Tea Coster",
-        sublink: [
+        name: "Tea Coster",
+        products: [
           { name: "Forex Coaster - Octagon", link: "" },
           { name: "Acrylic Coaster - Itching", link: "" },
         ],
       },
       {
-        Head: "Water Bottle",
-        sublink: [{ name: "Water Bottle With Print", link: "" }],
+        name: "Water Bottle",
+        products: [{ name: "Water Bottle With Print", link: "" }],
       },
       {
-        Head: "Cushion",
-        sublink: [
+        name: "Cushion",
+        products: [
           { name: "Fur Cushion", link: "" },
           { name: "Magic Cushon - Print", link: "" },
           { name: "Single Side Cushion Print", link: "" },
@@ -336,8 +336,8 @@ export const links = [
         ],
       },
       {
-        Head: "Keyring",
-        sublink: [
+        name: "Keyring",
+        products: [
           { name: "Cushion Keyring", link: "" },
           { name: "Metal Heart Keyring", link: "" },
           { name: "Wooden Keyring", link: "" },
@@ -348,8 +348,8 @@ export const links = [
         ],
       },
       {
-        Head: "Calender",
-        sublink: [
+        name: "Calender",
+        products: [
           { name: "Desk Calendar_A5-6 pages", link: "" },
           { name: "Desk Calendar_A5-(12/14/16) pages", link: "" },
           { name: "Desk Calendar_A5-24 pages", link: "" },
@@ -375,25 +375,25 @@ export const links = [
         ],
       },
       {
-        Head: "Cards",
-        sublink: [
+        name: "Cards",
+        products: [
           { name: "A5 Greeting Single bothside", link: "" },
           { name: "A5 Greeting Card bothside", link: "" },
         ],
       },
       {
-        Head: "Frame",
-        sublink: [{ name: "Mini Canvas Frame", link: "" }],
+        name: "Frame",
+        products: [{ name: "Mini Canvas Frame", link: "" }],
       },
     ],
   },
   {
     name: "Flex",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Roland Print",
-        sublink: [
+        name: "Roland Print",
+        products: [
           { name: "Reflective Sticker", link: "" },
           { name: "Reflective Flex", link: "" },
           { name: "One Way Vision", link: "" },
@@ -411,49 +411,49 @@ export const links = [
         ],
       },
       {
-        Head: "Normal Print",
-        sublink: [{ name: "High Quality Print", link: "" }],
+        name: "Normal Print",
+        products: [{ name: "High Quality Print", link: "" }],
       },
     ],
   },
   {
     name: "Apparels",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "Round Nexk T-shirt",
-        sublink: [
+        name: "Round Nexk T-shirt",
+        products: [
           { name: "Round Neck T-Shirt 1 Color Print", link: "" },
           { name: "Round Neck T-Shirt 2 Colors Print", link: "" },
           { name: "Round Neck T-Shirt 3 Color Print", link: "" },
         ],
       },
       {
-        Head: "Polo T-shirt Polysester",
-        sublink: [
+        name: "Polo T-shirt Polysester",
+        products: [
           { name: "Polo T-shirt Polysester -2 Colors Print", link: "" },
           { name: "Polo T-shirt Polysester -3 Colors Print", link: "" },
           { name: "Polo T-shirt Polysester -1 Color Print", link: "" },
         ],
       },
       {
-        Head: "Polo T-shirt (PC PK)",
-        sublink: [
+        name: "Polo T-shirt (PC PK)",
+        products: [
           { name: "Polo T-shirt Polyester -2 Colors Print", link: "" },
           { name: "Polo T-shirt Polyester -3 Colors Print", link: "" },
           { name: "Polo T-shirt Polyester -1 Color Print", link: "" },
         ],
       },
       {
-        Head: "Cap",
-        sublink: [
+        name: "Cap",
+        products: [
           { name: "Cap-Embroidery", link: "" },
           { name: "Cap-Screen Print", link: "" },
         ],
       },
       {
-        Head: "Jacket",
-        sublink: [
+        name: "Jacket",
+        products: [
           {
             name: "Safety Reflective Jacket With Single Color Print",
             link: "",
@@ -474,30 +474,30 @@ export const links = [
         ],
       },
       {
-        Head: "Mask",
-        sublink: [{ name: "Cotton Mask", link: "" }],
+        name: "Mask",
+        products: [{ name: "Cotton Mask", link: "" }],
       },
       {
-        Head: "Bags",
-        sublink: [
+        name: "Bags",
+        products: [
           { name: "Non Wooven Bag with Print", link: "" },
           { name: "Canvas Tote", link: "" },
           { name: "Folding Tote", link: "" },
         ],
       },
       {
-        Head: "Sweat Shirt",
-        sublink: [{ name: "Normal Sweat Shirt", link: "" }],
+        name: "Sweat Shirt",
+        products: [{ name: "Normal Sweat Shirt", link: "" }],
       },
     ],
   },
   {
     name: "Digital Print",
     subMenu: true,
-    sublinks: [
+    sub_categories: [
       {
-        Head: "A4",
-        sublink: [
+        name: "A4",
+        products: [
           { name: "A4 BW Single Side", link: "" },
           { name: "A4 BW Both Side", link: "" },
           { name: "A4 Color Single Side", link: "" },
@@ -505,8 +505,8 @@ export const links = [
         ],
       },
       {
-        Head: "12x18 Inch",
-        sublink: [
+        name: "12x18 Inch",
+        products: [
           { name: "12x18 - Color Single Side", link: "" },
           { name: "12x18 - Color Both Side", link: "" },
           { name: "12x18 - Color Single Side - Lamination", link: "" },
@@ -516,23 +516,23 @@ export const links = [
         ],
       },
       {
-        Head: "A3 Woodfree",
-        sublink: [
+        name: "A3 Woodfree",
+        products: [
           { name: "A3 B/W (75-100 GSM) -Single Side", link: "" },
           { name: "A3 B/W (75-100 GSM) -Both Side", link: "" },
         ],
       },
       {
-        Head: "Sticker Print",
-        sublink: [
+        name: "Sticker Print",
+        products: [
           { name: "12x18 Paper Sticker", link: "" },
           { name: "12x18 Paper Sticker - Lamination", link: "" },
           { name: "PVC Sticker with Lamination", link: "" },
         ],
       },
       {
-        Head: "Metallic Paper",
-        sublink: [
+        name: "Metallic Paper",
+        products: [
           {
             name: "12x18 Metallic Color print-single side",
           },
@@ -543,22 +543,22 @@ export const links = [
         ],
       },
       {
-        Head: "Texture Paper",
-        sublink: [
+        name: "Texture Paper",
+        products: [
           { name: "12x18 Texture -Single side", link: "" },
           { name: "12x18 Texture -Both side", link: "" },
         ],
       },
       {
-        Head: "Transparent Paper",
-        sublink: [
+        name: "Transparent Paper",
+        products: [
           { name: "A4 Transparent", link: "" },
           { name: "Transparent Sticker 12x18", link: "" },
         ],
       },
       {
-        Head: "Hologram",
-        sublink: [{ name: "Hologram Sticker 12x18", link: "" }],
+        name: "Hologram",
+        products: [{ name: "Hologram Sticker 12x18", link: "" }],
       },
     ],
   },
