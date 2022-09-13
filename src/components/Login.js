@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useNavigate, useHistory, Navigate, Link } from "react-router-dom";
+import { useNavigate, useHistory, Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { loginActions } from "./../Redux/LoginReducer";
@@ -21,11 +21,13 @@ const Login = ({ setLoginOpen }) => {
 
   const userHandler = (user) => {
     dispatch(loginActions.updateUser(user));
-    // const userEncoded = jwt.sign(user, "saralprint");
-    localStorage.setItem("user");
   };
   const logined = useSelector((state) => state.login.isLoggedIn);
   console.log("logged in", logined);
+
+  const toSignup = () => {
+    navigate("/signup");
+  };
 
   const login = async (e) => {
     e.preventDefault();
@@ -169,7 +171,10 @@ const Login = ({ setLoginOpen }) => {
             </div>
           </form>
           <div className="px-8 mb-1 md:mb-0 flex flex-col justify-center items-center">
-            <button className="bg-red-600 hover:bg-red-800 text-white rounded-[20px] w-[70%] h-[40px] text-[16px] text-bold md:w-[60%] lg:w-[60%] xl:w-[50%]">
+            <button
+              className="bg-red-600 hover:bg-red-800 text-white rounded-[20px] w-[70%] h-[40px] text-[16px] text-bold md:w-[60%] lg:w-[60%] xl:w-[50%]"
+              onClick={toSignup}
+            >
               Create Account
             </button>
             {/* <label className="mb-2 text-[14px]">or Signup with</label> */}
