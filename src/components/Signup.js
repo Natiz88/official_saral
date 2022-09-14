@@ -5,19 +5,20 @@ import Char from "../component/Images/Car.png";
 import Base from "../component/Images/Base.png";
 import { useSelector, useDispatch } from "react-redux";
 import { loginActions } from "./../Redux/LoginReducer";
+const sign = require("jwt-encode");
 
 export default function Signup() {
   const [type, setType] = useState("individual");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [tphone, setTphone] = useState("");
+  const [tphone, setTphone] = useState("025");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
   const [pan, setPan] = useState("");
   const [file, setFile] = useState();
   const [pphoto, setPphoto] = useState();
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("male");
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -45,7 +46,6 @@ export default function Signup() {
 
   const userHandler = (user) => {
     dispatch(loginActions.updateUser(user));
-    localStorage.setItem("user", user);
   };
   const onImageChange = (e) => {
     setPphoto(URL.createObjectURL(file));
@@ -57,17 +57,18 @@ export default function Signup() {
 
     const url = "http://192.168.100.17:8081/api/signup";
     let formData = new FormData();
-    // formData.append("name", name);
-    // formData.append("address", address);
-    // formData.append("mobile_number", phone);
-    // formData.append("password", password);
-    // formData.append("password_confirmation", cpassword);
-    // formData.append("email", email);
-    // // formData.append("pan", pan);
-    // formData.append("gender", gender);
-    // formData.append("type", type);
-    // formData.append("pan_number", pan);
-    formData.append("pan_document", file);
+    formData.append("name", name);
+    formData.append("address", address);
+    formData.append("mobile_number", phone);
+    formData.append("password", password);
+    formData.append("password_confirmation", cpassword);
+    formData.append("email", email);
+    formData.append("city", city);
+    formData.append("type", type);
+    formData.append("telephone", tphone);
+    formData.append("gender", gender);
+    type === "corporate" && formData.append("pan_number", pan);
+    type === "corporate" && formData.append("pan_document", file);
     formData.forEach((data, value) => console.log(data, value));
 
     console.log("api callled");
@@ -80,16 +81,30 @@ export default function Signup() {
     axios
       .post(url, formData, headers)
       .then((response) => {
-        console.log(response?.data?.user);
-        // localStorage.setItem("token", response?.data?.token);
-        // localStorage.setItem("authenticated", 1);
-        // userHandler(response?.data?.user);
-        // loginHandler();
+        console.log(response);
+        localStorage.setItem("token", response?.data?.token);
+        localStorage.setItem("authenticated", 1);
+        console.log("SIGNUP-user", response?.data?.user);
+        const jwt =
+          response?.data?.user && sign(response?.data?.user, "saralprint");
+        localStorage.setItem("user", jwt);
+        userHandler(response?.data?.user);
+        loginHandler();
       })
       .catch((err) => {
         setError(true);
-        console.log(err);
-        setErrorMsg(err?.response?.data?.message);
+        const error = err?.response?.status;
+        if (error === 404) {
+          setErrorMsg("Missing Credentials");
+        } else if (error === 422) {
+          setErrorMsg(err?.response?.data?.errors[0]);
+        } else if (error === 500) {
+          setErrorMsg("server error");
+        } else {
+          setErrorMsg("could not send request");
+        }
+        // console.log(err?.response?.status);
+        // setErrorMsg(err?.response?.data?.message);
       });
   };
 

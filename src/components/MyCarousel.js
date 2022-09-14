@@ -8,7 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function MyCarousel() {
   return (
-    <div className="w-full md:w-4/5 m-auto -z-10">
+    <div className="w-full md:w-4/5 m-auto -z-10 mt-8">
       {/* //   <div className="w-full object-contain lg:w-3/5 sm:absolute md:left-[20%] lg:left-[27%] sm:flex sm:justify-center"> */}
       <Carousel
         showThumbs={false}

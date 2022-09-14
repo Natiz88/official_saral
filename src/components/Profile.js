@@ -17,17 +17,17 @@ import ModalPop from "./ModalPop";
 const Profile = ({ isModalPop, setModalPop }) => {
   const [panImg, setPanImg] = useState(Contact);
 
-  const [name, setName] = useState("Manish Rai");
-  const [userName, setUserName] = useState("Manish");
-  const [email, setEmail] = useState("manish@gmail.com");
-  const [typeOfUser, setTypeOfUser] = useState("Individual");
-  const [mobileNumber, setMobileNumber] = useState(9801919288);
+  const [name, setName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [typeOfUser, setTypeOfUser] = useState("");
+  const [mobileNumber, setMobileNumber] = useState();
 
   const [city, setCity] = useState("Dharan");
-  const [streetAddress, setStreetAddress] = useState("Itahari-6,Sunsari");
-  const [contactNumber, setContactNumber] = useState(9801919288);
+  const [streetAddress, setStreetAddress] = useState("");
+  const [contactNumber, setContactNumber] = useState();
 
-  const [panNumber, setPanNumber] = useState(1234567);
+  const [panNumber, setPanNumber] = useState();
 
   const [editProfile, setEditProfile] = useState(false);
   const [editAddress, setEditAddress] = useState(false);
@@ -88,7 +88,7 @@ const Profile = ({ isModalPop, setModalPop }) => {
       setCity(response.data.address.split(" ")[0]);
       setStreetAddress(response.data.address);
       setContactNumber(response.data.mobile_number);
-      // setPanNumber(response.data.pan_number);
+      setPanImg(response.data.pan_document);
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -365,10 +365,7 @@ const Profile = ({ isModalPop, setModalPop }) => {
               <div>
                 <h1 className="font-semibold">Cerificate Image</h1>
                 <div className="bg-[#1875d119] h-[85px] w-[165px] flex justify-center">
-                  <img
-                    src={documentData.certificateImg}
-                    alt="Certificate Image"
-                  />
+                  <img src={panImg} alt="Certificate Image" />
                 </div>
                 <div className={!editDocument ? "hidden" : "mt-[0.5rem]"}>
                   <Button variant="contained" component="label">
