@@ -51,6 +51,7 @@ import FAQs from "./components/FAQs";
 import Profile from "./components/Profile";
 import Sitemap from "./components/Sitemap";
 import ModalPop from "./components/ModalPop";
+import Chat from "./components/Chat";
 
 export const App = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -128,6 +129,7 @@ export const App = () => {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/sitemap" element={<Sitemap />} />
         </Routes>
+        <Chat/>
         <Footer />
       </BrowserRouter>
     </>

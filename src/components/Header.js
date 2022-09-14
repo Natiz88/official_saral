@@ -89,7 +89,7 @@ function Header({ handler, isMenuOpen }) {
             <input
               type="text"
               className="h-full md:h-[65%] lg:pl-8 w-full m-auto md:w-full pl-8 text-[16px] relative rounded-[10px] bg-slate-200 focus:outline-none"
-              placeholder="search a product..."
+              placeholder="Search a product..."
             />
             <i className="absolute right-2 text-[15px] md:text-[20px] cursor-pointer">
               <AiOutlineSearch />
@@ -97,20 +97,18 @@ function Header({ handler, isMenuOpen }) {
           </div>
           {!isLoggedIn ? (
             <div className="w-full md:w-[35%] lg:w-[20%] h-[25%] text-[15px] md:h-full flex items-center justify-center md:justify-around">
-              <div className="w-[30%] px-6 py-1 md:w-[45%] flex justify-between items-center rounded-md cursor-pointer">
-                <button
-                  className=" text-black "
-                  onClick={() => setLoginOpen(true)}
-                >
-                  Login
-                </button>
+              <div
+                className="w-[30%] px-6 py-1 md:w-[45%] flex justify-between items-center rounded-md cursor-pointer"
+                onClick={() => setLoginOpen(true)}
+              >
+                <button className=" text-black ">Login</button>
                 <HiOutlineLogin className="text-[18px]" />
               </div>
               <div className="w-[25%] px-4 py-1 md:w-[45%] ml-2 md:ml-0 flex justify-around items-center rounded-md cursor-pointer">
-                <Link to="/signup">
+                <Link to="/signup" className="flex items-center">
                   <button className=" text-black ">Register</button>
+                  <GrUserNew className="text-[16px]" />
                 </Link>
-                <GrUserNew className="text-[16px]" />
               </div>
               {/* <div className="w-[25%] md:w-[40%] px-6 py-1flex justify-around items-center rounded:md cursor-pointer border-2 border-black">
                 <button
@@ -145,7 +143,7 @@ function Header({ handler, isMenuOpen }) {
                 <IoIosArrowDown className="text-[16px]" />
                 {showProfile && (
                   <div className="absolute w-full border-2 border-gray-100 bg-white shadow-md top-full left-0">
-                    <Link to={'/profile'}>
+                    <Link to={"/profile"}>
                       <div className="w-full h-1/3 bg-blue hover:bg-gray-200 hover:text-red cursor-pointer p-2">
                         Profile
                       </div>
