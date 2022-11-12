@@ -14,6 +14,7 @@ import PriceListDetails from "./PriceListData";
 // import ProductData from "./ProductData";
 
 const ProductCartDetails = ({
+  product,
   setIsOrderDetails,
   setShowBulk,
   setModalPop,
@@ -25,6 +26,8 @@ const ProductCartDetails = ({
   const [productHeading, setProductHeading] = useState(
     "BUSINESS CARD - SINGLE SIDE"
   );
+
+  console.log("ppp", product);
 
   const [size, setSize] = useState("A4");
   const [paperWeight, setPaperWeight] = useState("300 Gsm");
@@ -213,7 +216,14 @@ const ProductCartDetails = ({
         <hr className="border-t-2" />
       </h1>
       <div className="flex">
-        <div className="font-semibold w-[50%] flex flex-col gap-[1rem]">
+        {product.attributes.map((p) => {
+          <p>
+            {p.name}
+            <span>p.value</span>
+          </p>;
+        })}
+
+        {/* <div className="font-semibold w-[50%] flex flex-col gap-[1rem]">
           <p>Size</p>
           <p>Paper Weight</p>
           <p>Lamination</p>
@@ -224,7 +234,7 @@ const ProductCartDetails = ({
           <p>{ProductCartData.paperWeight} Gsm</p>
           <p>{ProductCartData.lamination}</p>
           <p>{ProductCartData.weight} gram(s)</p>
-        </div>
+        </div> */}
       </div>
       <div className="flex flex-col gap-[0.5rem]">
         <div className="flex justify-between">

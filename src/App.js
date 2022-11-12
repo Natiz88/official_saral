@@ -108,13 +108,13 @@ export const App = () => {
           />
           <Route path="/products" element={<ProductCollection />} />
           <Route
-            path="/product"
+            path="/product/:id"
             element={
               <Product setModalPop={setModalPop} isModalPop={isModalPop} />
             }
           />
           <Route path="/history" element={<OrderHistory />} />
-          <Route path="/categories/:id" element={<Categories />} />
+          <Route path="/categories/:id/:type" element={<Categories />} />
           <Route path="/api" element={<Api />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
@@ -129,7 +129,7 @@ export const App = () => {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/sitemap" element={<Sitemap />} />
         </Routes>
-        <Chat/>
+        <Chat />
         <Footer />
       </BrowserRouter>
     </>

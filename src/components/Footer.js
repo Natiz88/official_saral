@@ -80,7 +80,7 @@ function Footer() {
         <div className="flex flex-col w-4/5 lg:w-4/5  m-auto text-black">
           {/* First div of four column */}
           <div className="flex flex-col lg:flex-row justify-between">
-            <div className="w-full lg:w-[15%] text-[15px]">
+            <div className="w-full lg:w-[15%] text-[17px]  md:text-[15px]">
               <Link to="/faqs">
                 <p className="py-1 cursor-pointer">FAQs</p>
               </Link>
@@ -139,7 +139,10 @@ function Footer() {
               </div>
             </div>
             <div className="w-full lg:w-[29%] text-[15px]  mt-4 lg:mt-0">
-              <p className="font-bold uppercase"> Customer Services</p>
+              <p className="font-bold uppercase mt-2 md:mt-0">
+                {" "}
+                Customer Services
+              </p>
               <p className="m-2">
                 Need assistance or have any special inquiries? We're here to
                 help:

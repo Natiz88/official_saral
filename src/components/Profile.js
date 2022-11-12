@@ -73,24 +73,6 @@ const Profile = ({ isModalPop, setModalPop }) => {
       const config = {
         headers: { Authorization: `Bearer ${token}` },
       };
-<<<<<<< HEAD
-      await axios
-        .get("http://192.168.100.17:8081/api/profile", config)
-        .then((response) => {
-          setName(response.data.name);
-          setUserName(response.data.name);
-          setTypeOfUser(response.data.type.charAt(0).toUpperCase()+response.data.type.slice(1));
-          setEmail(response.data.email);
-          setMobileNumber(response.data.mobile_number);
-          // setCity(response.data.city);
-          setCity(response.data.address.split(" ")[0]);
-          setStreetAddress(response.data.address);
-          setContactNumber(response.data.mobile_number);
-          // setPanNumber(response.data.pan_number);
-          // setPanImg(response.data.pan_document);
-          console.log(response.data);
-        });
-=======
       const response = await axios.get(
         "http://192.168.100.17:8081/api/profile",
         config
@@ -108,7 +90,6 @@ const Profile = ({ isModalPop, setModalPop }) => {
       setContactNumber(response.data.mobile_number);
       setPanImg(response.data.pan_document);
       console.log(response.data);
->>>>>>> 8b4b6a732308bb50486b604342b835efe21bd4c6
     } catch (error) {
       console.log(error);
     }

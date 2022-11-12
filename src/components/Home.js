@@ -39,40 +39,12 @@ const Home = () => {
     getCategories();
   }, []);
 
-  const products = [
-    {
-      image: image,
-      name: "Normal Sweat Shirt",
-      description:
-        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
-      price: "Rs. 80",
-      discount: "30",
-    },
-    {
-      image: image,
-      name: "Normal Sweat Shirt",
-      description:
-        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
-      price: "Rs. 80",
-      discount: "30",
-    },
-    {
-      image: image,
-      name: "Normal Sweat Shirt",
-      description:
-        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
-      price: "Rs. 80",
-      discount: "30",
-    },
-    {
-      image: image,
-      name: "Normal Sweat Shirt",
-      description:
-        "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
-      price: "Rs. 80",
-      discount: "30",
-    },
-  ];
+  const products = {
+    image: image,
+    name: "Normal Sweat Shirt",
+    desc: "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
+    prices: [{ indPrice: "Rs. 80", indDiscount: "30" }],
+  };
 
   return (
     <div className="">
@@ -134,6 +106,9 @@ const Home = () => {
             <div className=" flex justify-center">
               <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 <ProductDescription products={products} />
+                <ProductDescription products={products} />
+                <ProductDescription products={products} />
+                <ProductDescription products={products} />
               </div>
             </div>
           </div>
@@ -145,6 +120,9 @@ const Home = () => {
             </div>
             <div className=" flex justify-center">
               <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <ProductDescription products={products} />
+                <ProductDescription products={products} />
+                <ProductDescription products={products} />
                 <ProductDescription products={products} />
               </div>
             </div>

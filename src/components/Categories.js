@@ -7,12 +7,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "./../Redux/CartReducer";
 import Banner from "./Banner";
 import ProductDescription from "./ProductDescription";
+import axios from "axios";
+import { url } from "./../utils/URL";
 
 const Categories = () => {
   const location = useLocation();
   const search = useLocation().search;
   const [heading, setHeading] = useState("");
-  const [subHeading, setSubHeading] = useState("");
+  const [products, setProducts] = useState([]);
+  const [subcategories, setSubCategories] = useState([]);
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
 
@@ -29,60 +32,77 @@ const Categories = () => {
     dispatch(cartActions.addToCart(obj));
   };
 
-  const { id } = useParams();
-  console.log("cat-id", id);
+  let { id } = useParams();
+  let { type } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const head = new URLSearchParams(search).get("heading");
-    const sub = new URLSearchParams(search).get("subheading");
-    // const head = location.search
-    //   .replace(/[^a-zA-Z]/g, "")
-    //   .replace("heading", "")
-    //   .toLowerCase();
-    setHeading(head);
-    setSubHeading(sub);
-  }, [location]);
+    if (type === "categories") {
+      setHeading("sub-categories");
+    } else {
+      setHeading("Products");
+    }
+    axios
+      .get(`${url}/${type}/${id}`)
+      .then((res) =>
+        type === "categories"
+          ? setSubCategories(res?.data?.data?.categories?.subcategories || [])
+          : setProducts(res?.data?.data?.subCategories?.products || [])
+      )
+      .catch((err) => console.log(err));
+  }, [id, type]);
 
-  console.log("heading", heading, subHeading);
-  const item = links.find(
-    (link) =>
-      link.name.replace(/[^a-zA-Z]/g, "").toLowerCase() ===
-      heading.replace(/[^a-zA-Z]/g, "").toLowerCase()
-  );
-  const subItem =
-    subHeading !== null &&
-    item &&
-    item.sublinks // ) //     heading.replace(/[^a-zA-Z]/g, "").toLowerCase() //     link.name.replace(/[^a-zA-Z]/g, "").toLowerCase() === //   (link) => // .filter(
-      .find(
-        (sub) =>
-          sub.Head.replace(/[^a-zA-Z]/g, "").toLowerCase() ===
-          subHeading.replace(/[^a-zA-Z]/g, "").toLowerCase()
-      );
-  console.log("item", item);
-  console.log("subItem", subItem);
+  // const item = links.find(
+  //   (link) =>
+  //     link.name.replace(/[^a-zA-Z]/g, "").toLowerCase() ===
+  //     heading.replace(/[^a-zA-Z]/g, "").toLowerCase()
+  // );
+  // const subItem =
+  //   subHeading !== null &&
+  //   item &&
+  //   item.sublinks // ) //     heading.replace(/[^a-zA-Z]/g, "").toLowerCase() //     link.name.replace(/[^a-zA-Z]/g, "").toLowerCase() === //   (link) => // .filter(
+  //     .find(
+  //       (sub) =>
+  //         sub.Head.replace(/[^a-zA-Z]/g, "").toLowerCase() ===
+  //         subHeading.replace(/[^a-zA-Z]/g, "").toLowerCase()
+  //     );
+  // console.log("item", item);
+  // console.log("subItem", subItem);
+  console.log("sub", subcategories);
+  console.log("prod", products);
 
   return (
     <div>
-      <Banner text="categories" />
+      <Banner text={heading} />
       <div className="w-[80%] m-auto flex flex-wrap justify-center sm:justify-start">
-        {item &&
-          !subItem &&
-          item.sublinks.map((subs) => (
-            <div className="w-[220px] h-[240px] cursor-pointer group shadow-lg rounded-[5px] my-4 mx-6 relative overflow-hidden">
+        {type === "categories" &&
+          subcategories.map((subs) => (
+            <div
+              className="w-[220px] h-[240px] cursor-pointer group shadow-lg rounded-[5px] my-4 mx-6 relative overflow-hidden"
+              onClick={() => navigate(`/categories/${subs.id}/subcategories`)}
+            >
               <img
-                src={Image}
+                src={
+                  subs?.photo ||
+                  "https://api.printsewa.com.np/Files/Images/CategoryType/Image_637282284796561267.jpg"
+                }
                 alt="heading"
                 className="h-[80%] w-full overflow-hidden group-hover:scale-[1.1] transition-all ease-in"
               />
               <p className="w-full h-[20%] absolute top-[80%] text-[15px] group-hover:text-red-400 bg-white flex justify-center items-center">
-                {subs.Head}
+                {subs.name}
               </p>
             </div>
           ))}
-        <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {item && subItem && <ProductDescription products={subItem.sublink} />}
-        </div>
+        {type === "subcategories" && (
+          <div className="w-full flex flex-wrap justify-center sm:justify-start m-2">
+            {products.map((prod) => (
+              <div onClick={() => navigate(`/product/${prod.id}`)}>
+                <ProductDescription products={prod} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

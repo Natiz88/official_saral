@@ -1,6 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { url } from "./../utils/URL";
 import { useParams } from "react-router-dom";
 
 import PriceList from "../components/PriceList";
@@ -21,6 +22,15 @@ const Product = ({ isModalPop, setModalPop }) => {
   const [quantity, setQuantity] = useState();
   const [product, setProduct] = useState();
   const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`${url}/products/${id}`)
+      .then((res) => console.log(res?.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log("p", product);
 
   const getProduct = async () => {
     try {
@@ -45,6 +55,7 @@ const Product = ({ isModalPop, setModalPop }) => {
         <div className=" flex flex-col gap-[1rem] lg:w-[calc(47%)] ">
           {/* <div className="flex flex-col gap-[1rem] bg-red-200"> */}
           <ProductCartDetails
+            product={product}
             setIsOrderDetails={setIsOrderDetails}
             setShowBulk={setShowBulk}
             setModalPop={setModalPop}
