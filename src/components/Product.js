@@ -23,12 +23,12 @@ const Product = ({ isModalPop, setModalPop }) => {
   const [product, setProduct] = useState();
   const { id } = useParams();
 
-  useEffect(() => {
-    axios
-      .get(`${url}/products/${id}`)
-      .then((res) => console.log(res?.data))
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${url}/products/${id}`)
+  //     .then((res) => console.log(res?.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   console.log("p", product);
 

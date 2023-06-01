@@ -96,7 +96,7 @@ export const App = () => {
             }
           />
           <Route path="/changepassword" element={<ResetPassword />} />
-          {/* <Route path="/product" element={<ProductDetail />} /> */}
+          {/* <Route path="/productDetail" element={<ProductDetail />} /> */}
           <Route exact path="/contact" element={<Contact />} />
           <Route path="/test" element={<Test />} />
           <Route path="/user" element={<UserProfile />} />
