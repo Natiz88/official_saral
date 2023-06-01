@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import COD from "./../component/Images/PaymentProcess/cod.png";
+import COD from "./../component/Images/PaymentProcess/Cod.png";
 import Connectips from "./../component/Images/PaymentProcess/Connectips.png";
 import Khalti from "./../component/Images/PaymentProcess/khalti.png";
 import Banner from "./Banner";

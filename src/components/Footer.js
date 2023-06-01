@@ -9,7 +9,7 @@ import { GrLinkedinOption, GrFacebookOption } from "react-icons/gr";
 import FooterLogo from "./../component/Images/FooterLogo/footerLogo.png";
 import khalti from "./../component/Images/PaymentProcess/khalti.png";
 import connectIps from "./../component/Images/PaymentProcess/ips.png";
-import cod from "./../component/Images/PaymentProcess/cod.png";
+import cod from "./../component/Images/PaymentProcess/Cod.png";
 
 // import ItemsFooter from "./../components/ItemsFooter"
 function Footer() {
