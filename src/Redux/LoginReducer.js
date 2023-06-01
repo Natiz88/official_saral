@@ -8,7 +8,7 @@ const user = userDetails && jwtDecode(userDetails);
 const tokenPresent = !!token && !!user;
 
 const initialState = {
-  isLoggedIn: tokenPresent,
+  isLoggedIn: true,
   userDetails: user,
 };
 

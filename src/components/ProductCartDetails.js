@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -86,9 +86,9 @@ const ProductCartDetails = ({
       console.log(error);
     }
   };
-  React.useEffect(() => {
-    details();
-  }, []);
+  // React.useEffect(() => {
+  //   details();
+  // }, []);
 
   function between(x, min, max) {
     return x >= min && x <= max;
@@ -216,7 +216,7 @@ const ProductCartDetails = ({
         <hr className="border-t-2" />
       </h1>
       <div className="flex">
-        {product.attributes.map((p) => {
+        {product?.attributes.map((p) => {
           <p>
             {p.name}
             <span>p.value</span>
@@ -456,11 +456,11 @@ const ProductCartDetails = ({
         >
           {!showAddSpecialRequirement ? "Add" : "Hide"} Special Requirement
         </button>
-        <div className="flex justify-end">
+        <Link to="/cart" className="flex justify-end">
           <button className="w-[140px] bg-[#1874D1] text-white rounded-md p-[0.5rem] hover:bg-[#0e62b7]">
             ADD TO CART
           </button>
-        </div>
+        </Link>
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { links } from "./../utils/LinkItems";
+import { links } from "./../utils/LinkItems";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,20 +11,11 @@ import { url } from "./../utils/URL";
 function NavbarBottom() {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
-  const [links, setLinks] = useState([]);
+  // const [links, setLinks] = useState([]);
   const [isMenuOpen, setMenuOpen] = useState(true);
   const [isPosCorrect, setPosCorrect] = useState(true);
 
   // const links = useSelector((state) => state.cart.links);
-
-  useEffect(() => {
-    axios
-      .get(`${url}/category`)
-      .then((res) => setLinks(res?.data || []))
-      .catch((err) => console.log("er", err));
-  }, []);
-
-  console.log("links", links[0]);
 
   const mouse = (e) => {
     const main = document.getElementById("main");
@@ -117,7 +108,7 @@ function NavbarBottom() {
                         <IoIosArrowForward />
                       )}
                     </div>
-                    {/* 
+
                     {isPosCorrect ? (
                       <div
                         className={
@@ -156,7 +147,7 @@ function NavbarBottom() {
                           </div>
                         ))}
                       </div>
-                    )} */}
+                    )}
                   </div>
                 ))}
               </div>

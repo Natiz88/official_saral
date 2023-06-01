@@ -4,6 +4,9 @@ import reminder from "../assets/reminder.svg";
 import interf from "../assets/interface.svg";
 import image1 from "../assets/image1.jpg";
 import image from "../assets/sweater.jpg";
+import Mug from "../assets/mug.png";
+import Poster from "../assets/poster.png";
+import Certificate from "../assets/certificate.png";
 import Banner from "../assets/banner.webp";
 import MyCarousel from "./MyCarousel";
 import Steps from "./Steps";
@@ -36,15 +39,34 @@ const Home = () => {
   };
   useEffect(() => {
     window.scrollTo(0, 0);
-    getCategories();
   }, []);
 
-  const products = {
-    image: image,
-    name: "Normal Sweat Shirt",
-    desc: "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
-    prices: [{ indPrice: "Rs. 80", indDiscount: "30" }],
-  };
+  const products = [
+    {
+      image: image,
+      name: "Normal Sweat Shirt",
+      desc: "Customize your sweatshirt with your own design. Choose multiple color design or just your company logo. Make your winter more colorful.",
+      prices: [{ indPrice: "Rs. 80", indDiscount: "30" }],
+    },
+    {
+      image: Poster,
+      name: "POSTER - DIGITAL PRINT",
+      desc: "Best quality poster printing for the design that comes alive",
+      prices: [{ indPrice: "Rs. 120", indDiscount: "20" }],
+    },
+    {
+      image: Mug,
+      name: "MUG - WHITE & LARGE SIZE",
+      desc: "Mug print can be the best-customized gift and marketing tool.",
+      prices: [{ indPrice: "Rs. 100", indDiscount: "30" }],
+    },
+    {
+      image: Certificate,
+      name: "CERTIFICATE - STANDARD A4",
+      desc: "Your legitimate sheet of paper to appreciate your valued people.",
+      prices: [{ indPrice: "Rs. 100", indDiscount: "30" }],
+    },
+  ];
 
   return (
     <div className="">
@@ -105,10 +127,9 @@ const Home = () => {
             </div>
             <div className=" flex justify-center">
               <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                <ProductDescription products={products} />
-                <ProductDescription products={products} />
-                <ProductDescription products={products} />
-                <ProductDescription products={products} />
+                {products.map((prod) => (
+                  <ProductDescription products={prod} />
+                ))}
               </div>
             </div>
           </div>
@@ -120,10 +141,9 @@ const Home = () => {
             </div>
             <div className=" flex justify-center">
               <div className="grid my-5 grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-                <ProductDescription products={products} />
-                <ProductDescription products={products} />
-                <ProductDescription products={products} />
-                <ProductDescription products={products} />
+                {products.map((prod) => (
+                  <ProductDescription products={prod} />
+                ))}
               </div>
             </div>
           </div>

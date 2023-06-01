@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react";
+import { Link } from "react-router-dom";
 import image from "../assets/sweater.jpg";
 
 function ProductDescription({ products }) {
-  console.log("prod", products);
+  console.log("prodss", products);
   return (
     <>
       <div
@@ -39,9 +39,11 @@ function ProductDescription({ products }) {
             {/* <p className="text-gray-400 mb-1 font-semibold text-[0.8rem] md:text-[1rem]">
             Minimum order 100pcs
           </p> */}
-            <button className="mt-3 bg-red-500 rounded-md w-32 text-[15px] text-stone-50 p-1">
-              Order Now
-            </button>
+            <Link to="/product/1">
+              <button className="mt-3 bg-red-500 rounded-md w-32 text-[15px] text-stone-50 p-1">
+                Order Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
